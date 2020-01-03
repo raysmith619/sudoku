@@ -1,0 +1,11 @@
+# sudoku_puzzle_1.supz
+# On: December 30, 2019
+# Handmade model
+
+
+version("ver01_rel01")
+puzzle(rows=4, grows=2, cols=4, gcols=2, desc="Handmade_model")
+row(0,2,0,0)
+row(1,4,0,0)
+row(0,0,3,2)
+row(0,0,1,0)
