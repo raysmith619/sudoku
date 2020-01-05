@@ -13,10 +13,13 @@ from resource_group import ResourceEntry
 
 import sudoku_globals as g
 from SudokuData import SudokuData, CellDesc
+from sudoku_vals import SudokuVals
 from SudokuPuzzle import SudokuPuzzle
 from SudokuBoard import SudokuBoard
 from SudokuPly import SudokuPly
 from sudoku_puzzle_load import SudokuPuzzleLoad
+from sudoku_search_stop import SudokuSearchStop
+
 
 
 def helpstr():
@@ -47,7 +50,9 @@ def pgm_exit():
     SlTrace.lg("Quitting Sudoku Playing")
     SlTrace.lg("Properties File: %s"% SlTrace.getPropPath())
     SlTrace.lg("Log File: %s"% SlTrace.getLogPath())
+    g.res_group.destroy_all()
     SlTrace.runningJob = False
+    g.running = False
     g.res_group.destroy_all()
     g.Display_mw.destroy()
     sys.exit(0)
@@ -55,6 +60,9 @@ def pgm_exit():
 def update():
     """ do any window updating required
     """
+    if not g.running:
+        return
+    
     if not SlTrace.runningJob:
         return
     
@@ -65,18 +73,20 @@ def set_puzzle(puzzle):
     """ Set/Reset main puzzle
     :puzzle: Puzzle to setup
     """
-    display_close()
-    if g.o_data is not None:
-        g.o_data.clear()
-    g.Initial_data = g.o_data  = puzzle.copy()
-    if g.o_board is None:
-        g.o_board = SudokuBoard(mw=g.Display_mw,
-            frame=new_main_bd_frame(),
-            data=puzzle,
-            bdWidth=g.bSize,
-            bdHeight=g.bSize)
+    if g.main_puzzle is not None:
+        g.main_puzzle.destroy()
+        g.main_puzzle = None
+    if g.o_board is not None:
+        g.o_board.destroy()
+    g.main_puzzle = SudokuVals.get_vals(puzzle)
+
+    g.o_board = SudokuBoard(mw=g.Display_mw,
+        frame=new_main_bd_frame(),
+        data=puzzle,
+        bdWidth=g.bSize,
+        bdHeight=g.bSize)
  
-    g.o_board.showData()
+    g.o_board.showData(force=True)
  
 #
 def use_puzzle(puzzle=None):
@@ -183,78 +193,83 @@ def clear_board():
 
 
 # Close move display window
-def display_close():
+def search_stop():
     ###global Display_mw
     '''
     if Display_mw is not None:
         Display_mw.destroy()
-    ''' 
+    '''
+    SlTrace.lg("search_stop")
+    SudokuPly.stop_search()
     g.res_group.destroy_all()
-    if g.o_board is not None:
-        g.o_board.destroy()
-        g.o_board = None
-    SudokuPly.setDisplay(None)
 
-Display_prev_time = None
-def display_rtn(o_data, display_time):
+
+display_prev_time = None
+def display_rtn(data):
     """ Progress display routing
     """
-    global Display_prev_time
-    now = time.time()
-    if g.Display_time is not None and g.Display_mw is None:
-        display_setup()
-    if Display_prev_time is None:
-        Display_prev_time = now
-    time_end = Display_prev_time + display_time
-    while True:
-        now = time.time()
-        if now >= time_end:
-            break
-        update()
-        g.mw.after(int(1000*g.Display_time))
+    global display_prev_time
     
-    SlTrace.lg(f"display_rtn time:{now}")
-    Display_prev_time = time.time()   # Record for subsequent check
-    g.Display_board.showData(o_data)
+    if not g.running:
+        return
+    
+    ###g.main_puzzle.display("display_rtn: main_puzzle")
+    display_time = data.Display_time
+    if display_time is None:
+        return
+    
+    now = time.time()
+    new_board = False
+    searching_board = g.res_group.get_obj("searching_board")
+    if searching_board is None:
+        solution_search_display_setup()
+        new_board = True
+    searching_board = g.res_group.get_obj("searching_board")
+        
+    if display_prev_time is None:
+        display_prev_time = now
+    display_time = data.Display_time
+    g.Display_mw.after(int(1000*display_time))
+    dur = now - g.solve_start
+    SlTrace.lg(f"display_rtn time:{dur:.3f}")
+    if searching_board is not None:
+        searching_board.showData(data, force=new_board)
+    ###g.main_puzzle.display("display_rtn: main_puzzle")
 
 
 
 # Setup move display
-def display_setup():
-    ###global g.Display_mw, g.Display_board
-    
-    if g.Display_time is None:
-        SudokuPly.setDisplay(None)   # Disable display
-        return
+def solution_search_display_setup():
 
-    g.Display_prev_time = time.time()
-
-    if g.Display_mw is not None:
-        return     # Already setup
-
-    title = "Solution Try"
+    title = "Solution Searching"
     SudokuPly.setDisplay(display_rtn, g.Display_time)
 
-    g.Display_mw = Toplevel()
-    g.Display_mw.title(title)
+    searching_mw = Toplevel()
+    searching_mw.protocol("WM_DELETE_WINDOW", search_stop)
+    searching_mw.title(title)
     x = 400
     y = 600
-    g.Display_mw.geometry(f"+{x}+{y}")
+    searching_mw.geometry(f"+{x}+{y}")
     
-    top_fr = Frame(g.Display_mw)
+    top_fr = Frame(searching_mw)
     top_fr.pack(side = 'top')
     c1 = Button(top_fr, 
         text = "Close",               # Guess one
-        command = display_close,
+        command = search_stop,
             )
     c1.pack(side = 'left')
-    g.Display_board = SudokuBoard(mw=g.Display_mw,
-                            data = g.o_data,
+    if g.res_group.get("searching_board") is not None:
+        g.res_group.destroy("searching_board")
+    data = SudokuVals.get_data(g.main_puzzle)  
+    searching_board = SudokuBoard(mw=searching_mw,
+                            data = data,
                             bdWidth=g.sSize*.8,
                             bdHeight=g.sSize*.8,
                             initialData=g.Initial_data,
-                            )  
-
+                            )
+    searching_board.showData(force=True)
+    g.res_group.add(ResourceEntry(searching_board), name="searching_board")
+    
 def file_open():
     """ Choose puzzle file
     """
@@ -452,32 +467,42 @@ def set_selected_delete():
     if exists(sbox_fr):
         sbox = None
 
+def clear_solve_puzzle_set():
+    g.res_group.destroy_all()
+    SudokuPly.setDisplay(None)
 
 
 # Solve Puzzle 
 def solve_puzzle_set():
+    g.solve_start = time.time()         # Puzzle start time
+    g.main_puzzle.display("solve_puzzle_set before destroy_all: main_puzzle")
     g.res_group.destroy_all()           # Clearout result displays
     solutions = []                       # Puzzle solution(s)
-    if g.o_board is not None:
-        g.o_data = g.o_board.getData()
-    
-    display_setup()
-    Initial_data = g.o_data              # Record initial data
-    solutions = solve_puzzle(data=g.o_data)
-    if len(solutions) == 0:
-        SlTrace.lg("No solution to puzzle")
-    else:
-        nsol = len(solutions)
-        SlTrace.lg(f"Puzzle solved - {nsol} solution"
-          + f"{'' if nsol == 1 else 's'}")
-        nth = 0
-        for r_solution in solutions:
-            nth += 1
-            solve_puzzle_set_display(r_solution,
-                         f"Solution {nth} of {nsol}",
-                        nth,
-                        nsol)
-
+    g.main_puzzle.display("solve_puzzle_set: main_puzzle")
+    solution_search_display_setup()
+    Initial_data = g.main_puzzle              # Record initial data
+    SudokuPly.clear_search_stop()
+    try:
+        data = SudokuVals.get_data(g.main_puzzle)
+        solutions = solve_puzzle(data=data)
+        if len(solutions) == 0:
+            SlTrace.lg("No solution to puzzle")
+        else:
+            nsol = len(solutions)
+            SlTrace.lg(f"Puzzle solved - {nsol} solution"
+              + f"{'' if nsol == 1 else 's'}")
+            nth = 0
+            for r_solution in solutions:
+                nth += 1
+                solve_puzzle_set_display(r_solution,
+                             f"Solution {nth} of {nsol}",
+                            nth,
+                            nsol)
+    except SudokuSearchStop:
+        SlTrace.lg("SudokuSearchStop")
+        clear_solve_puzzle_set()
+        g.res_group.destroy_all()
+        SudokuPly.setDisplay(None)
 
 #
 def solve_puzzle_set_display(r_solution, title=None, nth=None, nsol=None):
@@ -493,6 +518,7 @@ def solve_puzzle_set_display(r_solution, title=None, nth=None, nsol=None):
         nsol = 1 
     
     mw = Toplevel()
+    mw.protocol("WM_DELETE_WINDOW", search_stop)
     mw.title(title)
     x = 400
     y = 200
@@ -522,7 +548,7 @@ def solve_puzzle_set_display(r_solution, title=None, nth=None, nsol=None):
                 initialData=g.Initial_data,
                )
     g.res_group.add(ResourceEntry(mw), number=nth)
-    board.showData()
+    board.showData(force=True)
 
 
 

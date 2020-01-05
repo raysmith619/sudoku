@@ -4,7 +4,7 @@ One play possibilities
 """
 from select_trace import SlTrace
 from select_error import SelectError
-
+from sudoku_search_stop import SudokuSearchStop
 import sudoku_globals as g
 
 from SudokuData import SudokuData, CellDesc
@@ -29,6 +29,7 @@ class ValueChoice:
     
 class SudokuPly(SudokuData):
     ch_one_depth = None     # Depth in choice 0
+    stop_searching = False        # Set True to stop searching (soon)
     
     
     
@@ -39,14 +40,29 @@ class SudokuPly(SudokuData):
             display_time = .3 
         cls.DisplayRtn = display_rtn
         cls.Display_time = display_time
+
+    @classmethod
+    def clear_search_stop(cls):
+        cls.stop_searching = False
+
+    @classmethod
+    def stop_search(cls, msg=None):
+        cls.stop_searching = True
     
-    
+    @classmethod
+    def ck_search(cls):
+        if cls.stop_searching:
+            raise SudokuSearchStop()
+        
     def __init__(self,displayRtn=None, displayTime=None, **kwargs):
+        self.ck_search()
         self.data = None
         self.choices = None
         self.setCellList = []        # setCell trace
-        self.DisplayRtn = displayRtn
-        self.displayTime = displayTime
+        if displayRtn is not None:
+            self.DisplayRtn = displayRtn
+        if displayTime is not None:
+            self.DisplayTime = displayTime
         self.level = 0
         self.depth = 0
         super(SudokuPly, self).__init__(**kwargs)
@@ -66,6 +82,7 @@ class SudokuPly(SudokuData):
         :choice:=><index in startList for prospective cell>
         :returns: array of fully populated bds
         """
+        self.ck_search()
         startList=None
         if 'starList' in kwargs:
             startList = kwargs['starList']
@@ -402,7 +419,7 @@ class SudokuPly(SudokuData):
         if self.getNextEmpty() is None:
                             # Filled
             if self.DisplayRtn is not None:
-                self.DisplayRtn(self.data, self.DisplayTime)
+                self.DisplayRtn()
     
             return [self]
     
@@ -503,7 +520,7 @@ class SudokuPly(SudokuData):
     
         if self.Display_time is not None and self.DisplayRtn is not None:
             data = self.getData()
-            self.DisplayRtn(data, self.Display_time)
+            self.DisplayRtn()
     
     
     def exitChoiceOne(self, res=None):

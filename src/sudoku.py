@@ -64,7 +64,7 @@ g.UsePuzzle = cF.make_val("UsePuzzle", False)
 g.xPer = cF.make_val("xPer", False)      # experimental
 
                         # Progress display variables
-g.Display_time = cF.make_val("Display_time", 1.)            # Display time, None - no display
+g.Display_time = cF.make_val("Display_time", .5)            # Display time, None - no display
                         #               0 - wait for continue
                         #               > 0 delay (sec)
 g.Display_board = None

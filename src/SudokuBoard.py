@@ -34,7 +34,7 @@ class SudokuBoard:
     # Creates main window unless provided in opth{mw}
     def __init__(self,
             mw = None,
-            frame = None,
+            frame = None,       # If present, use this as basis of operation
             data = None,
             rows = None,        # Used only if data is None
             grows = None,
@@ -124,7 +124,10 @@ class SudokuBoard:
             mw = Tk()
             mw.title("Sudoku GUI")
         self.mw = mw
+        if frame is not None:
+            self.use_frame = True
         self.frame = frame
+        self.cv = None
         self.newBoard = 1
         # Finish Tk setup
         self.drawBoard()
@@ -322,16 +325,18 @@ class SudokuBoard:
     
     def destroy(self):
         """ Destroy board
-        TBD - this does not get board off the window
         """
         cv = self.cv
         if cv is not None:
             cv.destroy()
             self.cv = None
-        if self.frame is not None:
+        if self.frame is not None:      # If part of a frame just destroy frame, leaving window
             self.frame.destroy()
             self.frame = None
-
+        elif self.mw is not None:       # Else destroy window
+            self.mw.destroy()
+            self.mw = None
+            
     def display(self, msg=None):
         if msg is None:
             msg = "board display"
@@ -358,6 +363,9 @@ class SudokuBoard:
         """ Set cell to values, display value if present
         Data is updated if present
         """
+        if self.ck_done():
+            return
+        
         if col is None:
             raise SelectError(f"setCell: Missing column")
         if col is None:
@@ -387,7 +395,8 @@ class SudokuBoard:
                 data.setCellVal(row, col, val)    # Update data
         
         if cell_val_id is not None:
-            cv.delete(cell_val_id)
+            if cv is not None:
+                cv.delete(cell_val_id)
         # add new character
         rowSize = self.rowSize
         font_size = -(rowSize-1)       # A bit shorter than cell
@@ -403,11 +412,14 @@ class SudokuBoard:
         opts['font'] = Font(name=self.bdFontName, size=font_size, exists=False)
         x = (r_c.x1 + r_c.x2)/2
         y = (r_c.y1 + r_c.y2)/2
-        
-        r_c.valId = cv.create_text([x, y], opts)
+        if cv is not None:
+            r_c.valId = cv.create_text([x, y], opts)
     
     
     def drawBoard(self):
+        if self.ck_done():
+            return
+        
         if self.data is None:
             SlTrace.lg("no data to draw")
             return
@@ -415,6 +427,7 @@ class SudokuBoard:
         top_frame = self.mw     # Default
         if self.frame is not None:
             top_frame = self.frame      # Place inside frame
+        
         ppi = self.pixelPerIn
         bdWidth = self.bdWidth
         width = bdWidth*ppi
@@ -460,11 +473,19 @@ class SudokuBoard:
         cv.create_rectangle(box_args, box_kwargs)
         top_frame.update()
     
+    def ck_done(self):
+        """ Check if done or not  yet processing
+        """
+        if self.mw is None or (hasattr(self,"cv") and self.cv is None):
+            return
     
     
     # Draw cells and grouping lines
     def drawCells(self):
         global Initial_data
+        
+        if self.ck_done():
+            return
         
         cv = self.cv
         xmin = self.xMin
@@ -497,7 +518,6 @@ class SudokuBoard:
         colSize = self.colSize
         
         # Setup board font
-        mw = self.mw
         bdFont = Font(family=self.bdFontName,
         		       size=(colSize-1))
         self.bdFont = bdFont
@@ -747,8 +767,14 @@ class SudokuBoard:
         
         
         
-    def showData(self, data=None):
-        new_data = True if data is not None else False
+    def showData(self, data=None, force=False):
+        """ display data
+        :data: data to display default: self.data
+        :force: force updating display values
+        """
+        if self.ck_done():
+            return
+        
         if data is None:
             data = self.data
         
@@ -756,13 +782,17 @@ class SudokuBoard:
             raise SelectError(f"Warning -- method add_data({type(data)}) expects a 'SudokuData' object")
             return
         
-        self.clearMarks()
-        ###new_board = self.newBoard
         for nr in range(1, self.data.nRow+1):
-            for nc in range(1, self.data.nRow+1):
+            for nc in range(1, self.data.nCol+1):
                 new = data.getCellVal(row=nr, col=nc)
-                ###old = self.getCell(nr, nc) or ""
-                self.setCell(nr, nc, new)
+                old = self.getCellVal(row=nr, col=nc)
+                if force or new != old:
+                    self.setCell(nr, nc, new)
+        if self.ck_done():      # Check if changed circumstance
+            return
+        
+        if self.mw is not None:
+            self.mw.update()
         if SlTrace.trace("show_data"):
             SlTrace.lg("show_data")
             self.display()

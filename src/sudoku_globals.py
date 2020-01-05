@@ -11,14 +11,19 @@ def initialize_globals():
     global nRow, nSubRow, nCol, nSubCol, si, sbox_fr, sbox, sbox_row, sbox_col, sbox_legal_vals
     global o_data, o_board, Initial_data, bSize, sSize, nFirst, makePuzzle, makePuzzleSym
     global traceList, UsePuzzle
+    global main_puzzle
     global top_bd_fr
-
+    global solve_start
+    global running
+    
+    running = True              # Process / Display is running
     res_group = ResourceGroup()
     Display_time = None
     Display_prev_time = None  # Previous display time
     DisplayRtn = None
     Display_mw = None
     Display_board = None
+    main_puzzle = None
     nRow = 9         #   number of rows down the whole board
     nSubRow = 3      # number of row cells in sub square
     nCol = 9         # number of cols accross the whole board
@@ -42,6 +47,7 @@ def initialize_globals():
     makePuzzleSym = "c"      # Puzzle symetry pref for initial settings
     traceList = ""
     top_bd_fr = None       # top display frame
+    solve_start = 0
 
 if __name__ == "__main__":
     tg = True

@@ -16,7 +16,7 @@ class CellDesc:
     """ Cell description
     """
     def __init__(self, row=None, col=None,
-                  val=None, vals=None, valId=None):
+                  val=None, vals=[], valId=None):
         """ Cell description row,col, optionally value
         """
         self.row = row
@@ -25,6 +25,15 @@ class CellDesc:
         self.vals = vals
         self.valId = valId
         x1 = x2 = y1 = y2 = None
+    
+    def copy(self):
+        """ Copy info
+        :Returns: deep copy
+        """
+        cp = CellDesc(row=self.row, col=self.col, val=self.val,
+                      vals=self.vals[:], valId=self.valId)
+        return cp
+    
         
 base=None
 
@@ -153,7 +162,11 @@ class SudokuData:
         self.curRow = row
         self.curCol = col
         return CellDesc(row=self.curRow, col=self.curCol)
-
+    
+    def destroy(self):
+        """ Destroy data
+        """
+        pass            # Nothing for now
     
     # Simple display of data area
     # For diagnostic purposes
@@ -197,9 +210,10 @@ class SudokuData:
             del self.cells 
         self.cells = [[CellDesc(row=ri+1, col=ci+1) for ci in range(self.nCol)] for ri in range(self.nRow)]
         if r_ds is not None:
-            for i in range(self.nRow):
-                for j in range(self.nCol):
-                    self.cells[i][j] = r_ds[i][j]
+            for ic in range(self.nRow):
+                for ir in range(self.nCol):
+                    clds = r_ds[ir][ic]
+                    self.cells[ir][ic] = clds.copy()
 
     def copy_cells(self):
         """ Copy cells
