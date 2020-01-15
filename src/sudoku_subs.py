@@ -66,10 +66,10 @@ def pgm_exit():
     # Trace and Log files save by SlTrace onexit
     ###SlTrace.lg("Properties File: %s"% SlTrace.getPropPath())
     ###SlTrace.lg("Log File: %s"% SlTrace.getLogPath())
-    g.running = False
     g.res_group.destroy_all()
     g.Display_mw.destroy()
     g.Display_mw = None
+    g.running = False
     SlTrace.onexit()        # Force saving
     sys.exit(0)
 
@@ -206,9 +206,10 @@ def use_puzzle(puzzle=None):
 
 # Clear to an empty board
 def clear_board():
-    g.o_data.clear()
-    g.o_board.showData(g.o_data)
-
+    puzzle = SudokuPuzzle(rows=g.nRow, cols=g.nCol, grows=g.nSubRow, gcols=g.nSubCol,
+                          desc="Internal Puzzle")
+    set_puzzle(puzzle)
+    
 
 
 # Close move display window

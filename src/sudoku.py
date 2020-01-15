@@ -222,6 +222,5 @@ else:
 
                             # Display progress during puzzle solution
   
-while True:
-    update()
+mw.mainloop()
 

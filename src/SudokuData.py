@@ -284,7 +284,8 @@ class SudokuData:
                 return CellDesc(row=row, col=col)      # Return empty cell descriptor
 
             if ntry >= ncell:
-                SlTrace.lg("getNextEmpty - NONE FOUND")
+                if SlTrace.trace("empty"):
+                        SlTrace.lg("getNextEmpty - NONE FOUND")
                 return None
 
     
