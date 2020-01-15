@@ -781,12 +781,12 @@ class SudokuBoard:
         if not isinstance(data, SudokuData):
             raise SelectError(f"Warning -- method add_data({type(data)}) expects a 'SudokuData' object")
             return
-        
+        force = True        # Force display
         for nr in range(1, self.data.nRow+1):
             for nc in range(1, self.data.nCol+1):
                 new = data.getCellVal(row=nr, col=nc)
                 old = self.getCellVal(row=nr, col=nc)
-                if force or new != old:
+                if force or new != old or data.isEmpty(new):
                     self.setCell(nr, nc, new)
         if self.ck_done():      # Check if changed circumstance
             return

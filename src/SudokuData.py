@@ -9,30 +9,8 @@ from random import randint
 
 from select_trace import SlTrace
 from select_error import SelectError
+from sudoku_vals import SudokuVals, CellDesc
 
-import sudoku_globals as g
-
-class CellDesc:
-    """ Cell description
-    """
-    def __init__(self, row=None, col=None,
-                  val=None, vals=[], valId=None):
-        """ Cell description row,col, optionally value
-        """
-        self.row = row
-        self.col = col
-        self.val = val
-        self.vals = vals
-        self.valId = valId
-        x1 = x2 = y1 = y2 = None
-    
-    def copy(self):
-        """ Copy info
-        :Returns: deep copy
-        """
-        cp = CellDesc(row=self.row, col=self.col, val=self.val,
-                      vals=self.vals[:], valId=self.valId)
-        return cp
     
         
 base=None
@@ -62,6 +40,34 @@ class CellMark:
         
 class SudokuData:
     
+    @classmethod
+    def data2vals(cls, data):
+        """ Convert to SudokuVals from SukokuData or subclasses
+        :data: SudokuData, SudokuPly, SudokuPuzzle
+        """
+        dv = SudokuVals(rows=data.nRow, grows=data.nSubRow,
+                        cols=data.nCol, gcols=data.nSubCol)
+        for nr in range(1, data.nRow+1):
+            for nc in range(1, data.nCol+1):
+                val = data.getCellVal(row=nr, col=nc)
+                if val is not None:
+                    dv.setCellVal(row=nr, col=nc, val=val)
+        return dv                
+    
+    @classmethod
+    def vals2data(cls, sval):
+        """ Convert SudokuVals to SukokuData
+        :sval: SudokuVals
+        :Returns: SudokuData
+        """
+        sd = SudokuData(rows=sval.nRow, grows=sval.nSubRow,
+                        cols=sval.nCol, gcols=sval.nSubCol)
+        for nr in range(1, sval.nRow+1):
+            for nc in range(1, sval.nCol+1):
+                val = sval.getCellVal(row=nr, col=nc)
+                if val is not None:
+                    sd.setCellVal(row=nr, col=nc, val=val)
+        return sd                
 
     def __init__(self, rows=None, grows=None, cols=None, gcols=None, 
         base = None):
@@ -100,13 +106,10 @@ class SudokuData:
         self.curCol = self.nCol                  # Most recently filled
         self.markH = {}                     # Marked cells
         self.cells = None                   # Array of cell data
-        r_ds = None
         if base is not None:
-            r_ds = base.copy_cells()
-            self.curRow = base.curRow
-            self.curCol = base.curCol
-        self.setData(r_ds)
-
+            self.vals = self.data2vals(base)
+        else:
+            self.vals = SudokuVals(rows=rows, grows=grows, cols=cols, gcols=gcols)
     
     def advanceCell(self):        # Returns CellDesc array (row,col)
         """ Advance to next data cell
@@ -127,21 +130,16 @@ class SudokuData:
         self.curCol = col
         return CellDesc(row=row, col=col)
 
-
-    
     # Clear data to empty
     def clear(self):
-        self.setData()
+        self.vals.clear()
     
     
     # Clear sell
     def clearCell(self, row=None, col=None):
-        if row is None or col is None:
-            return
-        
-        self.cells[row-1][col-1] = None    
+        self.vals.clearCell(row=row, col=col)
 
-    def copy(self, ):        # Returns: deep copy
+    def copy(self):        # Returns: deep copy
         copy = SudokuData(base=self)
         return copy
 
@@ -171,36 +169,36 @@ class SudokuData:
     # Simple display of data area
     # For diagnostic purposes
     def display(self, msg=None):
-        display_str = ""
         if msg is None:
-            msg = "Data Display"
-        display_str += f"{msg}\n"
-        if self.cells is None:
-            raise SelectError("data gone")
-
-        horiz_grp_divider = " " + "-" * (2*self.nCol+self.nSubCol-1) + "\n"             
-        for nr in range(1, self.nRow+1):
-            if nr % self.nSubRow == 1:
-                display_str += horiz_grp_divider
-            for nc in range(1, self.nCol+1):
-                if nc == 1:
-                    display_str +="|"
-                val = self.getCellVal(row=nr, col=nc)
-                disp = "  " if self.isEmpty(val) else f"{val} "
-                display_str += disp
-                if nc % self.nSubCol == 0:
-                    display_str += "|"
-            display_str += "\n"
-        display_str += horiz_grp_divider
-        SlTrace.lg(display_str)
-        
+            msg = "SudokuData"
+        self.vals.display(msg=msg)
 
     def setCell(self, row=None, col=None, val=None):
-        cell = self.getCell(row=row, col=col)
-        if cell is None:
-            raise SelectError(f"Missing Cell row={row} col={col}")
-        cell.val = val    
-    # 
+        """ Set cell value
+        :returns: updated cell
+        """
+        ret = self.vals.setCell(row=row, col=col, val=val)
+        if not self.isValid():
+            SlTrace.lg(f"setCell: row={row}, col={col}, val={val} not valid")
+            self.display("Invalid arrangement")
+            SlTrace.lg("by rows")
+            for ri in range(self.nRow):
+                nr = ri + 1
+                SlTrace.lg(f"row:{nr} vals:{self.getRowVals(nr, include_nones=True)}")
+            SlTrace.lg("by columns")
+            for ci in range(self.nCol):
+                nc = ci + 1
+                SlTrace.lg(f"col:{nc} vals:{self.getColVals(nc, include_nones=True)}")
+            self.display("After listing")
+            raise SelectError("Invalid arrangement")
+        
+        return ret
+    
+    def isValid(self):
+        """ Check for valid arrangement
+        """
+        return self.vals.isValid()
+         
     def setData(self, r_ds=None):
         """Set data
         clear if no  data array
@@ -249,37 +247,7 @@ class SudokuData:
         :col: col to consider
         :returns: sorted candidate values
         """
-        if (row is None or row < 1 or row > self.nRow
-                or col is None or col < 1
-                or col > self.nCol):          # Safety check
-            return [] 
-        
-        usedH = {}                      # Add to list as found
-                                        # Allow EMPTY
-        row_vals = self.getRowVals(row)
-        for row_val in row_vals:
-            usedH[row_val] = 1
-
-        col_vals = self.getColVals(col)
-        for col_val in col_vals:
-            usedH[col_val] = 1
-
-        sq3_vals = self.getSq3Vals(row, col)
-        for sq3_val in sq3_vals:
-            usedH[sq3_val] = 1
-
-        
-        legal_vals = []
-        for n in range(1, self.nRow+1):
-            if n not in usedH:
-                legal_vals.append(n) 
-        
-        if SlTrace.trace("any"):
-            lvstrs = list(map(str, sorted(legal_vals)))
-            SlTrace.lg(f"getLegals(row={row}, col={col} = "
-                        + ", ".join(lvstrs))
-        
-        return sorted(legal_vals)
+        return self.vals.getLegalVals(row=row, col=col)
     
     
     
@@ -342,7 +310,7 @@ class SudokuData:
     # Check if empty
     # any non-zero numeric is filled 
     def isEmpty(self, val=None):      # Returns: True iff empty value
-        if val is None or val == "0" or val == 0:
+        if val is None or (isinstance(val, str) and val == "0") or val == 0:
             return True
         
         return False
@@ -356,71 +324,30 @@ class SudokuData:
             return True                 # Empty
         
         return self.isEmpty(cell.val)
-
     
-    # Get data values in column
-    def getColVals(self, col=None):       # Returns: col values
-        cells = self.cells
-        if col is None or col < 1 or col > self.nCol:
-            raise SelectError(f"bad col {col}")
-        
-        col_vals = []
-        for ri in range(len(cells)):
-            val = self.getCellVal(row=ri+1, col=col)
-            if not self.isEmpty(val):
-                col_vals.append(val)
-        col_vals_strs = list(map(str, col_vals))
-        SlTrace.lg(f"getColVals(col={col}) = {', '.join(col_vals_strs)}", "cell_values")
-        return col_vals
-    
-    # Get valuse in sub-by-sub square
-    def getSq3Vals(self, row=None, col=None):       # Returns: col values
-        self.r_data = self.cells
-        if row is None or row < 1 or row > self.nRow:
-            raise SelectError(f"bad row {row}") 
-        if col is None or col < 1 or col > self.nCol:
-            raise SelectError(f"bad col {col}")
-        sq3_vals = []
-        first_row = 1 + self.nSubRow*int((row-1)/self.nSubRow)
-        first_col = 1 + self.nSubCol*int((col-1)/self.nSubCol)
-        for ir in range(self.nSubRow):
-            for ic in range(self.nSubCol):
-                r = first_row + ir
-                c = first_col + ic
-                val = self.getCellVal(r, c)
-                if not self.isEmpty(val):  # Assumes no duplicates
-                    sq3_vals.append(val)
-
-        
-        if SlTrace.trace("any"):
-            sq3_vals_strs = list(map(str, sq3_vals))
-            SlTrace.lg(f"getSq3Vals(row={row}, col={col}) = "
-              + ", ".join(sq3_vals_strs)) 
-
-        
-        
+    #
+    def getSq3Vals(self, row=None, col=None):
+        """ Get valuse in sub-by-sub square
+        :Returns: col values
+        """
+        sq3_vals = self.vals.getSq3Vals(self, row=row, col=col)
         return sq3_vals
 
-    
-    
-    # Get cells values in row
-    def getRowVals(self, row):       # Returns: row values
-        r_cells = self.cells
-        if row is None or row < 1 or row > self.nRow:
-            raise SelectError(f"bad row:{row}") 
-        r_row = r_cells[row-1]     #DEPENDNT on cells layout
-        row_vals = []
-        for cell in r_row:
-            val = cell.val
-            if not self.isEmpty(val):
-                row_vals.append(val)
+    def getColVals(self, col=None, include_nones=None):
+        """ Get values in given row
+        :row: column number
+        :include_nones: True - include Nones in list 
+        :Returns: values in row 
+        """
+        return self.vals.getColVals(col=col, include_nones=include_nones)
 
-        if SlTrace.trace("any"):
-            row_vals_strs = list(map(str, row_vals))
-            SlTrace.lg(f"getRowVals(row={row}) = "
-              + ", ".join(row_vals_strs))
-    
-        return row_vals
+    def getRowVals(self, row=None, include_nones=None):       # Returns: row values
+        """ Get values in given row
+        :row: column number
+        :include_nones: True - include Nones in list 
+        :Returns: values in row 
+        """
+        return self.vals.getRowVals(row=row, include_nones=include_nones)
 
     
     def setCellVal(self, row=None, col=None, val=None, quiet=False):
@@ -430,23 +357,13 @@ class SudokuData:
           :val:          EMPTY, 1-9, marking value
           :quiet:        1 -> no trace, no cell change
         """
-        if (row is None or row < 1
-            or row > self.nRow):
-                raise SelectError(f"illegal row:{row}")
-        
-        if (col is None or col < 1
-                or col > self.nCol):
-            raise SelectError(f"illegal Col:{col} (1-{self.nCol})")
-        
+        self.vals.setCellVal(row=row, col=col, val=val)
         
         if not quiet:               # quiet -> move invisibly also
             SlTrace.lg(f"setCellVal(row:{row}, col:{col}, val:{val})", "any")
         
         self.curRow = row
         self.curCol = col
-        
-        cell = self.getCell(row=row, col=col)
-        cell.val = val
         return val
 
     
@@ -513,44 +430,32 @@ class SudokuData:
         :quiet:,        # supress trace and cell movement default: False
         :returns: cell
         """
-        cells = self.cells
-        if row is None or row < 1 or row > self.nRow:
-            raise SelectError(f"Bad row={row} col={col}")
-
+        val = self.vals.getCellVal(row=row, col=col)
         
-        if col is None or col < 1 or col > self.nCol:
-            raise SelectError(f"Bad col={col} row={row}")
-
-        
-        cell = cells[row-1][col-1]
-        if cell is None:
-            raise SelectError(f"Missing cell row={row} col={col}")
-        
-        return cell
+        return CellDesc(row=row, col=col, val=val)
     
     
     # Get data cell
     def getCellVal(self, row=None, col=None):
-        cell = self.getCell(row=row, col=col)
-        if cell is None:
-            raise SelectError(f"Missing Cell row={row} col={col}")
-        
-        return cell.val
-
+        return self.vals.getCellVal(row=row, col=col)
     
+    # Assemble list of next move choices
+    # sorted in ascending number of values per cell
+    def getChoices(self):       # Returns: ref to sorted array of choices
+        return self.vals.getChoices()
+    
+    def orderChoices(self, cells):
+        """
+        :cells:  List of cells
+        :returns: ref to sorted array of choices 
+                           # to be ordered in increasing
+                            # number of values
+        """
+        return self.vals.orderChoices(cells)                            
     
     # Get list of non-empty cells
     def getNonEmptyCells(self):      # Returns: array of {row=, col=}
-        nonemptys = []
-        r_data = self.data
-        for ri in range(self.nRow):
-            for ci in range(self.nCol):
-                val = r_data[ri][ci]
-                if not self.isEmpty(val):
-                    row = ri+1
-                    col = ci+1
-                    nonemptys.append(CellDesc(row=row, col=col))
-        return nonemptys
+        return self.vals.getNonEmptyCells()
     
     
     # Find symetric cell

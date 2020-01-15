@@ -31,16 +31,14 @@ class SudokuPuzzleLoad:
         :pstr: string containing puzzle specification
         :returns: class instance
         """
-        cls.file_name = pfile
+        cls.file_name = None        # Set to name if known
         cls.puzzle_string = pstr
-        if pfile is None and pfile is None:
-            raise SelectError("Neither pfile nor pstr was specified")
-        
         if pfile is not None and pstr is not None:
             raise SelectError(f"Only one of pfile({pfile}) or pstr({pstr}) may be specified")
         
         if pfile is not None:
             if isinstance(pfile, str):
+                cls.file_name = pfile
                 try:
                     fin = open(pfile)
                 except Exception as ex:

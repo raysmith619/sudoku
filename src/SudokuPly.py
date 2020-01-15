@@ -9,23 +9,6 @@ import sudoku_globals as g
 
 from SudokuData import SudokuData, CellDesc
 from docutils.nodes import row
-
-class ValueChoice:
-    """ Attributes of a selection choice
-    """
-    def __init__(self, vals=None, row=None, col=None, nval=None):
-        self.vals = vals
-        self.row = row
-        self.col = col
-        self.nval = nval
-    
-    def __repr__(self):
-        repr_str = "ValueChoice"
-        repr_str += f" row={self.row} col={self.col} nval={self.nval}"
-        if self.vals is not None and len(self.vals) > 0:
-            vals_strs = list(map(str, self.vals))
-            repr_str += f" vals=[{'<'.join(vals_strs)}]"
-        return repr_str
     
 class SudokuPly(SudokuData):
     ch_one_depth = None     # Depth in choice 0
@@ -55,8 +38,9 @@ class SudokuPly(SudokuData):
             raise SudokuSearchStop()
         
     def __init__(self,displayRtn=None, displayTime=None, **kwargs):
+        if SlTrace.trace("sudokuply"):
+            SlTrace.lg(f"\nSudokuPly(kwargs={kwargs}")
         self.ck_search()
-        self.data = None
         self.choices = None
         self.setCellList = []        # setCell trace
         if displayRtn is not None:
@@ -65,10 +49,14 @@ class SudokuPly(SudokuData):
             self.DisplayTime = displayTime
         self.level = 0
         self.depth = 0
-        super(SudokuPly, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.startList = None
         base = kwargs['base'] if 'base' in kwargs else None
+        if SlTrace.trace("sudokuply"):
+            if base is not None:
+                base.display("SudokuPly(base)")
         self.setPlyData(base=base)
+        self.choices = self.getChoices()
     
     
     #
@@ -97,7 +85,7 @@ class SudokuPly(SudokuData):
         if (SlTrace.trace('depth')):
             SlTrace.lg(f"populatePuzzle: level={self.level}"
                     + f" depth = {self.depth}")
-            self.display()
+            self.display("end populatePuzzle")
             SlTrace.lg(f"================")
     
         
@@ -131,8 +119,8 @@ class SudokuPly(SudokuData):
             return []        # No acceptable patterns
     
         
-        r_choices = self.orderChoices(startCells)
-        choices = r_choices[:]
+        choices = self.orderChoices(startCells)
+        choices = choices[:]
         if (len(choices) == 0):
             self.level-= 1
             return []
@@ -175,8 +163,8 @@ class SudokuPly(SudokuData):
             self.data = None
         if isinstance(base, SudokuPly):
                 self.back = base                        # link back
-                r_base_data = base.data
-                self.data = SudokuPly(base=r_base_data)
+                ###r_base_data = base.data
+                ###self.data = SudokuPly(base=r_base_data)
                 a_start_list = base.startList
                 a_new_list = self.startList = []
                 depth = self.depth
@@ -189,7 +177,8 @@ class SudokuPly(SudokuData):
                 if a_start_list is not None:
                     a_new_list.extend(a_start_list)
         elif isinstance(base,SudokuData):
-                self.data = SudokuData(base=base)
+                pass
+                ###self.data = SudokuData(base=base)
         else:
                 raise SelectError(f"Can't set SudokuPly from {base}")
 
@@ -197,17 +186,10 @@ class SudokuPly(SudokuData):
         if SlTrace.trace("setPlyData"):
             self.display(f"setPlyData after depth={self.depth} choices={self.choices}")
     
-    # Get data value
+    # Get cell info
     def getCell(self, row, col):       # Returns: data cell
-        data = self.getData()
-        if data is None:
-            return CellDesc(row=row, col=col, val=None) # Simulate empty cell
-        
-        if data is None:
-            raise SelectError(f"undefined data\n")
-    
-    
-        return data.getCell(row, col)
+        cell = self.vals.getCell(row, col)
+        return cell
     
     
     
@@ -230,23 +212,6 @@ class SudokuPly(SudokuData):
         return new_data
     
     
-    
-    # Assemble list of next move choices
-    # sorted in ascending number of values per cell
-    def getChoices(self):       # Returns: ref to sorted array of choices
-        cells = []          # Array of open cell cells
-                            # to be ordered in increasing
-                            # number of values
-        for ri in range(self.nRow):
-            row = ri + 1
-            for ci in range(self.nCol):
-                col = ci + 1
-                if not self.isEmptyCell(row, col):
-                    continue
-                
-                cells.append(CellDesc(col=col, row=row))
-    
-        return self.orderChoices(cells)
     
      
     
@@ -295,37 +260,16 @@ class SudokuPly(SudokuData):
     
     # Assemble list of next move choices
     # sorted in ascending number of values per cell
+    @staticmethod
     def _choices_cmp_val(elm):
         return elm.nval
     
-    def orderChoices(self, cells):
-        """
-        :cells:  List of cells
-        :returns: ref to sorted array of choices 
-                           # to be ordered in increasing
-                            # number of values
-        """                            
-        r_data = self.data
-        choices = []        # Populated with 
-        for cell in cells:
-            col = cell.col
-            row = cell.row
-            if not self.isEmptyCell(row, col):
-                continue
-                
-            vals = r_data.getLegalVals(row, col)
-            nval = len(vals)
-            choice = ValueChoice(vals=vals, row=row, col=col, nval=nval)
-            choices.append(choice)
-        choices_srt = sorted(choices, key=lambda x: x.nval)
-        return choices_srt
-    
-    
+    ''' inherited from SudokuData
     # Get next empty cell in board data, if any
     def getNextEmpty(self, ):      # Returns: cell ref, else None if none empty
         r_data = self.data
         return r_data.getNextEmpty()
-    
+    '''
     
     def getNextChoice(self):
         """ Get next suggested cell
@@ -333,21 +277,25 @@ class SudokuPly(SudokuData):
         then best choice, till done then empty
         for now we check for empty
         """
+        if SlTrace.trace("getnextchoice"):
+            self.display("getNextChoice")
+        self.choices = self.vals.getChoices()
+        if SlTrace.trace("getnextchoice"):
+            SlTrace.lg(f"getNextChoice of {self.choices}")
         start_list = self.startList
         choices = self.choices
         if choices is None or len(choices) == 0:
             return None
         
-        ch = choices[0]
+        ch = self.choices[0]
         if ch is None or len(ch.vals) == 0:
             return None        # No choice for most constrained
             
-    
         if (start_list is None
                 or len(start_list) == 0):        # No start -> take choice
-            return choices.pop(0)
+            return self.choices.pop(0)
     
-            
+        # Choose choice specified in start_list    
         for ich in range(choices):
             choice = choices[ich]
             ch_row = choice.row
@@ -357,28 +305,11 @@ class SudokuPly(SudokuData):
                 if (start.row == ch_row
                     and start.col == ch_col):
                     start_list.pop(ist)
-                    choices.pop(ich)
+                    self.choices.pop(ich)
                     return choice
     
         
         return None
-    
-    
-    
-    # Set cell
-    def setCell(self, row, col, val=None):
-        r_data = self.data
-        setCellList = self.setCellList
-        setCellList.append(CellDesc(row=row, col=col, val=val))
-        if (SlTrace.trace('setCell')):
-            self.displaySetCellList()
-    
-        r_data.setCell(row, col, val)
-        self.choices = self.getChoices()  # Re-calculate choices
-        # Might be optimized based
-        # only changing one cell
-    
-    
     
     
     #
@@ -395,9 +326,9 @@ class SudokuPly(SudokuData):
     #
     def setPuzzle(self, **kwargs):        # Returns: TRUE iff successful setup
                     #startList= list of cells to populate
-        if startList not in kwargs:
-             raise SelectError("missing startList")
-        starts = startList
+        if "startList" not in kwargs:
+            raise SelectError("missing startList")
+        starts = kwargs["startList"]
         # Process until list completed
         while starts > 0:
             pass
@@ -447,6 +378,14 @@ class SudokuPly(SudokuData):
         vals = choice.vals
         
         for val in vals:
+            legals = self.getLegalVals(row=row, col=col)
+            if len(legals) < 1:
+                SlTrace.lg(f"solveChoice {kwargs} - len(legals)<1")
+                legals = self.getLegalVals(row=row, col=col)
+                continue
+            if val not in legals:
+                SlTrace.lg(f"val{val} not in row={row} col={col} legals:{legals}")
+                continue
             sol1s = self.solveChoiceOne(row=row, col=col, val=val,
                            first=nfirst-len(sols))
             sols.extend(sol1s)
@@ -468,8 +407,12 @@ class SudokuPly(SudokuData):
         nfirst = kwargs['first']
         self.enterChoiceOne(**kwargs)
         ch1 = SudokuPly(base=self)   # Create deep copy of ourself
-        
-        ch1.setCell(row, col, val)
+        legals = self.getLegalVals(row=row, col=col)
+        if len(legals) < 1:
+            SlTrace.lg(f"solveChoiceOne {kwargs} - len(legals)<1")
+            legals = self.getLegalVals(row=row, col=col)
+        else: 
+            ch1.setCell(row, col, val)
         ret = ch1.solveChoice(first=nfirst)
         self.exitChoiceOne(ret)
         return ret
@@ -489,11 +432,7 @@ class SudokuPly(SudokuData):
     def display(self, msg=None):
         if msg is None:
             msg = "SudokuPly data"
-        if self.data is None:
-            SlTrace.lg(f"{msg} display no data")
-            return
-
-        self.data.display(msg=msg)
+        super().display(msg=msg)
     
     
     
@@ -519,7 +458,6 @@ class SudokuPly(SudokuData):
             self.display()
     
         if self.Display_time is not None and self.DisplayRtn is not None:
-            data = self.getData()
             self.DisplayRtn()
     
     
@@ -532,11 +470,5 @@ class SudokuPly(SudokuData):
             self.display()
     
     
-    def solvePuzzle(self, startList=None, nFirst=None):      # Returns: ref to solution, else None
-        a_start_list = startList
-        self.startList = a_start_list
-        nfirst = nFirst
-        if nfirst is None:
-            nfirst = 1 
-        
-        return self.solveChoice(first=nfirst)
+    def solvePuzzle(self, startList=None, nFirst=1):      # Returns: ref to solution, else None
+        return self.solveChoice(first=nFirst)

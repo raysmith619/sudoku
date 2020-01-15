@@ -10,10 +10,12 @@ from SudokuData import SudokuData
 class SudokuPuzzle(SudokuData):
     
 
-    def __init__(self, desc=None, **kwargs):
+    def __init__(self, desc=None, file_name=None, **kwargs):
         """
         :description:  Description of puzzle
+        :file_name: file name, if known
         """
+        self.file_name=file_name
         if desc is None:
             "Basic Sudoku Puzzle"
         super(SudokuPuzzle, self).__init__(**kwargs)
@@ -35,6 +37,7 @@ class SudokuPuzzle(SudokuData):
         :returns: puzzle, None if failure
         """
         if isinstance(file, str):
+            self.file_name = file
             file = open(file)
         puzzle_str = file.splitlines()
         puzzle = self.str2puzzle(puzzle_str)

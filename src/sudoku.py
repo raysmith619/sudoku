@@ -33,6 +33,7 @@ SlTrace.lg(f"{base_name} {' '.join(sys.argv[1:])}")
 
 from select_window import SelectWindow
 from select_control import SelectControl
+from variable_control import VariableControl
 from trace_control import TraceControl
 from tkMath import tkMath
 
@@ -43,33 +44,41 @@ g.initialize_globals()
 ## User-defined ##
 ##################
 # Set up main board
+def prime_exit():
+    SlTrace.lg("Prime Exit")
+    g.running = False
+    pgm_exit()
+    
 mw = g.Display_mw = Tk()                 # To support grid layout - MUST be done before wm
 mw.title("Sudoku Playing")
+mw.protocol("WM_DELETE_WINDOW", prime_exit)
 tkMath.setup(mw)
-cF = SelectControl(control_prefix="run_control")
+cF = SelectControl(control_prefix="run_control", update_report=update_report)
+cF.make_label("Puzzle Dimensions")
+g.nCol = cF.make_val("nCol", 9)
+g.nSubCol =cF.make_val("nSubCol", 3)
+g.nRow = cF.make_val("nRow", 9)
+g.nSubRow = cF.make_val("nSubRow", 3)
 
-
+cF.make_label("Puzzle Size")
 g.bSize = cF.make_val("bSize", 3)          # Main Bd size inches
 g.sSize = cF.make_val("sSize", 2)          # Solution Bd size
 g.nFirst = cF.make_val("nFirst", 5)         # first n solutions
 g.makePuzzle = cF.make_val("makePuzzle", False)         # If defined, generate puzzle with this many cells filled
 g.makePuzzleSym = cF.make_val("PuzzleSym", "c")      # Puzzle symetry pref for initial settings
                         # x, y, center, n - none
-g.nCol = cF.make_val("nCol", 9)
-g.nSubCol =cF.make_val("nSubCol", 3)
-g.nRow = cF.make_val("nRow", 9)
-g.nSubRow = cF.make_val("nSubRow", 3)
 g.traceList = cF.make_val("traceList", "any")
 g.UsePuzzle = cF.make_val("UsePuzzle", False)
 g.xPer = cF.make_val("xPer", False)      # experimental
 
                         # Progress display variables
+cF.make_label("Display Time")
 g.Display_time = cF.make_val("Display_time", .5)            # Display time, None - no display
                         #               0 - wait for continue
                         #               > 0 delay (sec)
+g.update_time = cF.make_val("update_time", 10.)
 g.Display_board = None
 g.Display_prev_time = 0  # Previous display time  
-
 ##################
 ## Main program ##
 ##################
@@ -93,6 +102,7 @@ parser.add_argument('--rows', type=int, dest='nRow', default=g.nRow)            
 parser.add_argument('--sSize=f', type=float, dest='sSize', default=g.sSize)                   # Solution board size
 parser.add_argument('--traceList=s', type=str, dest='traceList', default=g.traceList)         # Comma separated trace list
 parser.add_argument('--uPuzzle', type=str2bool, dest='UsePuzzle', default=g.UsePuzzle)        # Use preset puzzle
+parser.add_argument('--update_time', type=str2bool, dest='update_time', default=g.update_time)        # Use preset puzzle
 parser.add_argument('--xper=n', type=int, dest='xPer', default=g.xPer)                        # Experimental = 1
 
 args = parser.parse_args()             # or raise SelectError("Illegal options")
@@ -122,9 +132,10 @@ cF.set_val("nSubCol", g.nSubCol)
 cF.set_val("nRow", g.nRow)
 cF.set_val("nSubRow", g.nSubRow)
 cF.set_val("traceList", g.traceList)
+cF.set_val("update_time", g.update_time)
 cF.set_val("UsePuzzle", g.UsePuzzle)
 cF.set_val("xPer", g.xPer)      # experimental
-
+cF.set_val("Display_time", g.Display_time)
 
 
 
@@ -156,16 +167,17 @@ control_fr.pack(side = 'top')
 app = SelectWindow(g.Display_mw,
                 title="Playing Sudoku",
                 arrange_selection=False,
-                pgmExit=pgm_exit,
+                pgmExit=prime_exit,
                 file_open = file_open,
                 )
 app.add_menu_command("Puzzle", file_open)       # Dedicated puzzle menu item
+app.add_menu_command("Contols", set_controls)   # Display variable controls
 mw.geometry(f"{w}x{h}")
 mw.update()
 
 solve_puzzle = Button(control_fr, 
         text = "Solve Puzzle",               # Guess all remaining
-        command = solve_puzzle_set,
+        command = solve_main_puzzle,
         )
 solve_puzzle.pack(side = 'left')
 

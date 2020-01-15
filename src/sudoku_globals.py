@@ -3,7 +3,9 @@
 We might restucture the program to avoid this at a later date
 but to push ahead with most of the structure intqct we have these global variables
 """
+from select_trace import SlTrace
 from resource_group import ResourceGroup
+from select_control import SelectControl
 
 def initialize_globals():
     global res_group
@@ -11,19 +13,23 @@ def initialize_globals():
     global nRow, nSubRow, nCol, nSubCol, si, sbox_fr, sbox, sbox_row, sbox_col, sbox_legal_vals
     global o_data, o_board, Initial_data, bSize, sSize, nFirst, makePuzzle, makePuzzleSym
     global traceList, UsePuzzle
-    global main_puzzle
+    global main_puzzle, puzzle
     global top_bd_fr
     global solve_start
     global running
+    global cF, vC               # variable control
+    global update_time
     
     running = True              # Process / Display is running
+    update_time = None
     res_group = ResourceGroup()
     Display_time = None
     Display_prev_time = None  # Previous display time
     DisplayRtn = None
     Display_mw = None
     Display_board = None
-    main_puzzle = None
+    puzzle = main_puzzle = None
+    cF = vC = None
     nRow = 9         #   number of rows down the whole board
     nSubRow = 3      # number of row cells in sub square
     nCol = 9         # number of cols accross the whole board
@@ -49,6 +55,16 @@ def initialize_globals():
     top_bd_fr = None       # top display frame
     solve_start = 0
 
+def update_control_variables():
+    """ Update control variables
+    For now, must be customized, changed as required
+    """
+    global Display_time
+    
+    cF = SelectControl()        # Reference to singleton
+    Display_time = cF.get_val("Display_time")
+    SlTrace.lg("update_control_variables")
+    
 if __name__ == "__main__":
     tg = True
     ###tg = False
