@@ -92,13 +92,14 @@ def set_puzzle(puzzle, file_name=None):
         g.main_puzzle = None
     if g.o_board is not None:
         g.o_board.destroy()
-    g.main_puzzle = SudokuData.data2vals(puzzle)
+    g.main_puzzle = puzzle.copy()       # Insulate from changes
     g.puzzle = puzzle
     g.o_board = SudokuBoard(mw=g.Display_mw,
         frame=new_main_bd_frame(),
         data=puzzle,
         bdWidth=g.bSize,
-        bdHeight=g.bSize)
+        bdHeight=g.bSize,
+        puzzle = puzzle)
  
     g.o_board.showData(force=True)
     cF = SelectControl()
@@ -252,9 +253,12 @@ def display_rtn(data):
     if display_prev_time is None:
         display_prev_time = now
     g.Display_mw.after(int(1000*display_time))
-    dur = now - g.solve_start
     if now - display_prev_time > g.update_time:
-        SlTrace.lg(f"display_rtn time:{dur:.3f}")
+        puzzle_name = "INTERNAL"
+        if g.puzzle.file_name is not None:
+            puzzle_name = os.path.basename(g.puzzle.file_name)
+        g.main_puzzle.trace_check(prefix=puzzle_name)
+        ###SlTrace.lg(f"{puzzle_name} move:{nmove} empty: {nempty} backup: {nbackup} time:{dur:.3f}")
         display_prev_time = now
     if searching_board is not None:
         searching_board.showData(data, force=new_board)
@@ -290,9 +294,61 @@ def solution_search_display_setup():
                             bdWidth=g.sSize*.8,
                             bdHeight=g.sSize*.8,
                             initialData=g.Initial_data,
+                            puzzle=g.main_puzzle
                             )
     searching_board.showData(force=True)
     g.res_group.add(ResourceEntry(searching_board), name="searching_board")
+    g.main_puzzle.set_start_time()
+    
+def file_proc(filename, run_after_load=None):
+    """ Process (solve) one puzzle file
+    :filename: full file name may be a puzzle or list of puzzle files
+    :run_after_load:    True -> solve after loading, False just display
+                        Default: g.run_after_load
+    """
+    if filename.endswith(".supzl"):
+        filelist_proc(filename)
+        return
+    
+    if run_after_load is None:
+        run_after_load = g.run_after_load
+    spl = SudokuPuzzleLoad.set_input(pfile=filename)
+    if spl is None:
+        return
+    
+    SlTrace.lg(f"Puzzle file name:{filename}")
+    puzzle = spl.procCmdString()
+    set_puzzle(puzzle, file_name=filename)
+    puzzle.display("Puzzle Start")
+    if run_after_load:
+        solve_main_puzzle()
+
+file_list_files = {}        # Used file list files
+def filelist_proc(filename):
+    """ Process file containing list of puzzle files
+    :filename: filename of file containing list of puzzle files
+            Default directory for files in list is dir(filename)
+    """
+    with open(filename) as f:
+        file_list_files[filename] = 1   # Record as being used
+        lines = f.readlines()
+        filedir = os.path.dirname(filename)
+    for i in range(len(lines)):
+        line = lines[i]
+        ml = re.match(r'^(\.*)#.*$', line)
+        if ml:
+            line = ml[1]    # Before comment
+        line = line.strip()
+        if re.match(r'^\s*$', line):
+            continue                # Skip blank lines
+        name = line
+        if not os.path.isabs(name):
+            name = os.path.join(filedir, name)
+        if name in file_list_files:
+            SlTrace.lg(f"file: {file} already used - avoiding recursive use ")
+            continue
+        file_proc(filename=name, run_after_load=True)
+    
     
 def file_open():
     """ Choose puzzle file
@@ -301,12 +357,8 @@ def file_open():
     filename =  filedialog.askopenfilename(
         initialdir = start_dir,
         title = "Select puzzle file",
-        filetypes = (("supz files","*.supz"),("all files","*.*")))
-    spl = SudokuPuzzleLoad.set_input(pfile=filename)
-    SlTrace.lg(f"Puzzle file name:{filename}")
-    puzzle = spl.procCmdString()
-    set_puzzle(puzzle, file_name=filename)
-    puzzle.display("Puzzle Start")
+        filetypes = (("puzzle files","*.supz"),("puzzle lists","*.supzl"),("all files","*.*")))
+    file_proc(filename)
 
 
 # Create puzzle with number of cells filled in
@@ -514,24 +566,29 @@ def solve_main_puzzle():
     g.main_puzzle.display("solve_main_puzzle: main_puzzle")
     solution_search_display_setup()
     Initial_data = g.main_puzzle              # Record initial data
+    
     SudokuPly.clear_search_stop()
     try:
         data = SudokuData.vals2data(g.main_puzzle)
-        solutions = solve_puzzle(data=data)
+        solutions = solve_puzzle(data=data, puzzle=g.main_puzzle)
         puzzle_file_name = g.puzzle.file_name
         dur = time.time() - g.solve_start
+        nmoves = g.main_puzzle.nmove
         sol_time = f"in {dur:.2f} sec"
         if puzzle_file_name is None:
-            puzzle_file_name = ""
+            puzzle_name = ""
         else:
-            puzzle_file_name = os.path.basename(puzzle_file_name)
+            puzzle_name = os.path.basename(puzzle_file_name)
         if len(solutions) == 0:
-            SlTrace.lg(f"No solution to puzzle {sol_time} {puzzle_file_name}")
+            SlTrace.lg(f"EndPuzzle {puzzle_name} No solution to puzzle {nmoves} moves  {sol_time}")
         else:
             nsol = len(solutions)
-            SlTrace.lg(f"Puzzle solved - {nsol} solution{'' if nsol == 1 else 's'}"
-                        + f" {sol_time} {puzzle_file_name}"
+            SlTrace.lg(f"EndPuzzle {puzzle_name} solved - {nsol} solution{'' if nsol == 1 else 's'}"
+                        + f" {nmoves} moves {sol_time}"
                         )
+            searching_board = g.res_group.get_obj("searching_board")
+            if searching_board is not None:
+                searching_board.trace_check(prefix=puzzle_name)
             nth = 0
             for r_solution in solutions:
                 nth += 1
@@ -608,13 +665,13 @@ def solve_puzzle_close_all():
     g.res_group.destroy_all()
 
 
-def solve_puzzle(data=None):      # Returns: ref to solution, else None
+def solve_puzzle(data=None, puzzle=None):      # Returns: ref to solution, else None
     r_data = data
     if r_data is None:
         raise SelectError("solve_uzzle: data missing") 
     
     solve_puzzle_close_all()
-    s_ply = SudokuPly(base=r_data)
+    s_ply = SudokuPly(base=r_data, puzzle=puzzle)
     return s_ply.solveChoice(first=g.nFirst)
 
 

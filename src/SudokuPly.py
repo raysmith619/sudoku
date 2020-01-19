@@ -106,6 +106,7 @@ class SudokuPly(SudokuData):
                 row = r_choice.row
                 col = r_choice.col
                 ply.setCell(row, col, chval)
+                ply.new_move()
                 
                 del kwargs['choice']        # Look for choices
                 sols = ply.populatePuzzle(**kwargs)
@@ -168,6 +169,8 @@ class SudokuPly(SudokuData):
                 a_start_list = base.startList
                 a_new_list = self.startList = []
                 depth = self.depth
+                if base is not None:
+                    depth = base.depth
                 if depth is None:
                     depth = 0 
                 self.depth = depth + 1
@@ -413,6 +416,7 @@ class SudokuPly(SudokuData):
             legals = self.getLegalVals(row=row, col=col)
         else: 
             ch1.setCell(row, col, val)
+            ch1.new_move()
         ret = ch1.solveChoice(first=nfirst)
         self.exitChoiceOne(ret)
         return ret
@@ -472,3 +476,16 @@ class SudokuPly(SudokuData):
     
     def solvePuzzle(self, startList=None, nFirst=1):      # Returns: ref to solution, else None
         return self.solveChoice(first=nFirst)
+
+
+    def new_backup(self):
+        """ Track moves
+        """
+        if self.puzzle is not None:
+            self.puzzle.new_backup(self)
+
+    def new_move(self):
+        """ Track backups
+        """
+        if self.puzzle is not None:
+            self.puzzle.new_move(self)

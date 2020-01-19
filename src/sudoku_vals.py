@@ -289,6 +289,17 @@ class SudokuVals:
         
         return sorted(legal_vals)
 
+    def getNumEmpty(self):
+        """ Return number of empty cells
+        """
+        nempty = 0
+        for ri in range(self.nRow):
+            for ci in range(self.nCol):
+                val = self.vals[ri][ci]
+                if self.isEmpty(val):
+                    nempty += 1
+        return nempty
+
     def getNonEmptyCells(self):
         """ Return array of none empty cells
         """

@@ -70,13 +70,19 @@ class SudokuData:
         return sd                
 
     def __init__(self, rows=None, grows=None, cols=None, gcols=None, 
-        base = None):
+        base = None, puzzle=None):
         """
         :rows:  number of rows down the whole board
         :grows: number of row cells in sub square
         :cols: number of cols accross the whole board
         :gcols: number of col cells
+        :base: basis for this data
+        :puzzle: Base puzzle, if known
         """
+        if puzzle is None:
+            if base is not None:
+                puzzle = base.puzzle
+        self.puzzle = puzzle        # Mark main puzzle
         if rows is None:
             if base is None:
                 raise SelectError("Neither base nor rows was specified")
@@ -287,6 +293,11 @@ class SudokuData:
                 if SlTrace.trace("empty"):
                         SlTrace.lg("getNextEmpty - NONE FOUND")
                 return None
+
+    def getNumEmpty(self):
+        """ Return number of empty cells
+        """
+        return self.vals.getNumEmpty()
 
     
     # Select legal/reasonable starting values for list of cells

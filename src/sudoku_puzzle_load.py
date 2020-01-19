@@ -43,7 +43,7 @@ class SudokuPuzzleLoad:
                     fin = open(pfile)
                 except Exception as ex:
                     SlTrace.lg(f"open puzzle file {pfile} failed {str(ex)}")
-                    return cls
+                    return None
             else:
                 fin = pfile         # Input is an opened stream    
             try:
@@ -114,7 +114,7 @@ class SudokuPuzzleLoad:
             inner_cmds = False
             for tbfr in tbs:  # skip bottom (in dots_commands.py)
                 tbfmt = 'File "%s", line %d, in %s' % (tbfr.filename, tbfr.lineno, tbfr.name)
-                if not inner_cmds and tbfr.filename.endswith("dots_commands.py"):
+                if False:       # TFD
                     inner_cmds = True
                     SlTrace.lg("    --------------------")  # show bottom (in dots_commands.py)
                 SlTrace.lg("    %s\n       %s" % (tbfmt, tbfr.line))

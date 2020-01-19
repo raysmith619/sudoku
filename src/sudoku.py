@@ -67,10 +67,12 @@ g.nFirst = cF.make_val("nFirst", 5)         # first n solutions
 g.makePuzzle = cF.make_val("makePuzzle", False)         # If defined, generate puzzle with this many cells filled
 g.makePuzzleSym = cF.make_val("PuzzleSym", "c")      # Puzzle symetry pref for initial settings
                         # x, y, center, n - none
-g.traceList = cF.make_val("traceList", "any")
+g.traceList = cF.make_val("traceList", "")
 g.UsePuzzle = cF.make_val("UsePuzzle", False)
 g.xPer = cF.make_val("xPer", False)      # experimental
 
+cF.make_label("Running Control")
+g.run_after_load = cF.make_val("run_after_load", False)
                         # Progress display variables
 cF.make_label("Display Time")
 g.Display_time = cF.make_val("Display_time", .5)            # Display time, None - no display
@@ -99,6 +101,7 @@ parser.add_argument('--grows=', type=int, dest='nSubRow', default=g.nSubRow)    
 parser.add_argument('--makePuzzle', type=int, dest='makePuzzle', default=g.makePuzzle)        # Make random puzzle with n start
 parser.add_argument('--msymetric', type=str, dest='makePuzzleSym', default=g.makePuzzleSym)   # Make puzzle symetry
 parser.add_argument('--rows', type=int, dest='nRow', default=g.nRow)                  # Number of cell row
+parser.add_argument('--run_after_load', type=str2bool, dest='run_after_load', default=g.run_after_load)        # Use preset puzzle
 parser.add_argument('--sSize=f', type=float, dest='sSize', default=g.sSize)                   # Solution board size
 parser.add_argument('--traceList=s', type=str, dest='traceList', default=g.traceList)         # Comma separated trace list
 parser.add_argument('--uPuzzle', type=str2bool, dest='UsePuzzle', default=g.UsePuzzle)        # Use preset puzzle
@@ -115,6 +118,7 @@ g.nSubCol = args.nSubCol
 g.makePuzzle = args.makePuzzle
 g.makePuzzleSym = args.makePuzzleSym
 g.nRow = args.nRow
+g.run_after_load = args.run_after_load
 g.sSize = args.sSize
 g.traceList = args.traceList
 g.UsePuzzle = args.UsePuzzle
@@ -139,8 +143,9 @@ cF.set_val("Display_time", g.Display_time)
 
 
 
-trace = True if g.traceList is not None else False
-SlTrace.setFlags(g.traceList)
+trace = True if g.traceList is not None and g.traceList != "" else False
+if trace:
+    SlTrace.setFlags(g.traceList)
 
 if g.nSubCol is None:
     nSubCol = int(sqrt(g.nCol))

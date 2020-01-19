@@ -61,6 +61,7 @@ class SudokuBoard:
             markWidth = 4,          # Marker width
             markBg = "hotpink",      # Marker backround color
             initialData = None,
+            puzzle=None,            # Main puzzle, if known
             ):
         
         # TBD - determine via system call
@@ -74,7 +75,7 @@ class SudokuBoard:
         self.bdFont = bdFont
         self.bdFontName = bdFontName
         # Board fond size determined from row
-        
+        self.puzzle = puzzle
         self.cellSep = cellSep
         self.cellSepFg = cellSepFg
         self.groupSep = groupSep
@@ -83,7 +84,6 @@ class SudokuBoard:
         self.selectBg = selectBg
         self.markWidth = markWidth
         self.markBg = markBg
-        
         if data is not None:
             if rows is not None or grows is not None or cols is not None or gcols is not None:
                 raise SelectError(f"Don't include data AND rows({rows}),"
@@ -95,6 +95,7 @@ class SudokuBoard:
         # Setup as empty cells, awaiting formatting marking info
         self.cells = [[CellDesc(row=ri+1, col=ci+1) for ci in range(cols)] for ri in range(rows)]
         if data is not None:
+            data.puzzle = puzzle            # Mark puzzle
             rows = data.nRow
             grows = data.nSubRow
             cols = data.nCol
@@ -107,7 +108,7 @@ class SudokuBoard:
                     if data_val is not None:
                         self.cells[ci][ri].val = data_val       # Set data value
         else:
-            data = SudokuData(rows=rows, grows=grows, cols=cols, gcols=gcols)
+            data = SudokuData(rows=rows, grows=grows, cols=cols, gcols=gcols, puzzle=puzzle)
         self.data = data        
             
         self.initialData = initialData
@@ -414,7 +415,15 @@ class SudokuBoard:
         y = (r_c.y1 + r_c.y2)/2
         if cv is not None:
             r_c.valId = cv.create_text([x, y], opts)
-    
+
+    def trace_check(self, ply=None, prefix=None):
+        """ Do timely reporting of trace
+            Check for backup here, comparing with ply.depth
+            against prev_ply.depth
+        :ply: SutokuPly, if known
+        """
+        if self.puzzle is not None:
+            self.puzzle.trace_check()
     
     def drawBoard(self):
         if self.ck_done():

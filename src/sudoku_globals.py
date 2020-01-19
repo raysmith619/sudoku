@@ -19,6 +19,7 @@ def initialize_globals():
     global running
     global cF, vC               # variable control
     global update_time
+    global run_after_load
     
     running = True              # Process / Display is running
     update_time = None
@@ -54,15 +55,19 @@ def initialize_globals():
     traceList = ""
     top_bd_fr = None       # top display frame
     solve_start = 0
+    run_after_load = False
 
 def update_control_variables():
     """ Update control variables
+    For variables whose values we desire real-time changes
     For now, must be customized, changed as required
     """
     global Display_time
+    global run_after_load
     
     cF = SelectControl()        # Reference to singleton
     Display_time = cF.get_val("Display_time")
+    run_after_load = cF.get_val("run_after_load")
     SlTrace.lg("update_control_variables")
     
 if __name__ == "__main__":
