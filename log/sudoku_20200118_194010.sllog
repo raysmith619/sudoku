@@ -1,0 +1,1507 @@
+ 20200118_194010 Creating Log File Name: C:\Users\raysm\workspace\python\sudoku\log\sudoku_20200118_194010.sllog
+ 20200118_194010 loadTraceFlags: setcell,any,show_data,track_vals,controls,resource,sudokuply,setplydata,solvechoice,empty,getnextchoice,solve,display_board,puzzle_load,trace_move
+ 20200118_194010 setcell = 0
+ 20200118_194010 any = 0
+ 20200118_194010 show_data = 0
+ 20200118_194010 track_vals = 0
+ 20200118_194010 controls = 0
+ 20200118_194010 resource = 0
+ 20200118_194010 sudokuply = 0
+ 20200118_194010 setplydata = 0
+ 20200118_194010 solvechoice = 0
+ 20200118_194010 empty = 0
+ 20200118_194010 getnextchoice = 0
+ 20200118_194010 solve = 0
+ 20200118_194010 display_board = 0
+ 20200118_194010 puzzle_load = 0
+ 20200118_194010 trace_move = True
+ 20200118_194010 sudoku --uPuzzle True --displayTime=0.1
+ 20200118_194010 SelectControl.__init__ 1
+ 20200118_194010 args: Namespace(Display_time=0.1, UsePuzzle=True, bSize=3, makePuzzle=False, makePuzzleSym='c', nCol=9, nFirst=1, nRow=9, nSubCol=3, nSubRow=3, run_after_load=False, sSize=2, traceList='', update_time=10.0, xPer=False)
+ 20200118_194010 SelectControl.__init__ 1
+ 20200118_194010 SelectControl.__init__ 1
+ 20200118_194010 update_control_variables
+ 20200118_194029 open puzzle file C:/Users/raysm/workspace/python/sudoku/puzzle\sudoku_puzzle_4x4_1.supz failed [Errno 2] No such file or directory: 'C:/Users/raysm/workspace/python/sudoku/puzzle\\sudoku_puzzle_4x4_1.supz'
+ 20200118_194029 open puzzle file C:/Users/raysm/workspace/python/sudoku/puzzle\sudoku_puzzle_4x4_2.supz failed [Errno 2] No such file or directory: 'C:/Users/raysm/workspace/python/sudoku/puzzle\\sudoku_puzzle_4x4_2.supz'
+ 20200118_194029 open puzzle file C:/Users/raysm/workspace/python/sudoku/puzzle\sudoku_puzzle_4x4_3.supz failed [Errno 2] No such file or directory: 'C:/Users/raysm/workspace/python/sudoku/puzzle\\sudoku_puzzle_4x4_3.supz'
+ 20200118_194029 open puzzle file C:/Users/raysm/workspace/python/sudoku/puzzle\sudoku_puzzle_4x4_4.supz failed [Errno 2] No such file or directory: 'C:/Users/raysm/workspace/python/sudoku/puzzle\\sudoku_puzzle_4x4_4.supz'
+ 20200118_194029 Puzzle file name:C:/Users/raysm/workspace/python/sudoku/puzzle\easy_1.supz
+ 20200118_194029 puzzle(desc=hard, rows=9, grows=3 cols=9 gcols=3)
+ 20200118_194029 SelectControl.__init__ 1
+ 20200118_194029 SelectControl.__init__ 1
+ 20200118_194029 update_control_variables
+ 20200118_194029 Puzzle Start
+ --------------------
+|  4   |3 9 6 |  8   |
+|    2 |    5 |4   9 |
+|9     |      |  7 3 |
+ --------------------
+|  2 5 |    8 |    1 |
+|  1 4 |      |3 9   |
+|8     |4     |2 5   |
+ --------------------
+|2 8   |      |    7 |
+|3   1 |7     |6     |
+|  7   |2 6 1 |  3   |
+ --------------------
+
+ 20200118_194029 solve_main_puzzle before destroy_all: main_puzzle
+ --------------------
+|  4   |3 9 6 |  8   |
+|    2 |    5 |4   9 |
+|9     |      |  7 3 |
+ --------------------
+|  2 5 |    8 |    1 |
+|  1 4 |      |3 9   |
+|8     |4     |2 5   |
+ --------------------
+|2 8   |      |    7 |
+|3   1 |7     |6     |
+|  7   |2 6 1 |  3   |
+ --------------------
+
+ 20200118_194029 solve_main_puzzle: main_puzzle
+ --------------------
+|  4   |3 9 6 |  8   |
+|    2 |    5 |4   9 |
+|9     |      |  7 3 |
+ --------------------
+|  2 5 |    8 |    1 |
+|  1 4 |      |3 9   |
+|8     |4     |2 5   |
+ --------------------
+|2 8   |      |    7 |
+|3   1 |7     |6     |
+|  7   |2 6 1 |  3   |
+ --------------------
+
+ 20200118_194029  move: 1 empty: 44[44-44]  backup: 0  depth: 1  max depth: 1 in 0.16 sec
+ 20200118_194029  move: 2 empty: 43[43-44]  backup: 0  depth: 2  max depth: 2 in 0.33 sec
+ 20200118_194029  move: 3 empty: 42[42-44]  backup: 0  depth: 3  max depth: 3 in 0.52 sec
+ 20200118_194030  move: 4 empty: 41[41-44]  backup: 0  depth: 4  max depth: 4 in 0.67 sec
+ 20200118_194030  move: 5 empty: 40[40-44]  backup: 0  depth: 5  max depth: 5 in 0.84 sec
+ 20200118_194030  move: 6 empty: 39[39-44]  backup: 0  depth: 6  max depth: 6 in 1.01 sec
+ 20200118_194030  move: 7 empty: 38[38-44]  backup: 0  depth: 7  max depth: 7 in 1.18 sec
+ 20200118_194030  move: 8 empty: 37[37-44]  backup: 0  depth: 8  max depth: 8 in 1.38 sec
+ 20200118_194030  move: 9 empty: 36[36-44]  backup: 0  depth: 9  max depth: 9 in 1.56 sec
+ 20200118_194031  move: 10 empty: 35[35-44]  backup: 0  depth: 10  max depth: 10 in 1.71 sec
+ 20200118_194031  move: 11 empty: 34[34-44]  backup: 0  depth: 11  max depth: 11 in 1.88 sec
+ 20200118_194031  move: 12 empty: 33[33-44]  backup: 0  depth: 12  max depth: 12 in 2.05 sec
+ 20200118_194031  move: 13 empty: 32[32-44]  backup: 0  depth: 13  max depth: 13 in 2.22 sec
+ 20200118_194031  move: 14 empty: 31[31-44]  backup: 0  depth: 14  max depth: 14 in 2.40 sec
+ 20200118_194031  move: 15 empty: 30[30-44]  backup: 0  depth: 15  max depth: 15 in 2.57 sec
+ 20200118_194032  move: 16 empty: 29[29-44]  backup: 0  depth: 16  max depth: 16 in 2.74 sec
+ 20200118_194032  move: 17 empty: 28[28-44]  backup: 0  depth: 17  max depth: 17 in 2.91 sec
+ 20200118_194032  move: 18 empty: 27[27-44]  backup: 0  depth: 18  max depth: 18 in 3.08 sec
+ 20200118_194032  move: 19 empty: 26[26-44]  backup: 0  depth: 19  max depth: 19 in 3.25 sec
+ 20200118_194032  move: 20 empty: 25[25-44]  backup: 0  depth: 20  max depth: 20 in 3.43 sec
+ 20200118_194032  move: 21 empty: 24[24-44]  backup: 0  depth: 21  max depth: 21 in 3.60 sec
+ 20200118_194033  move: 22 empty: 23[23-44]  backup: 0  depth: 22  max depth: 22 in 3.77 sec
+ 20200118_194033  move: 23 empty: 22[22-44]  backup: 0  depth: 23  max depth: 23 in 3.94 sec
+ 20200118_194033  move: 24 empty: 21[21-44]  backup: 0  depth: 24  max depth: 24 in 4.12 sec
+ 20200118_194033  move: 25 empty: 20[20-44]  backup: 0  depth: 25  max depth: 25 in 4.28 sec
+ 20200118_194033  move: 26 empty: 19[19-44]  backup: 0  depth: 26  max depth: 26 in 4.45 sec
+ 20200118_194034  move: 27 empty: 18[18-44]  backup: 0  depth: 27  max depth: 27 in 4.62 sec
+ 20200118_194034  move: 28 empty: 17[17-44]  backup: 0  depth: 28  max depth: 28 in 4.80 sec
+ 20200118_194034  move: 29 empty: 16[16-44]  backup: 0  depth: 29  max depth: 29 in 4.96 sec
+ 20200118_194034  move: 30 empty: 15[15-44]  backup: 0  depth: 30  max depth: 30 in 5.12 sec
+ 20200118_194034  move: 31 empty: 14[14-44]  backup: 0  depth: 31  max depth: 31 in 5.29 sec
+ 20200118_194034  move: 32 empty: 13[13-44]  backup: 0  depth: 32  max depth: 32 in 5.46 sec
+ 20200118_194035  move: 33 empty: 12[12-44]  backup: 0  depth: 33  max depth: 33 in 5.63 sec
+ 20200118_194035  move: 34 empty: 11[11-44]  backup: 0  depth: 34  max depth: 34 in 5.80 sec
+ 20200118_194035  move: 35 empty: 10[10-44]  backup: 0  depth: 35  max depth: 35 in 5.96 sec
+ 20200118_194035  move: 36 empty: 9[9-44]  backup: 0  depth: 36  max depth: 36 in 6.14 sec
+ 20200118_194035  move: 37 empty: 8[8-44]  backup: 0  depth: 37  max depth: 37 in 6.31 sec
+ 20200118_194035  move: 38 empty: 7[7-44]  backup: 0  depth: 38  max depth: 38 in 6.50 sec
+ 20200118_194036  move: 39 empty: 6[6-44]  backup: 0  depth: 39  max depth: 39 in 6.67 sec
+ 20200118_194036  move: 40 empty: 5[5-44]  backup: 0  depth: 40  max depth: 40 in 6.82 sec
+ 20200118_194036  move: 41 empty: 4[4-44]  backup: 0  depth: 41  max depth: 41 in 7.00 sec
+ 20200118_194036  move: 42 empty: 3[3-44]  backup: 0  depth: 42  max depth: 42 in 7.17 sec
+ 20200118_194036  move: 43 empty: 2[2-44]  backup: 0  depth: 43  max depth: 43 in 7.34 sec
+ 20200118_194036  move: 44 empty: 1[1-44]  backup: 0  depth: 44  max depth: 44 in 7.53 sec
+ 20200118_194037  move: 45 empty: 0[0-44]  backup: 0  depth: 45  max depth: 45 in 7.70 sec
+ 20200118_194037 EndPuzzle easy_1.supz solved - 1 solution 45 moves in 8.12 sec
+ 20200118_194037  move: 45 empty: 0[0-44]  backup: 0  depth: 45  max depth: 45 in 7.70 sec
+ 20200118_194037 Solution 1 of 1 C:/Users/raysm/workspace/python/sudoku/puzzle\easy_1.supz
+ --------------------
+|5 4 7 |3 9 6 |1 8 2 |
+|1 3 2 |8 7 5 |4 6 9 |
+|9 6 8 |1 2 4 |5 7 3 |
+ --------------------
+|6 2 5 |9 3 8 |7 4 1 |
+|7 1 4 |6 5 2 |3 9 8 |
+|8 9 3 |4 1 7 |2 5 6 |
+ --------------------
+|2 8 6 |5 4 3 |9 1 7 |
+|3 5 1 |7 8 9 |6 2 4 |
+|4 7 9 |2 6 1 |8 3 5 |
+ --------------------
+
+ 20200118_194037 Puzzle file name:C:/Users/raysm/workspace/python/sudoku/puzzle\easy_2.supz
+ 20200118_194037 puzzle(desc=hard, rows=9, grows=3 cols=9 gcols=3)
+ 20200118_194037 SelectControl.__init__ 1
+ 20200118_194037 SelectControl.__init__ 1
+ 20200118_194037 update_control_variables
+ 20200118_194037 Puzzle Start
+ --------------------
+|4   7 |5 6 2 |9     |
+|1   9 |  8   |4   6 |
+|  8   |  4   |5     |
+ --------------------
+|      |7     |      |
+|    1 |6 5 8 |2     |
+|      |    3 |      |
+ --------------------
+|    5 |  7   |  8   |
+|6   3 |  9   |7   1 |
+|    8 |2 3 4 |6   9 |
+ --------------------
+
+ 20200118_194037 solve_main_puzzle before destroy_all: main_puzzle
+ --------------------
+|4   7 |5 6 2 |9     |
+|1   9 |  8   |4   6 |
+|  8   |  4   |5     |
+ --------------------
+|      |7     |      |
+|    1 |6 5 8 |2     |
+|      |    3 |      |
+ --------------------
+|    5 |  7   |  8   |
+|6   3 |  9   |7   1 |
+|    8 |2 3 4 |6   9 |
+ --------------------
+
+ 20200118_194037 solve_main_puzzle: main_puzzle
+ --------------------
+|4   7 |5 6 2 |9     |
+|1   9 |  8   |4   6 |
+|  8   |  4   |5     |
+ --------------------
+|      |7     |      |
+|    1 |6 5 8 |2     |
+|      |    3 |      |
+ --------------------
+|    5 |  7   |  8   |
+|6   3 |  9   |7   1 |
+|    8 |2 3 4 |6   9 |
+ --------------------
+
+ 20200118_194038  move: 1 empty: 45[45-45]  backup: 0  depth: 1  max depth: 1 in 0.16 sec
+ 20200118_194038  move: 2 empty: 44[44-45]  backup: 0  depth: 2  max depth: 2 in 0.31 sec
+ 20200118_194038  move: 3 empty: 43[43-45]  backup: 0  depth: 3  max depth: 3 in 0.47 sec
+ 20200118_194038  move: 4 empty: 42[42-45]  backup: 0  depth: 4  max depth: 4 in 0.63 sec
+ 20200118_194038  move: 5 empty: 41[41-45]  backup: 0  depth: 5  max depth: 5 in 0.81 sec
+ 20200118_194038  move: 6 empty: 40[40-45]  backup: 0  depth: 6  max depth: 6 in 0.99 sec
+ 20200118_194039  move: 7 empty: 39[39-45]  backup: 0  depth: 7  max depth: 7 in 1.15 sec
+ 20200118_194039  move: 8 empty: 38[38-45]  backup: 0  depth: 8  max depth: 8 in 1.32 sec
+ 20200118_194039  move: 9 empty: 37[37-45]  backup: 0  depth: 9  max depth: 9 in 1.48 sec
+ 20200118_194039 easy_2.supz move: 9 empty: 37[37-45]  backup: 0  depth: 9  max depth: 9 in 1.48 sec
+ 20200118_194039  move: 10 empty: 36[36-45]  backup: 0  depth: 10  max depth: 10 in 1.64 sec
+ 20200118_194039  move: 11 empty: 35[35-45]  backup: 0  depth: 11  max depth: 11 in 1.81 sec
+ 20200118_194039  move: 12 empty: 34[34-45]  backup: 0  depth: 12  max depth: 12 in 1.97 sec
+ 20200118_194040  move: 13 empty: 33[33-45]  backup: 0  depth: 13  max depth: 13 in 2.14 sec
+ 20200118_194040  move: 14 empty: 32[32-45]  backup: 0  depth: 14  max depth: 14 in 2.31 sec
+ 20200118_194040  move: 15 empty: 31[31-45]  backup: 0  depth: 15  max depth: 15 in 2.49 sec
+ 20200118_194040  move: 16 empty: 30[30-45]  backup: 0  depth: 16  max depth: 16 in 2.66 sec
+ 20200118_194040  move: 17 empty: 29[29-45]  backup: 0  depth: 17  max depth: 17 in 2.83 sec
+ 20200118_194040  move: 18 empty: 28[28-45]  backup: 0  depth: 18  max depth: 18 in 3.02 sec
+ 20200118_194041  move: 19 empty: 27[27-45]  backup: 0  depth: 19  max depth: 19 in 3.19 sec
+ 20200118_194041  move: 20 empty: 26[26-45]  backup: 0  depth: 20  max depth: 20 in 3.36 sec
+ 20200118_194041  move: 21 empty: 25[25-45]  backup: 0  depth: 21  max depth: 21 in 3.53 sec
+ 20200118_194041  move: 22 empty: 24[24-45]  backup: 0  depth: 22  max depth: 22 in 3.69 sec
+ 20200118_194041  move: 23 empty: 23[23-45]  backup: 0  depth: 23  max depth: 23 in 3.85 sec
+ 20200118_194041  move: 24 empty: 22[22-45]  backup: 0  depth: 24  max depth: 24 in 4.03 sec
+ 20200118_194042  move: 25 empty: 21[21-45]  backup: 0  depth: 25  max depth: 25 in 4.19 sec
+ 20200118_194042  move: 26 empty: 20[20-45]  backup: 0  depth: 26  max depth: 26 in 4.36 sec
+ 20200118_194042  move: 27 empty: 19[19-45]  backup: 0  depth: 27  max depth: 27 in 4.52 sec
+ 20200118_194042  move: 28 empty: 18[18-45]  backup: 0  depth: 28  max depth: 28 in 4.69 sec
+ 20200118_194042  move: 29 empty: 17[17-45]  backup: 0  depth: 29  max depth: 29 in 4.86 sec
+ 20200118_194042  move: 30 empty: 16[16-45]  backup: 0  depth: 30  max depth: 30 in 5.03 sec
+ 20200118_194043  move: 31 empty: 15[15-45]  backup: 0  depth: 31  max depth: 31 in 5.22 sec
+ 20200118_194043  move: 32 empty: 14[14-45]  backup: 0  depth: 32  max depth: 32 in 5.39 sec
+ 20200118_194043  move: 33 empty: 13[13-45]  backup: 0  depth: 33  max depth: 33 in 5.54 sec
+ 20200118_194043  move: 34 empty: 12[12-45]  backup: 0  depth: 34  max depth: 34 in 5.72 sec
+ 20200118_194043  move: 35 empty: 11[11-45]  backup: 0  depth: 35  max depth: 35 in 5.88 sec
+ 20200118_194043  move: 36 empty: 10[10-45]  backup: 0  depth: 36  max depth: 36 in 6.06 sec
+ 20200118_194044  move: 37 empty: 9[9-45]  backup: 0  depth: 37  max depth: 37 in 6.23 sec
+ 20200118_194044  move: 38 empty: 8[8-45]  backup: 0  depth: 38  max depth: 38 in 6.40 sec
+ 20200118_194044  move: 39 empty: 7[7-45]  backup: 0  depth: 39  max depth: 39 in 6.56 sec
+ 20200118_194044  move: 40 empty: 6[6-45]  backup: 0  depth: 40  max depth: 40 in 6.73 sec
+ 20200118_194044  move: 41 empty: 5[5-45]  backup: 0  depth: 41  max depth: 41 in 6.90 sec
+ 20200118_194044  move: 42 empty: 4[4-45]  backup: 0  depth: 42  max depth: 42 in 7.07 sec
+ 20200118_194045  move: 43 empty: 3[3-45]  backup: 0  depth: 43  max depth: 43 in 7.24 sec
+ 20200118_194045  move: 44 empty: 2[2-45]  backup: 0  depth: 44  max depth: 44 in 7.41 sec
+ 20200118_194045  move: 45 empty: 1[1-45]  backup: 0  depth: 45  max depth: 45 in 7.58 sec
+ 20200118_194045  move: 46 empty: 0[0-45]  backup: 0  depth: 46  max depth: 46 in 7.75 sec
+ 20200118_194045 EndPuzzle easy_2.supz solved - 1 solution 46 moves in 8.24 sec
+ 20200118_194045  move: 46 empty: 0[0-45]  backup: 0  depth: 46  max depth: 46 in 7.75 sec
+ 20200118_194045 Solution 1 of 1 C:/Users/raysm/workspace/python/sudoku/puzzle\easy_2.supz
+ --------------------
+|4 3 7 |5 6 2 |9 1 8 |
+|1 5 9 |3 8 7 |4 2 6 |
+|2 8 6 |9 4 1 |5 7 3 |
+ --------------------
+|8 6 4 |7 2 9 |1 3 5 |
+|3 7 1 |6 5 8 |2 9 4 |
+|5 9 2 |4 1 3 |8 6 7 |
+ --------------------
+|9 4 5 |1 7 6 |3 8 2 |
+|6 2 3 |8 9 5 |7 4 1 |
+|7 1 8 |2 3 4 |6 5 9 |
+ --------------------
+
+ 20200118_194045 Puzzle file name:C:/Users/raysm/workspace/python/sudoku/puzzle\medium_1.supz
+ 20200118_194045 puzzle(desc=hard, rows=9, grows=3 cols=9 gcols=3)
+ 20200118_194046 SelectControl.__init__ 1
+ 20200118_194046 SelectControl.__init__ 1
+ 20200118_194046 update_control_variables
+ 20200118_194046 Puzzle Start
+ --------------------
+|    5 |  4   |      |
+|6   1 |9   8 |      |
+|  4   |    1 |  8   |
+ --------------------
+|2 7   |  3 5 |4     |
+|    8 |4   7 |2     |
+|    4 |2 1   |  5 7 |
+ --------------------
+|  3   |5     |  1   |
+|      |1   4 |3   2 |
+|      |  6   |5     |
+ --------------------
+
+ 20200118_194046 solve_main_puzzle before destroy_all: main_puzzle
+ --------------------
+|    5 |  4   |      |
+|6   1 |9   8 |      |
+|  4   |    1 |  8   |
+ --------------------
+|2 7   |  3 5 |4     |
+|    8 |4   7 |2     |
+|    4 |2 1   |  5 7 |
+ --------------------
+|  3   |5     |  1   |
+|      |1   4 |3   2 |
+|      |  6   |5     |
+ --------------------
+
+ 20200118_194046 solve_main_puzzle: main_puzzle
+ --------------------
+|    5 |  4   |      |
+|6   1 |9   8 |      |
+|  4   |    1 |  8   |
+ --------------------
+|2 7   |  3 5 |4     |
+|    8 |4   7 |2     |
+|    4 |2 1   |  5 7 |
+ --------------------
+|  3   |5     |  1   |
+|      |1   4 |3   2 |
+|      |  6   |5     |
+ --------------------
+
+ 20200118_194046  move: 1 empty: 48[48-48]  backup: 0  depth: 1  max depth: 1 in 0.16 sec
+ 20200118_194046  move: 2 empty: 47[47-48]  backup: 0  depth: 2  max depth: 2 in 0.34 sec
+ 20200118_194046  move: 3 empty: 46[46-48]  backup: 0  depth: 3  max depth: 3 in 0.52 sec
+ 20200118_194047  move: 4 empty: 45[45-48]  backup: 0  depth: 4  max depth: 4 in 0.68 sec
+ 20200118_194047  move: 5 empty: 44[44-48]  backup: 0  depth: 5  max depth: 5 in 0.85 sec
+ 20200118_194047  move: 6 empty: 43[43-48]  backup: 0  depth: 6  max depth: 6 in 1.02 sec
+ 20200118_194047  move: 7 empty: 42[42-48]  backup: 0  depth: 7  max depth: 7 in 1.19 sec
+ 20200118_194047  move: 8 empty: 41[41-48]  backup: 0  depth: 8  max depth: 8 in 1.38 sec
+ 20200118_194047  move: 9 empty: 40[40-48]  backup: 0  depth: 9  max depth: 9 in 1.54 sec
+ 20200118_194048  move: 10 empty: 39[39-48]  backup: 0  depth: 10  max depth: 10 in 1.71 sec
+ 20200118_194048  move: 11 empty: 38[38-48]  backup: 0  depth: 11  max depth: 11 in 1.88 sec
+ 20200118_194048  move: 12 empty: 37[37-48]  backup: 0  depth: 12  max depth: 12 in 2.06 sec
+ 20200118_194048  move: 13 empty: 36[36-48]  backup: 0  depth: 13  max depth: 13 in 2.23 sec
+ 20200118_194048  move: 14 empty: 35[35-48]  backup: 0  depth: 14  max depth: 14 in 2.40 sec
+ 20200118_194048  move: 15 empty: 34[34-48]  backup: 0  depth: 15  max depth: 15 in 2.57 sec
+ 20200118_194049  move: 16 empty: 33[33-48]  backup: 0  depth: 16  max depth: 16 in 2.74 sec
+ 20200118_194049  move: 17 empty: 32[32-48]  backup: 0  depth: 17  max depth: 17 in 2.92 sec
+ 20200118_194049  move: 18 empty: 31[31-48]  backup: 0  depth: 18  max depth: 18 in 3.09 sec
+ 20200118_194049 medium_1.supz move: 18 empty: 31[31-48]  backup: 0  depth: 18  max depth: 18 in 3.09 sec
+ 20200118_194049  move: 19 empty: 30[30-48]  backup: 0  depth: 19  max depth: 19 in 3.26 sec
+ 20200118_194049  move: 20 empty: 29[29-48]  backup: 0  depth: 20  max depth: 20 in 3.43 sec
+ 20200118_194049  move: 21 empty: 28[28-48]  backup: 0  depth: 21  max depth: 21 in 3.60 sec
+ 20200118_194050  move: 22 empty: 27[27-48]  backup: 0  depth: 22  max depth: 22 in 3.77 sec
+ 20200118_194050  move: 23 empty: 26[26-48]  backup: 0  depth: 23  max depth: 23 in 3.94 sec
+ 20200118_194050  move: 24 empty: 25[25-48]  backup: 0  depth: 24  max depth: 24 in 4.12 sec
+ 20200118_194050  move: 25 empty: 24[24-48]  backup: 0  depth: 25  max depth: 25 in 4.29 sec
+ 20200118_194050  move: 26 empty: 23[23-48]  backup: 0  depth: 26  max depth: 26 in 4.44 sec
+ 20200118_194051  move: 27 empty: 22[22-48]  backup: 0  depth: 27  max depth: 27 in 4.62 sec
+ 20200118_194051  move: 28 empty: 21[21-48]  backup: 0  depth: 28  max depth: 28 in 4.79 sec
+ 20200118_194051  move: 29 empty: 20[20-48]  backup: 0  depth: 29  max depth: 29 in 4.96 sec
+ 20200118_194051  move: 30 empty: 19[19-48]  backup: 0  depth: 30  max depth: 30 in 5.12 sec
+ 20200118_194051  move: 31 empty: 18[18-48]  backup: 0  depth: 31  max depth: 31 in 5.29 sec
+ 20200118_194051  move: 32 empty: 17[17-48]  backup: 0  depth: 32  max depth: 32 in 5.47 sec
+ 20200118_194052  move: 33 empty: 16[16-48]  backup: 0  depth: 33  max depth: 33 in 5.64 sec
+ 20200118_194052  move: 34 empty: 15[15-48]  backup: 0  depth: 34  max depth: 34 in 5.81 sec
+ 20200118_194052  move: 35 empty: 14[14-48]  backup: 0  depth: 35  max depth: 35 in 5.98 sec
+ 20200118_194052  move: 36 empty: 13[13-48]  backup: 0  depth: 36  max depth: 36 in 6.15 sec
+ 20200118_194052  move: 37 empty: 12[12-48]  backup: 0  depth: 37  max depth: 37 in 6.32 sec
+ 20200118_194052  move: 38 empty: 11[11-48]  backup: 0  depth: 38  max depth: 38 in 6.51 sec
+ 20200118_194053  move: 39 empty: 10[10-48]  backup: 0  depth: 39  max depth: 39 in 6.67 sec
+ 20200118_194053  move: 40 empty: 9[9-48]  backup: 0  depth: 40  max depth: 40 in 6.84 sec
+ 20200118_194053  move: 41 empty: 8[8-48]  backup: 0  depth: 41  max depth: 41 in 7.00 sec
+ 20200118_194053 backup: move: 42 ply.depth:29 < self.depth41
+ 20200118_194053  move: 42 empty: 20[8-48]  backup: 1  depth: 29  max depth: 41 in 7.17 sec
+ 20200118_194053  move: 43 empty: 19[8-48]  backup: 1  depth: 30  max depth: 41 in 7.36 sec
+ 20200118_194053  move: 44 empty: 18[8-48]  backup: 1  depth: 31  max depth: 41 in 7.55 sec
+ 20200118_194054  move: 45 empty: 17[8-48]  backup: 1  depth: 32  max depth: 41 in 7.71 sec
+ 20200118_194054  move: 46 empty: 16[8-48]  backup: 1  depth: 33  max depth: 41 in 7.88 sec
+ 20200118_194054  move: 47 empty: 15[8-48]  backup: 1  depth: 34  max depth: 41 in 8.05 sec
+ 20200118_194054  move: 48 empty: 14[8-48]  backup: 1  depth: 35  max depth: 41 in 8.23 sec
+ 20200118_194054  move: 49 empty: 13[8-48]  backup: 1  depth: 36  max depth: 41 in 8.41 sec
+ 20200118_194054  move: 50 empty: 12[8-48]  backup: 1  depth: 37  max depth: 41 in 8.59 sec
+ 20200118_194055  move: 51 empty: 11[8-48]  backup: 1  depth: 38  max depth: 41 in 8.76 sec
+ 20200118_194055  move: 52 empty: 10[8-48]  backup: 1  depth: 39  max depth: 41 in 8.93 sec
+ 20200118_194055  move: 53 empty: 9[8-48]  backup: 1  depth: 40  max depth: 41 in 9.10 sec
+ 20200118_194055  move: 54 empty: 8[8-48]  backup: 1  depth: 41  max depth: 41 in 9.27 sec
+ 20200118_194055  move: 55 empty: 7[7-48]  backup: 1  depth: 42  max depth: 42 in 9.45 sec
+ 20200118_194056  move: 56 empty: 6[6-48]  backup: 1  depth: 43  max depth: 43 in 9.62 sec
+ 20200118_194056  move: 57 empty: 5[5-48]  backup: 1  depth: 44  max depth: 44 in 9.79 sec
+ 20200118_194056  move: 58 empty: 4[4-48]  backup: 1  depth: 45  max depth: 45 in 9.96 sec
+ 20200118_194056  move: 59 empty: 3[3-48]  backup: 1  depth: 46  max depth: 46 in 10.13 sec
+ 20200118_194056  move: 60 empty: 2[2-48]  backup: 1  depth: 47  max depth: 47 in 10.30 sec
+ 20200118_194056  move: 61 empty: 1[1-48]  backup: 1  depth: 48  max depth: 48 in 10.49 sec
+ 20200118_194057  move: 62 empty: 0[0-48]  backup: 1  depth: 49  max depth: 49 in 10.66 sec
+ 20200118_194057 EndPuzzle medium_1.supz solved - 1 solution 62 moves in 11.11 sec
+ 20200118_194057  move: 62 empty: 0[0-48]  backup: 1  depth: 49  max depth: 49 in 10.66 sec
+ 20200118_194057 Solution 1 of 1 C:/Users/raysm/workspace/python/sudoku/puzzle\medium_1.supz
+ --------------------
+|9 8 5 |7 4 3 |1 2 6 |
+|6 2 1 |9 5 8 |7 3 4 |
+|7 4 3 |6 2 1 |9 8 5 |
+ --------------------
+|2 7 6 |8 3 5 |4 9 1 |
+|1 5 8 |4 9 7 |2 6 3 |
+|3 9 4 |2 1 6 |8 5 7 |
+ --------------------
+|4 3 2 |5 7 9 |6 1 8 |
+|5 6 9 |1 8 4 |3 7 2 |
+|8 1 7 |3 6 2 |5 4 9 |
+ --------------------
+
+ 20200118_194057 Puzzle file name:C:/Users/raysm/workspace/python/sudoku/puzzle\evil_1.supz
+ 20200118_194057 puzzle(desc=hard, rows=9, grows=3 cols=9 gcols=3)
+ 20200118_194057 SelectControl.__init__ 1
+ 20200118_194057 SelectControl.__init__ 1
+ 20200118_194057 update_control_variables
+ 20200118_194057 Puzzle Start
+ --------------------
+|      |  6   |8 9   |
+|      |    9 |1     |
+|9   1 |      |  3   |
+ --------------------
+|    3 |    5 |      |
+|4     |7 9 2 |    1 |
+|      |3     |2     |
+ --------------------
+|  1   |      |5   7 |
+|    7 |4     |      |
+|  8 5 |  2   |      |
+ --------------------
+
+ 20200118_194057 solve_main_puzzle before destroy_all: main_puzzle
+ --------------------
+|      |  6   |8 9   |
+|      |    9 |1     |
+|9   1 |      |  3   |
+ --------------------
+|    3 |    5 |      |
+|4     |7 9 2 |    1 |
+|      |3     |2     |
+ --------------------
+|  1   |      |5   7 |
+|    7 |4     |      |
+|  8 5 |  2   |      |
+ --------------------
+
+ 20200118_194057 solve_main_puzzle: main_puzzle
+ --------------------
+|      |  6   |8 9   |
+|      |    9 |1     |
+|9   1 |      |  3   |
+ --------------------
+|    3 |    5 |      |
+|4     |7 9 2 |    1 |
+|      |3     |2     |
+ --------------------
+|  1   |      |5   7 |
+|    7 |4     |      |
+|  8 5 |  2   |      |
+ --------------------
+
+ 20200118_194057  move: 1 empty: 55[55-55]  backup: 0  depth: 1  max depth: 1 in 0.17 sec
+ 20200118_194058  move: 2 empty: 54[54-55]  backup: 0  depth: 2  max depth: 2 in 0.34 sec
+ 20200118_194058  move: 3 empty: 53[53-55]  backup: 0  depth: 3  max depth: 3 in 0.51 sec
+ 20200118_194058  move: 4 empty: 52[52-55]  backup: 0  depth: 4  max depth: 4 in 0.68 sec
+ 20200118_194058  move: 5 empty: 51[51-55]  backup: 0  depth: 5  max depth: 5 in 0.86 sec
+ 20200118_194058  move: 6 empty: 50[50-55]  backup: 0  depth: 6  max depth: 6 in 1.03 sec
+ 20200118_194058  move: 7 empty: 49[49-55]  backup: 0  depth: 7  max depth: 7 in 1.20 sec
+ 20200118_194059  move: 8 empty: 48[48-55]  backup: 0  depth: 8  max depth: 8 in 1.39 sec
+ 20200118_194059  move: 9 empty: 47[47-55]  backup: 0  depth: 9  max depth: 9 in 1.55 sec
+ 20200118_194059  move: 10 empty: 46[46-55]  backup: 0  depth: 10  max depth: 10 in 1.72 sec
+ 20200118_194059 evil_1.supz move: 10 empty: 46[46-55]  backup: 0  depth: 10  max depth: 10 in 1.72 sec
+ 20200118_194059  move: 11 empty: 45[45-55]  backup: 0  depth: 11  max depth: 11 in 1.89 sec
+ 20200118_194059  move: 12 empty: 44[44-55]  backup: 0  depth: 12  max depth: 12 in 2.06 sec
+ 20200118_194100  move: 13 empty: 43[43-55]  backup: 0  depth: 13  max depth: 13 in 2.25 sec
+ 20200118_194100  move: 14 empty: 42[42-55]  backup: 0  depth: 14  max depth: 14 in 2.44 sec
+ 20200118_194100  move: 15 empty: 41[41-55]  backup: 0  depth: 15  max depth: 15 in 2.61 sec
+ 20200118_194100 backup: move: 16 ply.depth:9 < self.depth15
+ 20200118_194100  move: 16 empty: 47[41-55]  backup: 1  depth: 9  max depth: 15 in 2.78 sec
+ 20200118_194100  move: 17 empty: 46[41-55]  backup: 1  depth: 10  max depth: 15 in 2.97 sec
+ 20200118_194100  move: 18 empty: 45[41-55]  backup: 1  depth: 11  max depth: 15 in 3.12 sec
+ 20200118_194101  move: 19 empty: 44[41-55]  backup: 1  depth: 12  max depth: 15 in 3.31 sec
+ 20200118_194101  move: 20 empty: 43[41-55]  backup: 1  depth: 13  max depth: 15 in 3.47 sec
+ 20200118_194101  move: 21 empty: 42[41-55]  backup: 1  depth: 14  max depth: 15 in 3.64 sec
+ 20200118_194101  move: 22 empty: 41[41-55]  backup: 1  depth: 15  max depth: 15 in 3.81 sec
+ 20200118_194101  move: 23 empty: 40[40-55]  backup: 1  depth: 16  max depth: 16 in 3.98 sec
+ 20200118_194101  move: 24 empty: 39[39-55]  backup: 1  depth: 17  max depth: 17 in 4.15 sec
+ 20200118_194102  move: 25 empty: 38[38-55]  backup: 1  depth: 18  max depth: 18 in 4.33 sec
+ 20200118_194102  move: 26 empty: 37[37-55]  backup: 1  depth: 19  max depth: 19 in 4.51 sec
+ 20200118_194102  move: 27 empty: 36[36-55]  backup: 1  depth: 20  max depth: 20 in 4.70 sec
+ 20200118_194102  move: 28 empty: 35[35-55]  backup: 1  depth: 21  max depth: 21 in 4.87 sec
+ 20200118_194102  move: 29 empty: 34[34-55]  backup: 1  depth: 22  max depth: 22 in 5.05 sec
+ 20200118_194103  move: 30 empty: 33[33-55]  backup: 1  depth: 23  max depth: 23 in 5.22 sec
+ 20200118_194103  move: 31 empty: 32[32-55]  backup: 1  depth: 24  max depth: 24 in 5.39 sec
+ 20200118_194103  move: 32 empty: 31[31-55]  backup: 1  depth: 25  max depth: 25 in 5.56 sec
+ 20200118_194103  move: 33 empty: 30[30-55]  backup: 1  depth: 26  max depth: 26 in 5.73 sec
+ 20200118_194103  move: 34 empty: 29[29-55]  backup: 1  depth: 27  max depth: 27 in 5.90 sec
+ 20200118_194103  move: 35 empty: 28[28-55]  backup: 1  depth: 28  max depth: 28 in 6.07 sec
+ 20200118_194104  move: 36 empty: 27[27-55]  backup: 1  depth: 29  max depth: 29 in 6.26 sec
+ 20200118_194104  move: 37 empty: 26[26-55]  backup: 1  depth: 30  max depth: 30 in 6.42 sec
+ 20200118_194104  move: 38 empty: 25[25-55]  backup: 1  depth: 31  max depth: 31 in 6.61 sec
+ 20200118_194104  move: 39 empty: 24[24-55]  backup: 1  depth: 32  max depth: 32 in 6.79 sec
+ 20200118_194104  move: 40 empty: 23[23-55]  backup: 1  depth: 33  max depth: 33 in 6.96 sec
+ 20200118_194104  move: 41 empty: 22[22-55]  backup: 1  depth: 34  max depth: 34 in 7.13 sec
+ 20200118_194105  move: 42 empty: 21[21-55]  backup: 1  depth: 35  max depth: 35 in 7.30 sec
+ 20200118_194105  move: 43 empty: 20[20-55]  backup: 1  depth: 36  max depth: 36 in 7.47 sec
+ 20200118_194105  move: 44 empty: 19[19-55]  backup: 1  depth: 37  max depth: 37 in 7.66 sec
+ 20200118_194105  move: 45 empty: 18[18-55]  backup: 1  depth: 38  max depth: 38 in 7.84 sec
+ 20200118_194105  move: 46 empty: 17[17-55]  backup: 1  depth: 39  max depth: 39 in 8.01 sec
+ 20200118_194105  move: 47 empty: 16[16-55]  backup: 1  depth: 40  max depth: 40 in 8.18 sec
+ 20200118_194106 backup: move: 48 ply.depth:25 < self.depth40
+ 20200118_194106  move: 48 empty: 31[16-55]  backup: 2  depth: 25  max depth: 40 in 8.35 sec
+ 20200118_194106  move: 49 empty: 30[16-55]  backup: 2  depth: 26  max depth: 40 in 8.51 sec
+ 20200118_194106  move: 50 empty: 29[16-55]  backup: 2  depth: 27  max depth: 40 in 8.68 sec
+ 20200118_194106 backup: move: 51 ply.depth:24 < self.depth27
+ 20200118_194106  move: 51 empty: 32[16-55]  backup: 3  depth: 24  max depth: 40 in 8.86 sec
+ 20200118_194106  move: 52 empty: 31[16-55]  backup: 3  depth: 25  max depth: 40 in 9.03 sec
+ 20200118_194107  move: 53 empty: 30[16-55]  backup: 3  depth: 26  max depth: 40 in 9.21 sec
+ 20200118_194107  move: 54 empty: 29[16-55]  backup: 3  depth: 27  max depth: 40 in 9.37 sec
+ 20200118_194107  move: 55 empty: 28[16-55]  backup: 3  depth: 28  max depth: 40 in 9.56 sec
+ 20200118_194107  move: 56 empty: 27[16-55]  backup: 3  depth: 29  max depth: 40 in 9.73 sec
+ 20200118_194107  move: 57 empty: 26[16-55]  backup: 3  depth: 30  max depth: 40 in 9.91 sec
+ 20200118_194107  move: 58 empty: 25[16-55]  backup: 3  depth: 31  max depth: 40 in 10.08 sec
+ 20200118_194108  move: 59 empty: 24[16-55]  backup: 3  depth: 32  max depth: 40 in 10.27 sec
+ 20200118_194108  move: 60 empty: 23[16-55]  backup: 3  depth: 33  max depth: 40 in 10.43 sec
+ 20200118_194108  move: 61 empty: 22[16-55]  backup: 3  depth: 34  max depth: 40 in 10.60 sec
+ 20200118_194108  move: 62 empty: 21[16-55]  backup: 3  depth: 35  max depth: 40 in 10.77 sec
+ 20200118_194108 backup: move: 63 ply.depth:14 < self.depth35
+ 20200118_194108  move: 63 empty: 42[16-55]  backup: 4  depth: 14  max depth: 40 in 10.95 sec
+ 20200118_194108  move: 64 empty: 41[16-55]  backup: 4  depth: 15  max depth: 40 in 11.13 sec
+ 20200118_194109  move: 65 empty: 40[16-55]  backup: 4  depth: 16  max depth: 40 in 11.31 sec
+ 20200118_194109  move: 66 empty: 39[16-55]  backup: 4  depth: 17  max depth: 40 in 11.47 sec
+ 20200118_194109  move: 67 empty: 38[16-55]  backup: 4  depth: 18  max depth: 40 in 11.64 sec
+ 20200118_194109  move: 68 empty: 37[16-55]  backup: 4  depth: 19  max depth: 40 in 11.83 sec
+ 20200118_194109 evil_1.supz move: 68 empty: 37[16-55]  backup: 4  depth: 19  max depth: 40 in 11.83 sec
+ 20200118_194109  move: 69 empty: 36[16-55]  backup: 4  depth: 20  max depth: 40 in 12.01 sec
+ 20200118_194109  move: 70 empty: 35[16-55]  backup: 4  depth: 21  max depth: 40 in 12.18 sec
+ 20200118_194110  move: 71 empty: 34[16-55]  backup: 4  depth: 22  max depth: 40 in 12.35 sec
+ 20200118_194110  move: 72 empty: 33[16-55]  backup: 4  depth: 23  max depth: 40 in 12.52 sec
+ 20200118_194110  move: 73 empty: 32[16-55]  backup: 4  depth: 24  max depth: 40 in 12.69 sec
+ 20200118_194110  move: 74 empty: 31[16-55]  backup: 4  depth: 25  max depth: 40 in 12.87 sec
+ 20200118_194110  move: 75 empty: 30[16-55]  backup: 4  depth: 26  max depth: 40 in 13.05 sec
+ 20200118_194111  move: 76 empty: 29[16-55]  backup: 4  depth: 27  max depth: 40 in 13.22 sec
+ 20200118_194111  move: 77 empty: 28[16-55]  backup: 4  depth: 28  max depth: 40 in 13.41 sec
+ 20200118_194111  move: 78 empty: 27[16-55]  backup: 4  depth: 29  max depth: 40 in 13.57 sec
+ 20200118_194111  move: 79 empty: 26[16-55]  backup: 4  depth: 30  max depth: 40 in 13.74 sec
+ 20200118_194111  move: 80 empty: 25[16-55]  backup: 4  depth: 31  max depth: 40 in 13.91 sec
+ 20200118_194111  move: 81 empty: 24[16-55]  backup: 4  depth: 32  max depth: 40 in 14.08 sec
+ 20200118_194112  move: 82 empty: 23[16-55]  backup: 4  depth: 33  max depth: 40 in 14.25 sec
+ 20200118_194112  move: 83 empty: 22[16-55]  backup: 4  depth: 34  max depth: 40 in 14.43 sec
+ 20200118_194112  move: 84 empty: 21[16-55]  backup: 4  depth: 35  max depth: 40 in 14.60 sec
+ 20200118_194112  move: 85 empty: 20[16-55]  backup: 4  depth: 36  max depth: 40 in 14.77 sec
+ 20200118_194112  move: 86 empty: 19[16-55]  backup: 4  depth: 37  max depth: 40 in 14.94 sec
+ 20200118_194112  move: 87 empty: 18[16-55]  backup: 4  depth: 38  max depth: 40 in 15.11 sec
+ 20200118_194113  move: 88 empty: 17[16-55]  backup: 4  depth: 39  max depth: 40 in 15.29 sec
+ 20200118_194113  move: 89 empty: 16[16-55]  backup: 4  depth: 40  max depth: 40 in 15.47 sec
+ 20200118_194113 backup: move: 90 ply.depth:25 < self.depth40
+ 20200118_194113  move: 90 empty: 31[16-55]  backup: 5  depth: 25  max depth: 40 in 15.63 sec
+ 20200118_194113  move: 91 empty: 30[16-55]  backup: 5  depth: 26  max depth: 40 in 15.80 sec
+ 20200118_194113  move: 92 empty: 29[16-55]  backup: 5  depth: 27  max depth: 40 in 15.97 sec
+ 20200118_194113 backup: move: 93 ply.depth:24 < self.depth27
+ 20200118_194113  move: 93 empty: 32[16-55]  backup: 6  depth: 24  max depth: 40 in 16.15 sec
+ 20200118_194114  move: 94 empty: 31[16-55]  backup: 6  depth: 25  max depth: 40 in 16.32 sec
+ 20200118_194114 backup: move: 95 ply.depth:8 < self.depth25
+ 20200118_194114  move: 95 empty: 48[16-55]  backup: 7  depth: 8  max depth: 40 in 16.49 sec
+ 20200118_194114  move: 96 empty: 47[16-55]  backup: 7  depth: 9  max depth: 40 in 16.66 sec
+ 20200118_194114  move: 97 empty: 46[16-55]  backup: 7  depth: 10  max depth: 40 in 16.83 sec
+ 20200118_194114  move: 98 empty: 45[16-55]  backup: 7  depth: 11  max depth: 40 in 17.02 sec
+ 20200118_194115  move: 99 empty: 44[16-55]  backup: 7  depth: 12  max depth: 40 in 17.21 sec
+ 20200118_194115  move: 100 empty: 43[16-55]  backup: 7  depth: 13  max depth: 40 in 17.39 sec
+ 20200118_194115  move: 101 empty: 42[16-55]  backup: 7  depth: 14  max depth: 40 in 17.56 sec
+ 20200118_194115  move: 102 empty: 41[16-55]  backup: 7  depth: 15  max depth: 40 in 17.74 sec
+ 20200118_194115 backup: move: 103 ply.depth:7 < self.depth15
+ 20200118_194115  move: 103 empty: 49[16-55]  backup: 8  depth: 7  max depth: 40 in 17.91 sec
+ 20200118_194115  move: 104 empty: 48[16-55]  backup: 8  depth: 8  max depth: 40 in 18.10 sec
+ 20200118_194116  move: 105 empty: 47[16-55]  backup: 8  depth: 9  max depth: 40 in 18.27 sec
+ 20200118_194116  move: 106 empty: 46[16-55]  backup: 8  depth: 10  max depth: 40 in 18.44 sec
+ 20200118_194116  move: 107 empty: 45[16-55]  backup: 8  depth: 11  max depth: 40 in 18.62 sec
+ 20200118_194116  move: 108 empty: 44[16-55]  backup: 8  depth: 12  max depth: 40 in 18.77 sec
+ 20200118_194116  move: 109 empty: 43[16-55]  backup: 8  depth: 13  max depth: 40 in 18.96 sec
+ 20200118_194116  move: 110 empty: 42[16-55]  backup: 8  depth: 14  max depth: 40 in 19.13 sec
+ 20200118_194117  move: 111 empty: 41[16-55]  backup: 8  depth: 15  max depth: 40 in 19.30 sec
+ 20200118_194117  move: 112 empty: 40[16-55]  backup: 8  depth: 16  max depth: 40 in 19.48 sec
+ 20200118_194117 backup: move: 113 ply.depth:5 < self.depth16
+ 20200118_194117  move: 113 empty: 51[16-55]  backup: 9  depth: 5  max depth: 40 in 19.66 sec
+ 20200118_194117  move: 114 empty: 50[16-55]  backup: 9  depth: 6  max depth: 40 in 19.84 sec
+ 20200118_194117  move: 115 empty: 49[16-55]  backup: 9  depth: 7  max depth: 40 in 20.01 sec
+ 20200118_194117  move: 116 empty: 48[16-55]  backup: 9  depth: 8  max depth: 40 in 20.18 sec
+ 20200118_194118  move: 117 empty: 47[16-55]  backup: 9  depth: 9  max depth: 40 in 20.35 sec
+ 20200118_194118  move: 118 empty: 46[16-55]  backup: 9  depth: 10  max depth: 40 in 20.53 sec
+ 20200118_194118  move: 119 empty: 45[16-55]  backup: 9  depth: 11  max depth: 40 in 20.70 sec
+ 20200118_194118  move: 120 empty: 44[16-55]  backup: 9  depth: 12  max depth: 40 in 20.88 sec
+ 20200118_194118  move: 121 empty: 43[16-55]  backup: 9  depth: 13  max depth: 40 in 21.06 sec
+ 20200118_194119  move: 122 empty: 42[16-55]  backup: 9  depth: 14  max depth: 40 in 21.23 sec
+ 20200118_194119  move: 123 empty: 41[16-55]  backup: 9  depth: 15  max depth: 40 in 21.39 sec
+ 20200118_194119  move: 124 empty: 40[16-55]  backup: 9  depth: 16  max depth: 40 in 21.56 sec
+ 20200118_194119  move: 125 empty: 39[16-55]  backup: 9  depth: 17  max depth: 40 in 21.75 sec
+ 20200118_194119  move: 126 empty: 38[16-55]  backup: 9  depth: 18  max depth: 40 in 21.92 sec
+ 20200118_194119 evil_1.supz move: 126 empty: 38[16-55]  backup: 9  depth: 18  max depth: 40 in 21.92 sec
+ 20200118_194119  move: 127 empty: 37[16-55]  backup: 9  depth: 19  max depth: 40 in 22.08 sec
+ 20200118_194120  move: 128 empty: 36[16-55]  backup: 9  depth: 20  max depth: 40 in 22.25 sec
+ 20200118_194120  move: 129 empty: 35[16-55]  backup: 9  depth: 21  max depth: 40 in 22.44 sec
+ 20200118_194120  move: 130 empty: 34[16-55]  backup: 9  depth: 22  max depth: 40 in 22.61 sec
+ 20200118_194120  move: 131 empty: 33[16-55]  backup: 9  depth: 23  max depth: 40 in 22.80 sec
+ 20200118_194120  move: 132 empty: 32[16-55]  backup: 9  depth: 24  max depth: 40 in 22.97 sec
+ 20200118_194120  move: 133 empty: 31[16-55]  backup: 9  depth: 25  max depth: 40 in 23.16 sec
+ 20200118_194121 backup: move: 134 ply.depth:4 < self.depth25
+ 20200118_194121  move: 134 empty: 52[16-55]  backup: 10  depth: 4  max depth: 40 in 23.32 sec
+ 20200118_194121  move: 135 empty: 51[16-55]  backup: 10  depth: 5  max depth: 40 in 23.50 sec
+ 20200118_194121  move: 136 empty: 50[16-55]  backup: 10  depth: 6  max depth: 40 in 23.69 sec
+ 20200118_194121  move: 137 empty: 49[16-55]  backup: 10  depth: 7  max depth: 40 in 23.85 sec
+ 20200118_194121  move: 138 empty: 48[16-55]  backup: 10  depth: 8  max depth: 40 in 24.03 sec
+ 20200118_194122  move: 139 empty: 47[16-55]  backup: 10  depth: 9  max depth: 40 in 24.21 sec
+ 20200118_194122  move: 140 empty: 46[16-55]  backup: 10  depth: 10  max depth: 40 in 24.38 sec
+ 20200118_194122  move: 141 empty: 45[16-55]  backup: 10  depth: 11  max depth: 40 in 24.57 sec
+ 20200118_194122  move: 142 empty: 44[16-55]  backup: 10  depth: 12  max depth: 40 in 24.74 sec
+ 20200118_194122  move: 143 empty: 43[16-55]  backup: 10  depth: 13  max depth: 40 in 24.91 sec
+ 20200118_194122 backup: move: 144 ply.depth:5 < self.depth13
+ 20200118_194122  move: 144 empty: 51[16-55]  backup: 11  depth: 5  max depth: 40 in 25.10 sec
+ 20200118_194123  move: 145 empty: 50[16-55]  backup: 11  depth: 6  max depth: 40 in 25.27 sec
+ 20200118_194123  move: 146 empty: 49[16-55]  backup: 11  depth: 7  max depth: 40 in 25.44 sec
+ 20200118_194123  move: 147 empty: 48[16-55]  backup: 11  depth: 8  max depth: 40 in 25.61 sec
+ 20200118_194123  move: 148 empty: 47[16-55]  backup: 11  depth: 9  max depth: 40 in 25.78 sec
+ 20200118_194123  move: 149 empty: 46[16-55]  backup: 11  depth: 10  max depth: 40 in 25.99 sec
+ 20200118_194123  move: 150 empty: 45[16-55]  backup: 11  depth: 11  max depth: 40 in 26.16 sec
+ 20200118_194124  move: 151 empty: 44[16-55]  backup: 11  depth: 12  max depth: 40 in 26.33 sec
+ 20200118_194124  move: 152 empty: 43[16-55]  backup: 11  depth: 13  max depth: 40 in 26.50 sec
+ 20200118_194124  move: 153 empty: 42[16-55]  backup: 11  depth: 14  max depth: 40 in 26.69 sec
+ 20200118_194124  move: 154 empty: 41[16-55]  backup: 11  depth: 15  max depth: 40 in 26.84 sec
+ 20200118_194124  move: 155 empty: 40[16-55]  backup: 11  depth: 16  max depth: 40 in 27.03 sec
+ 20200118_194124  move: 156 empty: 39[16-55]  backup: 11  depth: 17  max depth: 40 in 27.19 sec
+ 20200118_194125  move: 157 empty: 38[16-55]  backup: 11  depth: 18  max depth: 40 in 27.36 sec
+ 20200118_194125  move: 158 empty: 37[16-55]  backup: 11  depth: 19  max depth: 40 in 27.53 sec
+ 20200118_194125  move: 159 empty: 36[16-55]  backup: 11  depth: 20  max depth: 40 in 27.70 sec
+ 20200118_194125  move: 160 empty: 35[16-55]  backup: 11  depth: 21  max depth: 40 in 27.89 sec
+ 20200118_194125  move: 161 empty: 34[16-55]  backup: 11  depth: 22  max depth: 40 in 28.06 sec
+ 20200118_194126  move: 162 empty: 33[16-55]  backup: 11  depth: 23  max depth: 40 in 28.23 sec
+ 20200118_194126  move: 163 empty: 32[16-55]  backup: 11  depth: 24  max depth: 40 in 28.41 sec
+ 20200118_194126  move: 164 empty: 31[16-55]  backup: 11  depth: 25  max depth: 40 in 28.59 sec
+ 20200118_194126  move: 165 empty: 30[16-55]  backup: 11  depth: 26  max depth: 40 in 28.77 sec
+ 20200118_194126  move: 166 empty: 29[16-55]  backup: 11  depth: 27  max depth: 40 in 28.94 sec
+ 20200118_194126  move: 167 empty: 28[16-55]  backup: 11  depth: 28  max depth: 40 in 29.10 sec
+ 20200118_194127  move: 168 empty: 27[16-55]  backup: 11  depth: 29  max depth: 40 in 29.27 sec
+ 20200118_194127  move: 169 empty: 26[16-55]  backup: 11  depth: 30  max depth: 40 in 29.44 sec
+ 20200118_194127 backup: move: 170 ply.depth:11 < self.depth30
+ 20200118_194127  move: 170 empty: 45[16-55]  backup: 12  depth: 11  max depth: 40 in 29.63 sec
+ 20200118_194127  move: 171 empty: 44[16-55]  backup: 12  depth: 12  max depth: 40 in 29.80 sec
+ 20200118_194127  move: 172 empty: 43[16-55]  backup: 12  depth: 13  max depth: 40 in 29.97 sec
+ 20200118_194127  move: 173 empty: 42[16-55]  backup: 12  depth: 14  max depth: 40 in 30.13 sec
+ 20200118_194128  move: 174 empty: 41[16-55]  backup: 12  depth: 15  max depth: 40 in 30.30 sec
+ 20200118_194128 backup: move: 175 ply.depth:8 < self.depth15
+ 20200118_194128  move: 175 empty: 48[16-55]  backup: 13  depth: 8  max depth: 40 in 30.47 sec
+ 20200118_194128  move: 176 empty: 47[16-55]  backup: 13  depth: 9  max depth: 40 in 30.66 sec
+ 20200118_194128  move: 177 empty: 46[16-55]  backup: 13  depth: 10  max depth: 40 in 30.84 sec
+ 20200118_194128  move: 178 empty: 45[16-55]  backup: 13  depth: 11  max depth: 40 in 30.99 sec
+ 20200118_194128  move: 179 empty: 44[16-55]  backup: 13  depth: 12  max depth: 40 in 31.18 sec
+ 20200118_194129  move: 180 empty: 43[16-55]  backup: 13  depth: 13  max depth: 40 in 31.35 sec
+ 20200118_194129  move: 181 empty: 42[16-55]  backup: 13  depth: 14  max depth: 40 in 31.54 sec
+ 20200118_194129  move: 182 empty: 41[16-55]  backup: 13  depth: 15  max depth: 40 in 31.71 sec
+ 20200118_194129  move: 183 empty: 40[16-55]  backup: 13  depth: 16  max depth: 40 in 31.88 sec
+ 20200118_194129  move: 184 empty: 39[16-55]  backup: 13  depth: 17  max depth: 40 in 32.05 sec
+ 20200118_194129 evil_1.supz move: 184 empty: 39[16-55]  backup: 13  depth: 17  max depth: 40 in 32.05 sec
+ 20200118_194130  move: 185 empty: 38[16-55]  backup: 13  depth: 18  max depth: 40 in 32.23 sec
+ 20200118_194130  move: 186 empty: 37[16-55]  backup: 13  depth: 19  max depth: 40 in 32.40 sec
+ 20200118_194130  move: 187 empty: 36[16-55]  backup: 13  depth: 20  max depth: 40 in 32.57 sec
+ 20200118_194130 backup: move: 188 ply.depth:14 < self.depth20
+ 20200118_194130  move: 188 empty: 42[16-55]  backup: 14  depth: 14  max depth: 40 in 32.74 sec
+ 20200118_194130  move: 189 empty: 41[16-55]  backup: 14  depth: 15  max depth: 40 in 32.93 sec
+ 20200118_194130  move: 190 empty: 40[16-55]  backup: 14  depth: 16  max depth: 40 in 33.10 sec
+ 20200118_194131  move: 191 empty: 39[16-55]  backup: 14  depth: 17  max depth: 40 in 33.29 sec
+ 20200118_194131  move: 192 empty: 38[16-55]  backup: 14  depth: 18  max depth: 40 in 33.46 sec
+ 20200118_194131  move: 193 empty: 37[16-55]  backup: 14  depth: 19  max depth: 40 in 33.63 sec
+ 20200118_194131  move: 194 empty: 36[16-55]  backup: 14  depth: 20  max depth: 40 in 33.81 sec
+ 20200118_194131  move: 195 empty: 35[16-55]  backup: 14  depth: 21  max depth: 40 in 33.96 sec
+ 20200118_194131  move: 196 empty: 34[16-55]  backup: 14  depth: 22  max depth: 40 in 34.15 sec
+ 20200118_194132  move: 197 empty: 33[16-55]  backup: 14  depth: 23  max depth: 40 in 34.34 sec
+ 20200118_194132  move: 198 empty: 32[16-55]  backup: 14  depth: 24  max depth: 40 in 34.50 sec
+ 20200118_194132  move: 199 empty: 31[16-55]  backup: 14  depth: 25  max depth: 40 in 34.68 sec
+ 20200118_194132  move: 200 empty: 30[16-55]  backup: 14  depth: 26  max depth: 40 in 34.86 sec
+ 20200118_194132  move: 201 empty: 29[16-55]  backup: 14  depth: 27  max depth: 40 in 35.03 sec
+ 20200118_194133  move: 202 empty: 28[16-55]  backup: 14  depth: 28  max depth: 40 in 35.22 sec
+ 20200118_194133  move: 203 empty: 27[16-55]  backup: 14  depth: 29  max depth: 40 in 35.38 sec
+ 20200118_194133  move: 204 empty: 26[16-55]  backup: 14  depth: 30  max depth: 40 in 35.56 sec
+ 20200118_194133  move: 205 empty: 25[16-55]  backup: 14  depth: 31  max depth: 40 in 35.74 sec
+ 20200118_194133  move: 206 empty: 24[16-55]  backup: 14  depth: 32  max depth: 40 in 35.91 sec
+ 20200118_194133  move: 207 empty: 23[16-55]  backup: 14  depth: 33  max depth: 40 in 36.07 sec
+ 20200118_194134  move: 208 empty: 22[16-55]  backup: 14  depth: 34  max depth: 40 in 36.24 sec
+ 20200118_194134 backup: move: 209 ply.depth:20 < self.depth34
+ 20200118_194134  move: 209 empty: 36[16-55]  backup: 15  depth: 20  max depth: 40 in 36.41 sec
+ 20200118_194134  move: 210 empty: 35[16-55]  backup: 15  depth: 21  max depth: 40 in 36.60 sec
+ 20200118_194134  move: 211 empty: 34[16-55]  backup: 15  depth: 22  max depth: 40 in 36.79 sec
+ 20200118_194134  move: 212 empty: 33[16-55]  backup: 15  depth: 23  max depth: 40 in 36.96 sec
+ 20200118_194134  move: 213 empty: 32[16-55]  backup: 15  depth: 24  max depth: 40 in 37.12 sec
+ 20200118_194135 backup: move: 214 ply.depth:15 < self.depth24
+ 20200118_194135  move: 214 empty: 41[16-55]  backup: 16  depth: 15  max depth: 40 in 37.29 sec
+ 20200118_194135  move: 215 empty: 40[16-55]  backup: 16  depth: 16  max depth: 40 in 37.48 sec
+ 20200118_194135  move: 216 empty: 39[16-55]  backup: 16  depth: 17  max depth: 40 in 37.65 sec
+ 20200118_194135  move: 217 empty: 38[16-55]  backup: 16  depth: 18  max depth: 40 in 37.82 sec
+ 20200118_194135  move: 218 empty: 37[16-55]  backup: 16  depth: 19  max depth: 40 in 38.01 sec
+ 20200118_194135 backup: move: 219 ply.depth:7 < self.depth19
+ 20200118_194135  move: 219 empty: 49[16-55]  backup: 17  depth: 7  max depth: 40 in 38.19 sec
+ 20200118_194136  move: 220 empty: 48[16-55]  backup: 17  depth: 8  max depth: 40 in 38.34 sec
+ 20200118_194136  move: 221 empty: 47[16-55]  backup: 17  depth: 9  max depth: 40 in 38.53 sec
+ 20200118_194136  move: 222 empty: 46[16-55]  backup: 17  depth: 10  max depth: 40 in 38.70 sec
+ 20200118_194136  move: 223 empty: 45[16-55]  backup: 17  depth: 11  max depth: 40 in 38.89 sec
+ 20200118_194136  move: 224 empty: 44[16-55]  backup: 17  depth: 12  max depth: 40 in 39.06 sec
+ 20200118_194137  move: 225 empty: 43[16-55]  backup: 17  depth: 13  max depth: 40 in 39.22 sec
+ 20200118_194137 backup: move: 226 ply.depth:8 < self.depth13
+ 20200118_194137  move: 226 empty: 48[16-55]  backup: 18  depth: 8  max depth: 40 in 39.41 sec
+ 20200118_194137  move: 227 empty: 47[16-55]  backup: 18  depth: 9  max depth: 40 in 39.60 sec
+ 20200118_194137  move: 228 empty: 46[16-55]  backup: 18  depth: 10  max depth: 40 in 39.79 sec
+ 20200118_194137  move: 229 empty: 45[16-55]  backup: 18  depth: 11  max depth: 40 in 39.96 sec
+ 20200118_194137  move: 230 empty: 44[16-55]  backup: 18  depth: 12  max depth: 40 in 40.15 sec
+ 20200118_194138  move: 231 empty: 43[16-55]  backup: 18  depth: 13  max depth: 40 in 40.32 sec
+ 20200118_194138 backup: move: 232 ply.depth:3 < self.depth13
+ 20200118_194138  move: 232 empty: 53[16-55]  backup: 19  depth: 3  max depth: 40 in 40.49 sec
+ 20200118_194138  move: 233 empty: 52[16-55]  backup: 19  depth: 4  max depth: 40 in 40.67 sec
+ 20200118_194138  move: 234 empty: 51[16-55]  backup: 19  depth: 5  max depth: 40 in 40.84 sec
+ 20200118_194138  move: 235 empty: 50[16-55]  backup: 19  depth: 6  max depth: 40 in 41.01 sec
+ 20200118_194138 backup: move: 236 ply.depth:4 < self.depth6
+ 20200118_194138  move: 236 empty: 52[16-55]  backup: 20  depth: 4  max depth: 40 in 41.18 sec
+ 20200118_194139  move: 237 empty: 51[16-55]  backup: 20  depth: 5  max depth: 40 in 41.35 sec
+ 20200118_194139  move: 238 empty: 50[16-55]  backup: 20  depth: 6  max depth: 40 in 41.54 sec
+ 20200118_194139  move: 239 empty: 49[16-55]  backup: 20  depth: 7  max depth: 40 in 41.71 sec
+ 20200118_194139  move: 240 empty: 48[16-55]  backup: 20  depth: 8  max depth: 40 in 41.88 sec
+ 20200118_194139  move: 241 empty: 47[16-55]  backup: 20  depth: 9  max depth: 40 in 42.07 sec
+ 20200118_194139 evil_1.supz move: 241 empty: 47[16-55]  backup: 20  depth: 9  max depth: 40 in 42.07 sec
+ 20200118_194140  move: 242 empty: 46[16-55]  backup: 20  depth: 10  max depth: 40 in 42.25 sec
+ 20200118_194140  move: 243 empty: 45[16-55]  backup: 20  depth: 11  max depth: 40 in 42.43 sec
+ 20200118_194140  move: 244 empty: 44[16-55]  backup: 20  depth: 12  max depth: 40 in 42.59 sec
+ 20200118_194140  move: 245 empty: 43[16-55]  backup: 20  depth: 13  max depth: 40 in 42.76 sec
+ 20200118_194140 backup: move: 246 ply.depth:9 < self.depth13
+ 20200118_194140  move: 246 empty: 47[16-55]  backup: 21  depth: 9  max depth: 40 in 42.93 sec
+ 20200118_194140  move: 247 empty: 46[16-55]  backup: 21  depth: 10  max depth: 40 in 43.14 sec
+ 20200118_194141  move: 248 empty: 45[16-55]  backup: 21  depth: 11  max depth: 40 in 43.31 sec
+ 20200118_194141  move: 249 empty: 44[16-55]  backup: 21  depth: 12  max depth: 40 in 43.49 sec
+ 20200118_194141  move: 250 empty: 43[16-55]  backup: 21  depth: 13  max depth: 40 in 43.67 sec
+ 20200118_194141 backup: move: 251 ply.depth:8 < self.depth13
+ 20200118_194141  move: 251 empty: 48[16-55]  backup: 22  depth: 8  max depth: 40 in 43.84 sec
+ 20200118_194141  move: 252 empty: 47[16-55]  backup: 22  depth: 9  max depth: 40 in 44.04 sec
+ 20200118_194142  move: 253 empty: 46[16-55]  backup: 22  depth: 10  max depth: 40 in 44.21 sec
+ 20200118_194142  move: 254 empty: 45[16-55]  backup: 22  depth: 11  max depth: 40 in 44.37 sec
+ 20200118_194142 backup: move: 255 ply.depth:7 < self.depth11
+ 20200118_194142  move: 255 empty: 49[16-55]  backup: 23  depth: 7  max depth: 40 in 44.55 sec
+ 20200118_194142  move: 256 empty: 48[16-55]  backup: 23  depth: 8  max depth: 40 in 44.73 sec
+ 20200118_194142  move: 257 empty: 47[16-55]  backup: 23  depth: 9  max depth: 40 in 44.91 sec
+ 20200118_194142  move: 258 empty: 46[16-55]  backup: 23  depth: 10  max depth: 40 in 45.09 sec
+ 20200118_194143  move: 259 empty: 45[16-55]  backup: 23  depth: 11  max depth: 40 in 45.26 sec
+ 20200118_194143  move: 260 empty: 44[16-55]  backup: 23  depth: 12  max depth: 40 in 45.41 sec
+ 20200118_194143  move: 261 empty: 43[16-55]  backup: 23  depth: 13  max depth: 40 in 45.59 sec
+ 20200118_194143  move: 262 empty: 42[16-55]  backup: 23  depth: 14  max depth: 40 in 45.76 sec
+ 20200118_194143  move: 263 empty: 41[16-55]  backup: 23  depth: 15  max depth: 40 in 45.93 sec
+ 20200118_194143  move: 264 empty: 40[16-55]  backup: 23  depth: 16  max depth: 40 in 46.12 sec
+ 20200118_194144  move: 265 empty: 39[16-55]  backup: 23  depth: 17  max depth: 40 in 46.29 sec
+ 20200118_194144  move: 266 empty: 38[16-55]  backup: 23  depth: 18  max depth: 40 in 46.46 sec
+ 20200118_194144  move: 267 empty: 37[16-55]  backup: 23  depth: 19  max depth: 40 in 46.63 sec
+ 20200118_194144  move: 268 empty: 36[16-55]  backup: 23  depth: 20  max depth: 40 in 46.81 sec
+ 20200118_194144  move: 269 empty: 35[16-55]  backup: 23  depth: 21  max depth: 40 in 46.98 sec
+ 20200118_194144  move: 270 empty: 34[16-55]  backup: 23  depth: 22  max depth: 40 in 47.16 sec
+ 20200118_194145  move: 271 empty: 33[16-55]  backup: 23  depth: 23  max depth: 40 in 47.34 sec
+ 20200118_194145  move: 272 empty: 32[16-55]  backup: 23  depth: 24  max depth: 40 in 47.51 sec
+ 20200118_194145  move: 273 empty: 31[16-55]  backup: 23  depth: 25  max depth: 40 in 47.67 sec
+ 20200118_194145  move: 274 empty: 30[16-55]  backup: 23  depth: 26  max depth: 40 in 47.84 sec
+ 20200118_194145  move: 275 empty: 29[16-55]  backup: 23  depth: 27  max depth: 40 in 48.03 sec
+ 20200118_194146  move: 276 empty: 28[16-55]  backup: 23  depth: 28  max depth: 40 in 48.20 sec
+ 20200118_194146  move: 277 empty: 27[16-55]  backup: 23  depth: 29  max depth: 40 in 48.37 sec
+ 20200118_194146 backup: move: 278 ply.depth:22 < self.depth29
+ 20200118_194146  move: 278 empty: 34[16-55]  backup: 24  depth: 22  max depth: 40 in 48.54 sec
+ 20200118_194146  move: 279 empty: 33[16-55]  backup: 24  depth: 23  max depth: 40 in 48.72 sec
+ 20200118_194146  move: 280 empty: 32[16-55]  backup: 24  depth: 24  max depth: 40 in 48.89 sec
+ 20200118_194146  move: 281 empty: 31[16-55]  backup: 24  depth: 25  max depth: 40 in 49.09 sec
+ 20200118_194147  move: 282 empty: 30[16-55]  backup: 24  depth: 26  max depth: 40 in 49.26 sec
+ 20200118_194147  move: 283 empty: 29[16-55]  backup: 24  depth: 27  max depth: 40 in 49.44 sec
+ 20200118_194147  move: 284 empty: 28[16-55]  backup: 24  depth: 28  max depth: 40 in 49.59 sec
+ 20200118_194147  move: 285 empty: 27[16-55]  backup: 24  depth: 29  max depth: 40 in 49.76 sec
+ 20200118_194147 backup: move: 286 ply.depth:13 < self.depth29
+ 20200118_194147  move: 286 empty: 43[16-55]  backup: 25  depth: 13  max depth: 40 in 49.95 sec
+ 20200118_194147  move: 287 empty: 42[16-55]  backup: 25  depth: 14  max depth: 40 in 50.16 sec
+ 20200118_194148  move: 288 empty: 41[16-55]  backup: 25  depth: 15  max depth: 40 in 50.33 sec
+ 20200118_194148  move: 289 empty: 40[16-55]  backup: 25  depth: 16  max depth: 40 in 50.50 sec
+ 20200118_194148  move: 290 empty: 39[16-55]  backup: 25  depth: 17  max depth: 40 in 50.69 sec
+ 20200118_194148  move: 291 empty: 38[16-55]  backup: 25  depth: 18  max depth: 40 in 50.86 sec
+ 20200118_194148  move: 292 empty: 37[16-55]  backup: 25  depth: 19  max depth: 40 in 51.03 sec
+ 20200118_194149  move: 293 empty: 36[16-55]  backup: 25  depth: 20  max depth: 40 in 51.21 sec
+ 20200118_194149  move: 294 empty: 35[16-55]  backup: 25  depth: 21  max depth: 40 in 51.39 sec
+ 20200118_194149  move: 295 empty: 34[16-55]  backup: 25  depth: 22  max depth: 40 in 51.57 sec
+ 20200118_194149  move: 296 empty: 33[16-55]  backup: 25  depth: 23  max depth: 40 in 51.72 sec
+ 20200118_194149  move: 297 empty: 32[16-55]  backup: 25  depth: 24  max depth: 40 in 51.91 sec
+ 20200118_194149  move: 298 empty: 31[16-55]  backup: 25  depth: 25  max depth: 40 in 52.06 sec
+ 20200118_194150  move: 299 empty: 30[16-55]  backup: 25  depth: 26  max depth: 40 in 52.24 sec
+ 20200118_194150 evil_1.supz move: 299 empty: 30[16-55]  backup: 25  depth: 26  max depth: 40 in 52.24 sec
+ 20200118_194150  move: 300 empty: 29[16-55]  backup: 25  depth: 27  max depth: 40 in 52.41 sec
+ 20200118_194150  move: 301 empty: 28[16-55]  backup: 25  depth: 28  max depth: 40 in 52.58 sec
+ 20200118_194150  move: 302 empty: 27[16-55]  backup: 25  depth: 29  max depth: 40 in 52.75 sec
+ 20200118_194150  move: 303 empty: 26[16-55]  backup: 25  depth: 30  max depth: 40 in 52.93 sec
+ 20200118_194150  move: 304 empty: 25[16-55]  backup: 25  depth: 31  max depth: 40 in 53.09 sec
+ 20200118_194151  move: 305 empty: 24[16-55]  backup: 25  depth: 32  max depth: 40 in 53.26 sec
+ 20200118_194151  move: 306 empty: 23[16-55]  backup: 25  depth: 33  max depth: 40 in 53.45 sec
+ 20200118_194151  move: 307 empty: 22[16-55]  backup: 25  depth: 34  max depth: 40 in 53.62 sec
+ 20200118_194151  move: 308 empty: 21[16-55]  backup: 25  depth: 35  max depth: 40 in 53.78 sec
+ 20200118_194151  move: 309 empty: 20[16-55]  backup: 25  depth: 36  max depth: 40 in 53.96 sec
+ 20200118_194151  move: 310 empty: 19[16-55]  backup: 25  depth: 37  max depth: 40 in 54.14 sec
+ 20200118_194152  move: 311 empty: 18[16-55]  backup: 25  depth: 38  max depth: 40 in 54.29 sec
+ 20200118_194152  move: 312 empty: 17[16-55]  backup: 25  depth: 39  max depth: 40 in 54.48 sec
+ 20200118_194152  move: 313 empty: 16[16-55]  backup: 25  depth: 40  max depth: 40 in 54.65 sec
+ 20200118_194152  move: 314 empty: 15[15-55]  backup: 25  depth: 41  max depth: 41 in 54.81 sec
+ 20200118_194152  move: 315 empty: 14[14-55]  backup: 25  depth: 42  max depth: 42 in 54.99 sec
+ 20200118_194152  move: 316 empty: 13[13-55]  backup: 25  depth: 43  max depth: 43 in 55.17 sec
+ 20200118_194153  move: 317 empty: 12[12-55]  backup: 25  depth: 44  max depth: 44 in 55.35 sec
+ 20200118_194153  move: 318 empty: 11[11-55]  backup: 25  depth: 45  max depth: 45 in 55.53 sec
+ 20200118_194153  move: 319 empty: 10[10-55]  backup: 25  depth: 46  max depth: 46 in 55.68 sec
+ 20200118_194153 backup: move: 320 ply.depth:8 < self.depth46
+ 20200118_194153  move: 320 empty: 48[10-55]  backup: 26  depth: 8  max depth: 46 in 55.87 sec
+ 20200118_194153  move: 321 empty: 47[10-55]  backup: 26  depth: 9  max depth: 46 in 56.04 sec
+ 20200118_194154  move: 322 empty: 46[10-55]  backup: 26  depth: 10  max depth: 46 in 56.20 sec
+ 20200118_194154  move: 323 empty: 45[10-55]  backup: 26  depth: 11  max depth: 46 in 56.39 sec
+ 20200118_194154  move: 324 empty: 44[10-55]  backup: 26  depth: 12  max depth: 46 in 56.54 sec
+ 20200118_194154  move: 325 empty: 43[10-55]  backup: 26  depth: 13  max depth: 46 in 56.72 sec
+ 20200118_194154  move: 326 empty: 42[10-55]  backup: 26  depth: 14  max depth: 46 in 56.89 sec
+ 20200118_194154  move: 327 empty: 41[10-55]  backup: 26  depth: 15  max depth: 46 in 57.08 sec
+ 20200118_194155  move: 328 empty: 40[10-55]  backup: 26  depth: 16  max depth: 46 in 57.23 sec
+ 20200118_194155  move: 329 empty: 39[10-55]  backup: 26  depth: 17  max depth: 46 in 57.40 sec
+ 20200118_194155  move: 330 empty: 38[10-55]  backup: 26  depth: 18  max depth: 46 in 57.58 sec
+ 20200118_194155  move: 331 empty: 37[10-55]  backup: 26  depth: 19  max depth: 46 in 57.75 sec
+ 20200118_194155 backup: move: 332 ply.depth:13 < self.depth19
+ 20200118_194155  move: 332 empty: 43[10-55]  backup: 27  depth: 13  max depth: 46 in 57.93 sec
+ 20200118_194155  move: 333 empty: 42[10-55]  backup: 27  depth: 14  max depth: 46 in 58.12 sec
+ 20200118_194156  move: 334 empty: 41[10-55]  backup: 27  depth: 15  max depth: 46 in 58.31 sec
+ 20200118_194156  move: 335 empty: 40[10-55]  backup: 27  depth: 16  max depth: 46 in 58.46 sec
+ 20200118_194156  move: 336 empty: 39[10-55]  backup: 27  depth: 17  max depth: 46 in 58.63 sec
+ 20200118_194156  move: 337 empty: 38[10-55]  backup: 27  depth: 18  max depth: 46 in 58.81 sec
+ 20200118_194156  move: 338 empty: 37[10-55]  backup: 27  depth: 19  max depth: 46 in 58.99 sec
+ 20200118_194156  move: 339 empty: 36[10-55]  backup: 27  depth: 20  max depth: 46 in 59.18 sec
+ 20200118_194157  move: 340 empty: 35[10-55]  backup: 27  depth: 21  max depth: 46 in 59.35 sec
+ 20200118_194157  move: 341 empty: 34[10-55]  backup: 27  depth: 22  max depth: 46 in 59.51 sec
+ 20200118_194157  move: 342 empty: 33[10-55]  backup: 27  depth: 23  max depth: 46 in 59.68 sec
+ 20200118_194157  move: 343 empty: 32[10-55]  backup: 27  depth: 24  max depth: 46 in 59.87 sec
+ 20200118_194157  move: 344 empty: 31[10-55]  backup: 27  depth: 25  max depth: 46 in 60.04 sec
+ 20200118_194158  move: 345 empty: 30[10-55]  backup: 27  depth: 26  max depth: 46 in 60.21 sec
+ 20200118_194158  move: 346 empty: 29[10-55]  backup: 27  depth: 27  max depth: 46 in 60.38 sec
+ 20200118_194158  move: 347 empty: 28[10-55]  backup: 27  depth: 28  max depth: 46 in 60.55 sec
+ 20200118_194158  move: 348 empty: 27[10-55]  backup: 27  depth: 29  max depth: 46 in 60.74 sec
+ 20200118_194158  move: 349 empty: 26[10-55]  backup: 27  depth: 30  max depth: 46 in 60.90 sec
+ 20200118_194158  move: 350 empty: 25[10-55]  backup: 27  depth: 31  max depth: 46 in 61.07 sec
+ 20200118_194159  move: 351 empty: 24[10-55]  backup: 27  depth: 32  max depth: 46 in 61.24 sec
+ 20200118_194159  move: 352 empty: 23[10-55]  backup: 27  depth: 33  max depth: 46 in 61.41 sec
+ 20200118_194159  move: 353 empty: 22[10-55]  backup: 27  depth: 34  max depth: 46 in 61.59 sec
+ 20200118_194159  move: 354 empty: 21[10-55]  backup: 27  depth: 35  max depth: 46 in 61.76 sec
+ 20200118_194159  move: 355 empty: 20[10-55]  backup: 27  depth: 36  max depth: 46 in 61.93 sec
+ 20200118_194159  move: 356 empty: 19[10-55]  backup: 27  depth: 37  max depth: 46 in 62.12 sec
+ 20200118_194200  move: 357 empty: 18[10-55]  backup: 27  depth: 38  max depth: 46 in 62.29 sec
+ 20200118_194200 evil_1.supz move: 357 empty: 18[10-55]  backup: 27  depth: 38  max depth: 46 in 62.29 sec
+ 20200118_194200  move: 358 empty: 17[10-55]  backup: 27  depth: 39  max depth: 46 in 62.46 sec
+ 20200118_194200  move: 359 empty: 16[10-55]  backup: 27  depth: 40  max depth: 46 in 62.63 sec
+ 20200118_194200  move: 360 empty: 15[10-55]  backup: 27  depth: 41  max depth: 46 in 62.79 sec
+ 20200118_194200  move: 361 empty: 14[10-55]  backup: 27  depth: 42  max depth: 46 in 62.97 sec
+ 20200118_194200  move: 362 empty: 13[10-55]  backup: 27  depth: 43  max depth: 46 in 63.14 sec
+ 20200118_194201  move: 363 empty: 12[10-55]  backup: 27  depth: 44  max depth: 46 in 63.33 sec
+ 20200118_194201  move: 364 empty: 11[10-55]  backup: 27  depth: 45  max depth: 46 in 63.49 sec
+ 20200118_194201  move: 365 empty: 10[10-55]  backup: 27  depth: 46  max depth: 46 in 63.68 sec
+ 20200118_194201  move: 366 empty: 9[9-55]  backup: 27  depth: 47  max depth: 47 in 63.86 sec
+ 20200118_194201  move: 367 empty: 8[8-55]  backup: 27  depth: 48  max depth: 48 in 64.03 sec
+ 20200118_194202  move: 368 empty: 7[7-55]  backup: 27  depth: 49  max depth: 49 in 64.21 sec
+ 20200118_194202  move: 369 empty: 6[6-55]  backup: 27  depth: 50  max depth: 50 in 64.41 sec
+ 20200118_194202  move: 370 empty: 5[5-55]  backup: 27  depth: 51  max depth: 51 in 64.58 sec
+ 20200118_194202  move: 371 empty: 4[4-55]  backup: 27  depth: 52  max depth: 52 in 64.77 sec
+ 20200118_194202  move: 372 empty: 3[3-55]  backup: 27  depth: 53  max depth: 53 in 64.96 sec
+ 20200118_194202  move: 373 empty: 2[2-55]  backup: 27  depth: 54  max depth: 54 in 65.15 sec
+ 20200118_194203  move: 374 empty: 1[1-55]  backup: 27  depth: 55  max depth: 55 in 65.32 sec
+ 20200118_194203  move: 375 empty: 0[0-55]  backup: 27  depth: 56  max depth: 56 in 65.50 sec
+ 20200118_194203 EndPuzzle evil_1.supz solved - 1 solution 375 moves in 65.93 sec
+ 20200118_194203  move: 375 empty: 0[0-55]  backup: 27  depth: 56  max depth: 56 in 65.50 sec
+ 20200118_194203 Solution 1 of 1 C:/Users/raysm/workspace/python/sudoku/puzzle\evil_1.supz
+ --------------------
+|7 3 2 |1 6 4 |8 9 5 |
+|8 4 6 |5 3 9 |1 7 2 |
+|9 5 1 |2 7 8 |4 3 6 |
+ --------------------
+|1 2 3 |8 4 5 |7 6 9 |
+|4 6 8 |7 9 2 |3 5 1 |
+|5 7 9 |3 1 6 |2 4 8 |
+ --------------------
+|6 1 4 |9 8 3 |5 2 7 |
+|2 9 7 |4 5 1 |6 8 3 |
+|3 8 5 |6 2 7 |9 1 4 |
+ --------------------
+
+ 20200118_194203 Puzzle file name:C:/Users/raysm/workspace/python/sudoku/puzzle\hard_1.supz
+ 20200118_194203 puzzle(desc=hard, rows=9, grows=3 cols=9 gcols=3)
+ 20200118_194203 SelectControl.__init__ 1
+ 20200118_194203 SelectControl.__init__ 1
+ 20200118_194203 update_control_variables
+ 20200118_194203 Puzzle Start
+ --------------------
+|8     |      |      |
+|    3 |6     |      |
+|  7   |  9   |2     |
+ --------------------
+|  5   |    7 |      |
+|      |  4 5 |7     |
+|      |1     |  3   |
+ --------------------
+|    1 |      |  6 8 |
+|    8 |5     |  1   |
+|  9   |      |4     |
+ --------------------
+
+ 20200118_194203 solve_main_puzzle before destroy_all: main_puzzle
+ --------------------
+|8     |      |      |
+|    3 |6     |      |
+|  7   |  9   |2     |
+ --------------------
+|  5   |    7 |      |
+|      |  4 5 |7     |
+|      |1     |  3   |
+ --------------------
+|    1 |      |  6 8 |
+|    8 |5     |  1   |
+|  9   |      |4     |
+ --------------------
+
+ 20200118_194203 solve_main_puzzle: main_puzzle
+ --------------------
+|8     |      |      |
+|    3 |6     |      |
+|  7   |  9   |2     |
+ --------------------
+|  5   |    7 |      |
+|      |  4 5 |7     |
+|      |1     |  3   |
+ --------------------
+|    1 |      |  6 8 |
+|    8 |5     |  1   |
+|  9   |      |4     |
+ --------------------
+
+ 20200118_194204  move: 1 empty: 59[59-59]  backup: 0  depth: 1  max depth: 1 in 0.16 sec
+ 20200118_194204  move: 2 empty: 58[58-59]  backup: 0  depth: 2  max depth: 2 in 0.36 sec
+ 20200118_194204  move: 3 empty: 57[57-59]  backup: 0  depth: 3  max depth: 3 in 0.53 sec
+ 20200118_194204  move: 4 empty: 56[56-59]  backup: 0  depth: 4  max depth: 4 in 0.69 sec
+ 20200118_194204  move: 5 empty: 55[55-59]  backup: 0  depth: 5  max depth: 5 in 0.86 sec
+ 20200118_194205  move: 6 empty: 54[54-59]  backup: 0  depth: 6  max depth: 6 in 1.03 sec
+ 20200118_194205  move: 7 empty: 53[53-59]  backup: 0  depth: 7  max depth: 7 in 1.20 sec
+ 20200118_194205  move: 8 empty: 52[52-59]  backup: 0  depth: 8  max depth: 8 in 1.37 sec
+ 20200118_194205  move: 9 empty: 51[51-59]  backup: 0  depth: 9  max depth: 9 in 1.55 sec
+ 20200118_194205  move: 10 empty: 50[50-59]  backup: 0  depth: 10  max depth: 10 in 1.72 sec
+ 20200118_194206  move: 11 empty: 49[49-59]  backup: 0  depth: 11  max depth: 11 in 1.90 sec
+ 20200118_194206  move: 12 empty: 48[48-59]  backup: 0  depth: 12  max depth: 12 in 2.06 sec
+ 20200118_194206  move: 13 empty: 47[47-59]  backup: 0  depth: 13  max depth: 13 in 2.25 sec
+ 20200118_194206  move: 14 empty: 46[46-59]  backup: 0  depth: 14  max depth: 14 in 2.41 sec
+ 20200118_194206  move: 15 empty: 45[45-59]  backup: 0  depth: 15  max depth: 15 in 2.56 sec
+ 20200118_194206  move: 16 empty: 44[44-59]  backup: 0  depth: 16  max depth: 16 in 2.72 sec
+ 20200118_194207  move: 17 empty: 43[43-59]  backup: 0  depth: 17  max depth: 17 in 2.89 sec
+ 20200118_194207  move: 18 empty: 42[42-59]  backup: 0  depth: 18  max depth: 18 in 3.06 sec
+ 20200118_194207  move: 19 empty: 41[41-59]  backup: 0  depth: 19  max depth: 19 in 3.24 sec
+ 20200118_194207  move: 20 empty: 40[40-59]  backup: 0  depth: 20  max depth: 20 in 3.41 sec
+ 20200118_194207  move: 21 empty: 39[39-59]  backup: 0  depth: 21  max depth: 21 in 3.67 sec
+ 20200118_194207  move: 22 empty: 38[38-59]  backup: 0  depth: 22  max depth: 22 in 3.86 sec
+ 20200118_194208  move: 23 empty: 37[37-59]  backup: 0  depth: 23  max depth: 23 in 4.03 sec
+ 20200118_194208  move: 24 empty: 36[36-59]  backup: 0  depth: 24  max depth: 24 in 4.20 sec
+ 20200118_194208  move: 25 empty: 35[35-59]  backup: 0  depth: 25  max depth: 25 in 4.39 sec
+ 20200118_194208  move: 26 empty: 34[34-59]  backup: 0  depth: 26  max depth: 26 in 4.58 sec
+ 20200118_194208  move: 27 empty: 33[33-59]  backup: 0  depth: 27  max depth: 27 in 4.76 sec
+ 20200118_194209  move: 28 empty: 32[32-59]  backup: 0  depth: 28  max depth: 28 in 4.93 sec
+ 20200118_194209  move: 29 empty: 31[31-59]  backup: 0  depth: 29  max depth: 29 in 5.11 sec
+ 20200118_194209  move: 30 empty: 30[30-59]  backup: 0  depth: 30  max depth: 30 in 5.30 sec
+ 20200118_194209  move: 31 empty: 29[29-59]  backup: 0  depth: 31  max depth: 31 in 5.47 sec
+ 20200118_194209  move: 32 empty: 28[28-59]  backup: 0  depth: 32  max depth: 32 in 5.68 sec
+ 20200118_194209  move: 33 empty: 27[27-59]  backup: 0  depth: 33  max depth: 33 in 5.85 sec
+ 20200118_194210 backup: move: 34 ply.depth:19 < self.depth33
+ 20200118_194210  move: 34 empty: 41[27-59]  backup: 1  depth: 19  max depth: 33 in 6.04 sec
+ 20200118_194210 hard_1.supz move: 34 empty: 41[27-59]  backup: 1  depth: 19  max depth: 33 in 6.04 sec
+ 20200118_194210  move: 35 empty: 40[27-59]  backup: 1  depth: 20  max depth: 33 in 6.23 sec
+ 20200118_194210  move: 36 empty: 39[27-59]  backup: 1  depth: 21  max depth: 33 in 6.40 sec
+ 20200118_194210  move: 37 empty: 38[27-59]  backup: 1  depth: 22  max depth: 33 in 6.57 sec
+ 20200118_194210  move: 38 empty: 37[27-59]  backup: 1  depth: 23  max depth: 33 in 6.74 sec
+ 20200118_194211  move: 39 empty: 36[27-59]  backup: 1  depth: 24  max depth: 33 in 6.93 sec
+ 20200118_194211  move: 40 empty: 35[27-59]  backup: 1  depth: 25  max depth: 33 in 7.10 sec
+ 20200118_194211  move: 41 empty: 34[27-59]  backup: 1  depth: 26  max depth: 33 in 7.29 sec
+ 20200118_194211 backup: move: 42 ply.depth:17 < self.depth26
+ 20200118_194211  move: 42 empty: 43[27-59]  backup: 2  depth: 17  max depth: 33 in 7.47 sec
+ 20200118_194213  move: 43 empty: 42[27-59]  backup: 2  depth: 18  max depth: 33 in 8.90 sec
+ 20200118_194213  move: 44 empty: 41[27-59]  backup: 2  depth: 19  max depth: 33 in 9.07 sec
+ 20200118_194213  move: 45 empty: 40[27-59]  backup: 2  depth: 20  max depth: 33 in 9.24 sec
+ 20200118_194213  move: 46 empty: 39[27-59]  backup: 2  depth: 21  max depth: 33 in 9.42 sec
+ 20200118_194213  move: 47 empty: 38[27-59]  backup: 2  depth: 22  max depth: 33 in 9.60 sec
+ 20200118_194220 hard_1.supz move: 85 empty: 47[24-59]  backup: 4  depth: 13  max depth: 36 in 16.13 sec
+ 20200118_194230 hard_1.supz move: 144 empty: 35[24-59]  backup: 8  depth: 25  max depth: 36 in 26.29 sec
+ 20200118_194240 hard_1.supz move: 203 empty: 46[20-59]  backup: 14  depth: 14  max depth: 40 in 36.38 sec
+ 20200118_194250 hard_1.supz move: 262 empty: 45[20-59]  backup: 19  depth: 15  max depth: 40 in 46.57 sec
+ 20200118_194300 hard_1.supz move: 319 empty: 47[20-59]  backup: 24  depth: 13  max depth: 40 in 56.65 sec
+ 20200118_194310 hard_1.supz move: 377 empty: 27[20-59]  backup: 29  depth: 33  max depth: 40 in 66.70 sec
+ 20200118_194320 hard_1.supz move: 435 empty: 37[20-59]  backup: 34  depth: 23  max depth: 40 in 76.74 sec
+ 20200118_194330 hard_1.supz move: 493 empty: 37[20-59]  backup: 39  depth: 23  max depth: 40 in 86.76 sec
+ 20200118_194341 hard_1.supz move: 552 empty: 36[20-59]  backup: 44  depth: 24  max depth: 40 in 96.90 sec
+ 20200118_194351 hard_1.supz move: 610 empty: 31[20-59]  backup: 48  depth: 29  max depth: 40 in 106.92 sec
+ 20200118_194401 hard_1.supz move: 668 empty: 29[19-59]  backup: 52  depth: 31  max depth: 41 in 116.96 sec
+ 20200118_194411 hard_1.supz move: 726 empty: 38[19-59]  backup: 56  depth: 22  max depth: 41 in 126.99 sec
+ 20200118_194421 hard_1.supz move: 784 empty: 34[19-59]  backup: 63  depth: 26  max depth: 41 in 137.06 sec
+ 20200118_194431 hard_1.supz move: 839 empty: 30[19-59]  backup: 67  depth: 30  max depth: 41 in 147.09 sec
+ 20200118_194441 hard_1.supz move: 896 empty: 43[19-59]  backup: 75  depth: 17  max depth: 41 in 157.20 sec
+ 20200118_194451 hard_1.supz move: 953 empty: 42[19-59]  backup: 83  depth: 18  max depth: 41 in 167.34 sec
+ 20200118_194501 hard_1.supz move: 1010 empty: 39[19-59]  backup: 92  depth: 21  max depth: 41 in 177.36 sec
+ 20200118_194511 hard_1.supz move: 1066 empty: 38[19-59]  backup: 100  depth: 22  max depth: 41 in 187.44 sec
+ 20200118_194521 hard_1.supz move: 1121 empty: 36[19-59]  backup: 104  depth: 24  max depth: 41 in 197.49 sec
+ 20200118_194531 hard_1.supz move: 1177 empty: 26[19-59]  backup: 109  depth: 34  max depth: 41 in 207.52 sec
+ 20200118_194541 hard_1.supz move: 1235 empty: 33[19-59]  backup: 113  depth: 27  max depth: 41 in 217.57 sec
+ 20200118_194551 hard_1.supz move: 1293 empty: 31[19-59]  backup: 120  depth: 29  max depth: 41 in 227.59 sec
+ 20200118_194601 hard_1.supz move: 1351 empty: 29[19-59]  backup: 127  depth: 31  max depth: 41 in 237.69 sec
+ 20200118_194612 hard_1.supz move: 1405 empty: 38[19-59]  backup: 132  depth: 22  max depth: 41 in 247.76 sec
+ 20200118_194622 hard_1.supz move: 1460 empty: 33[19-59]  backup: 138  depth: 27  max depth: 41 in 257.87 sec
+ 20200118_194632 hard_1.supz move: 1517 empty: 51[19-59]  backup: 144  depth: 9  max depth: 41 in 268.01 sec
+ 20200118_194642 hard_1.supz move: 1575 empty: 42[19-59]  backup: 151  depth: 18  max depth: 41 in 278.11 sec
+ 20200118_194652 hard_1.supz move: 1633 empty: 38[19-59]  backup: 157  depth: 22  max depth: 41 in 288.19 sec
+ 20200118_194702 hard_1.supz move: 1691 empty: 37[19-59]  backup: 164  depth: 23  max depth: 41 in 298.22 sec
+ 20200118_194712 hard_1.supz move: 1748 empty: 39[19-59]  backup: 169  depth: 21  max depth: 41 in 308.24 sec
+ 20200118_194722 hard_1.supz move: 1801 empty: 40[19-59]  backup: 174  depth: 20  max depth: 41 in 318.25 sec
+ 20200118_194732 hard_1.supz move: 1852 empty: 34[19-59]  backup: 181  depth: 26  max depth: 41 in 328.35 sec
+ 20200118_194742 hard_1.supz move: 1906 empty: 36[19-59]  backup: 186  depth: 24  max depth: 41 in 338.38 sec
+ 20200118_194752 hard_1.supz move: 1959 empty: 36[19-59]  backup: 190  depth: 24  max depth: 41 in 348.39 sec
+ 20200118_194802 hard_1.supz move: 2016 empty: 41[19-59]  backup: 198  depth: 19  max depth: 41 in 358.46 sec
+ 20200118_194812 hard_1.supz move: 2073 empty: 35[19-59]  backup: 202  depth: 25  max depth: 41 in 368.50 sec
+ 20200118_194822 hard_1.supz move: 2128 empty: 32[19-59]  backup: 208  depth: 28  max depth: 41 in 378.54 sec
+ 20200118_194832 hard_1.supz move: 2186 empty: 44[19-59]  backup: 218  depth: 16  max depth: 41 in 388.59 sec
+ 20200118_194842 hard_1.supz move: 2238 empty: 32[19-59]  backup: 224  depth: 28  max depth: 41 in 398.68 sec
+ 20200118_194852 hard_1.supz move: 2293 empty: 41[19-59]  backup: 230  depth: 19  max depth: 41 in 408.73 sec
+ 20200118_194903 hard_1.supz move: 2349 empty: 28[19-59]  backup: 235  depth: 32  max depth: 41 in 418.91 sec
+ 20200118_194913 hard_1.supz move: 2403 empty: 26[12-59]  backup: 239  depth: 34  max depth: 48 in 428.99 sec
+ 20200118_194923 hard_1.supz move: 2461 empty: 30[12-59]  backup: 246  depth: 30  max depth: 48 in 439.15 sec
+ 20200118_194933 hard_1.supz move: 2516 empty: 37[12-59]  backup: 253  depth: 23  max depth: 48 in 449.19 sec
+ 20200118_194943 hard_1.supz move: 2569 empty: 34[12-59]  backup: 261  depth: 26  max depth: 48 in 459.30 sec
+ 20200118_194953 hard_1.supz move: 2621 empty: 39[12-59]  backup: 268  depth: 21  max depth: 48 in 469.45 sec
+ 20200118_195003 hard_1.supz move: 2672 empty: 39[12-59]  backup: 275  depth: 21  max depth: 48 in 479.57 sec
+ 20200118_195013 hard_1.supz move: 2729 empty: 36[12-59]  backup: 284  depth: 24  max depth: 48 in 489.60 sec
+ 20200118_195024 hard_1.supz move: 2786 empty: 28[12-59]  backup: 291  depth: 32  max depth: 48 in 499.77 sec
+ 20200118_195034 hard_1.supz move: 2840 empty: 34[12-59]  backup: 297  depth: 26  max depth: 48 in 509.91 sec
+ 20200118_195044 hard_1.supz move: 2896 empty: 43[12-59]  backup: 300  depth: 17  max depth: 48 in 519.97 sec
+ 20200118_195054 hard_1.supz move: 2949 empty: 38[12-59]  backup: 306  depth: 22  max depth: 48 in 530.13 sec
+ 20200118_195104 hard_1.supz move: 3001 empty: 37[12-59]  backup: 309  depth: 23  max depth: 48 in 540.20 sec
+ 20200118_195114 hard_1.supz move: 3059 empty: 34[12-59]  backup: 313  depth: 26  max depth: 48 in 550.31 sec
+ 20200118_195124 hard_1.supz move: 3115 empty: 42[12-59]  backup: 316  depth: 18  max depth: 48 in 560.31 sec
+ 20200118_195134 hard_1.supz move: 3171 empty: 39[12-59]  backup: 323  depth: 21  max depth: 48 in 570.39 sec
+ 20200118_195144 hard_1.supz move: 3228 empty: 40[12-59]  backup: 328  depth: 20  max depth: 48 in 580.45 sec
+ 20200118_195154 hard_1.supz move: 3279 empty: 29[12-59]  backup: 332  depth: 31  max depth: 48 in 590.52 sec
+ 20200118_195204 hard_1.supz move: 3335 empty: 35[12-59]  backup: 336  depth: 25  max depth: 48 in 600.54 sec
+ 20200118_195214 hard_1.supz move: 3389 empty: 33[12-59]  backup: 341  depth: 27  max depth: 48 in 610.61 sec
+ 20200118_195224 hard_1.supz move: 3443 empty: 20[12-59]  backup: 343  depth: 40  max depth: 48 in 620.64 sec
+ 20200118_195235 hard_1.supz move: 3500 empty: 50[12-59]  backup: 352  depth: 10  max depth: 48 in 630.78 sec
+ 20200118_195245 hard_1.supz move: 3557 empty: 29[12-59]  backup: 356  depth: 31  max depth: 48 in 640.84 sec
+ 20200118_195255 hard_1.supz move: 3610 empty: 19[12-59]  backup: 360  depth: 41  max depth: 48 in 650.98 sec
+ 20200118_195305 hard_1.supz move: 3663 empty: 27[12-59]  backup: 367  depth: 33  max depth: 48 in 661.01 sec
+ 20200118_195315 hard_1.supz move: 3720 empty: 35[12-59]  backup: 370  depth: 25  max depth: 48 in 671.13 sec
+ 20200118_195325 hard_1.supz move: 3775 empty: 36[12-59]  backup: 374  depth: 24  max depth: 48 in 681.20 sec
+ 20200118_195335 hard_1.supz move: 3829 empty: 42[12-59]  backup: 378  depth: 18  max depth: 48 in 691.29 sec
+ 20200118_195345 hard_1.supz move: 3886 empty: 40[12-59]  backup: 385  depth: 20  max depth: 48 in 701.42 sec
+ 20200118_195355 hard_1.supz move: 3942 empty: 46[12-59]  backup: 395  depth: 14  max depth: 48 in 711.42 sec
+ 20200118_195405 hard_1.supz move: 3997 empty: 46[12-59]  backup: 397  depth: 14  max depth: 48 in 721.48 sec
+ 20200118_195415 hard_1.supz move: 4055 empty: 36[12-59]  backup: 400  depth: 24  max depth: 48 in 731.54 sec
+ 20200118_195425 hard_1.supz move: 4109 empty: 39[12-59]  backup: 404  depth: 21  max depth: 48 in 741.56 sec
+ 20200118_195435 hard_1.supz move: 4166 empty: 44[12-59]  backup: 409  depth: 16  max depth: 48 in 751.59 sec
+ 20200118_195445 hard_1.supz move: 4221 empty: 36[12-59]  backup: 413  depth: 24  max depth: 48 in 761.69 sec
+ 20200118_195456 hard_1.supz move: 4272 empty: 51[12-59]  backup: 417  depth: 9  max depth: 48 in 771.78 sec
+ 20200118_195506 hard_1.supz move: 4324 empty: 34[12-59]  backup: 420  depth: 26  max depth: 48 in 781.88 sec
+ 20200118_195516 hard_1.supz move: 4379 empty: 42[12-59]  backup: 427  depth: 18  max depth: 48 in 791.89 sec
+ 20200118_195526 hard_1.supz move: 4437 empty: 34[12-59]  backup: 431  depth: 26  max depth: 48 in 801.97 sec
+ 20200118_195536 hard_1.supz move: 4492 empty: 33[12-59]  backup: 435  depth: 27  max depth: 48 in 812.05 sec
+ 20200118_195546 hard_1.supz move: 4549 empty: 35[12-59]  backup: 439  depth: 25  max depth: 48 in 822.07 sec
+ 20200118_195556 hard_1.supz move: 4606 empty: 41[12-59]  backup: 442  depth: 19  max depth: 48 in 832.22 sec
+ 20200118_195606 hard_1.supz move: 4660 empty: 48[12-59]  backup: 447  depth: 12  max depth: 48 in 842.38 sec
+ 20200118_195616 hard_1.supz move: 4714 empty: 46[12-59]  backup: 452  depth: 14  max depth: 48 in 852.44 sec
+ 20200118_195626 hard_1.supz move: 4768 empty: 28[12-59]  backup: 456  depth: 32  max depth: 48 in 862.54 sec
+ 20200118_195636 hard_1.supz move: 4822 empty: 37[12-59]  backup: 460  depth: 23  max depth: 48 in 872.54 sec
+ 20200118_195646 hard_1.supz move: 4872 empty: 32[12-59]  backup: 463  depth: 28  max depth: 48 in 882.54 sec
+ 20200118_195656 hard_1.supz move: 4924 empty: 24[12-59]  backup: 465  depth: 36  max depth: 48 in 892.70 sec
+ 20200118_195707 hard_1.supz move: 4977 empty: 33[12-59]  backup: 469  depth: 27  max depth: 48 in 902.78 sec
+ 20200118_195717 hard_1.supz move: 5031 empty: 41[12-59]  backup: 473  depth: 19  max depth: 48 in 912.78 sec
+ 20200118_195727 hard_1.supz move: 5086 empty: 29[12-59]  backup: 475  depth: 31  max depth: 48 in 922.99 sec
+ 20200118_195737 hard_1.supz move: 5139 empty: 37[12-59]  backup: 477  depth: 23  max depth: 48 in 933.00 sec
+ 20200118_195747 hard_1.supz move: 5192 empty: 55[12-59]  backup: 484  depth: 5  max depth: 48 in 943.01 sec
+ 20200118_195757 hard_1.supz move: 5246 empty: 36[12-59]  backup: 489  depth: 24  max depth: 48 in 953.14 sec
+ 20200118_195807 hard_1.supz move: 5300 empty: 41[12-59]  backup: 493  depth: 19  max depth: 48 in 963.15 sec
+ 20200118_195817 hard_1.supz move: 5354 empty: 43[12-59]  backup: 498  depth: 17  max depth: 48 in 973.31 sec
+ 20200118_195827 hard_1.supz move: 5405 empty: 44[12-59]  backup: 504  depth: 16  max depth: 48 in 983.34 sec
+ 20200118_195837 hard_1.supz move: 5457 empty: 47[12-59]  backup: 510  depth: 13  max depth: 48 in 993.53 sec
+ 20200118_195847 hard_1.supz move: 5509 empty: 37[12-59]  backup: 514  depth: 23  max depth: 48 in 1003.70 sec
+ 20200118_195857 hard_1.supz move: 5561 empty: 36[12-59]  backup: 518  depth: 24  max depth: 48 in 1013.70 sec
+ 20200118_195908 hard_1.supz move: 5616 empty: 31[12-59]  backup: 522  depth: 29  max depth: 48 in 1023.86 sec
+ 20200118_195918 hard_1.supz move: 5670 empty: 42[12-59]  backup: 529  depth: 18  max depth: 48 in 1033.98 sec
+ 20200118_195928 hard_1.supz move: 5725 empty: 40[12-59]  backup: 533  depth: 20  max depth: 48 in 1044.14 sec
+ 20200118_195938 hard_1.supz move: 5779 empty: 33[12-59]  backup: 538  depth: 27  max depth: 48 in 1054.16 sec
+ 20200118_195948 hard_1.supz move: 5833 empty: 30[12-59]  backup: 542  depth: 30  max depth: 48 in 1064.19 sec
+ 20200118_195958 hard_1.supz move: 5887 empty: 44[12-59]  backup: 548  depth: 16  max depth: 48 in 1074.28 sec
+ 20200118_200008 hard_1.supz move: 5938 empty: 27[12-59]  backup: 552  depth: 33  max depth: 48 in 1084.39 sec
+ 20200118_200018 hard_1.supz move: 5989 empty: 38[12-59]  backup: 555  depth: 22  max depth: 48 in 1094.42 sec
+ 20200118_200028 hard_1.supz move: 6042 empty: 26[12-59]  backup: 559  depth: 34  max depth: 48 in 1104.60 sec
+ 20200118_200038 hard_1.supz move: 6095 empty: 36[12-59]  backup: 564  depth: 24  max depth: 48 in 1114.60 sec
+ 20200118_200048 hard_1.supz move: 6149 empty: 43[12-59]  backup: 571  depth: 17  max depth: 48 in 1124.71 sec
+ 20200118_200059 hard_1.supz move: 6202 empty: 46[12-59]  backup: 578  depth: 14  max depth: 48 in 1134.75 sec
+ 20200118_200109 hard_1.supz move: 6256 empty: 44[12-59]  backup: 585  depth: 16  max depth: 48 in 1144.88 sec
+ 20200118_200119 hard_1.supz move: 6309 empty: 46[12-59]  backup: 590  depth: 14  max depth: 48 in 1154.91 sec
+ 20200118_200129 hard_1.supz move: 6359 empty: 42[12-59]  backup: 597  depth: 18  max depth: 48 in 1164.93 sec
+ 20200118_200139 hard_1.supz move: 6412 empty: 29[12-59]  backup: 601  depth: 31  max depth: 48 in 1175.11 sec
+ 20200118_200149 hard_1.supz move: 6465 empty: 43[12-59]  backup: 607  depth: 17  max depth: 48 in 1185.23 sec
+ 20200118_200159 hard_1.supz move: 6518 empty: 35[12-59]  backup: 612  depth: 25  max depth: 48 in 1195.36 sec
+ 20200118_200209 hard_1.supz move: 6571 empty: 44[12-59]  backup: 621  depth: 16  max depth: 48 in 1205.36 sec
+ 20200118_200219 hard_1.supz move: 6614 empty: 42[12-59]  backup: 624  depth: 18  max depth: 48 in 1215.65 sec
+ 20200118_200229 hard_1.supz move: 6656 empty: 45[12-59]  backup: 630  depth: 15  max depth: 48 in 1225.69 sec
+ 20200118_200240 hard_1.supz move: 6691 empty: 42[12-59]  backup: 634  depth: 18  max depth: 48 in 1235.78 sec
+ 20200118_200250 hard_1.supz move: 6734 empty: 43[12-59]  backup: 636  depth: 17  max depth: 48 in 1245.81 sec
+ 20200118_200300 hard_1.supz move: 6776 empty: 32[12-59]  backup: 638  depth: 28  max depth: 48 in 1256.25 sec
+ 20200118_200311 hard_1.supz move: 6823 empty: 31[12-59]  backup: 642  depth: 29  max depth: 48 in 1266.74 sec
+ 20200118_200321 hard_1.supz move: 6864 empty: 15[12-59]  backup: 643  depth: 45  max depth: 48 in 1276.89 sec
+ 20200118_200331 hard_1.supz move: 6910 empty: 17[12-59]  backup: 646  depth: 43  max depth: 48 in 1287.06 sec
+ 20200118_200341 hard_1.supz move: 6951 empty: 40[11-59]  backup: 650  depth: 20  max depth: 49 in 1297.19 sec
+ 20200118_200351 hard_1.supz move: 6991 empty: 32[11-59]  backup: 652  depth: 28  max depth: 49 in 1307.32 sec
+ 20200118_200401 hard_1.supz move: 7033 empty: 25[11-59]  backup: 654  depth: 35  max depth: 49 in 1317.62 sec
+ 20200118_200412 hard_1.supz move: 7074 empty: 31[11-59]  backup: 656  depth: 29  max depth: 49 in 1327.77 sec
+ 20200118_200422 hard_1.supz move: 7117 empty: 42[11-59]  backup: 662  depth: 18  max depth: 49 in 1338.18 sec
+ 20200118_200432 hard_1.supz move: 7158 empty: 44[11-59]  backup: 666  depth: 16  max depth: 49 in 1348.37 sec
+ 20200118_200442 hard_1.supz move: 7200 empty: 35[11-59]  backup: 668  depth: 25  max depth: 49 in 1358.39 sec
+ 20200118_200452 hard_1.supz move: 7251 empty: 31[11-59]  backup: 672  depth: 29  max depth: 49 in 1368.57 sec
+ 20200118_200503 hard_1.supz move: 7291 empty: 34[11-59]  backup: 674  depth: 26  max depth: 49 in 1379.15 sec
+ 20200118_200513 hard_1.supz move: 7337 empty: 41[11-59]  backup: 677  depth: 19  max depth: 49 in 1389.27 sec
+ 20200118_200523 hard_1.supz move: 7383 empty: 33[11-59]  backup: 681  depth: 27  max depth: 49 in 1399.41 sec
+ 20200118_200533 hard_1.supz move: 7428 empty: 18[11-59]  backup: 685  depth: 42  max depth: 49 in 1409.48 sec
+ 20200118_200543 hard_1.supz move: 7472 empty: 30[11-59]  backup: 688  depth: 30  max depth: 49 in 1419.50 sec
+ 20200118_200553 hard_1.supz move: 7517 empty: 40[11-59]  backup: 691  depth: 20  max depth: 49 in 1429.65 sec
+ 20200118_200604 hard_1.supz move: 7562 empty: 28[11-59]  backup: 693  depth: 32  max depth: 49 in 1439.79 sec
+ 20200118_200614 hard_1.supz move: 7605 empty: 35[11-59]  backup: 697  depth: 25  max depth: 49 in 1449.94 sec
+ 20200118_200624 hard_1.supz move: 7650 empty: 29[11-59]  backup: 700  depth: 31  max depth: 49 in 1460.04 sec
+ 20200118_200634 hard_1.supz move: 7691 empty: 34[11-59]  backup: 703  depth: 26  max depth: 49 in 1470.05 sec
+ 20200118_200644 hard_1.supz move: 7730 empty: 28[11-59]  backup: 706  depth: 32  max depth: 49 in 1480.22 sec
+ 20200118_200654 hard_1.supz move: 7771 empty: 43[11-59]  backup: 709  depth: 17  max depth: 49 in 1490.36 sec
+ 20200118_200704 hard_1.supz move: 7811 empty: 36[11-59]  backup: 712  depth: 24  max depth: 49 in 1500.65 sec
+ 20200118_200715 hard_1.supz move: 7858 empty: 36[11-59]  backup: 717  depth: 24  max depth: 49 in 1510.80 sec
+ 20200118_200725 hard_1.supz move: 7902 empty: 36[11-59]  backup: 721  depth: 24  max depth: 49 in 1521.16 sec
+ 20200118_200735 hard_1.supz move: 7946 empty: 40[11-59]  backup: 725  depth: 20  max depth: 49 in 1531.33 sec
+ 20200118_200745 hard_1.supz move: 7995 empty: 34[11-59]  backup: 730  depth: 26  max depth: 49 in 1541.35 sec
+ 20200118_200755 hard_1.supz move: 8039 empty: 26[11-59]  backup: 734  depth: 34  max depth: 49 in 1551.40 sec
+ 20200118_200805 hard_1.supz move: 8089 empty: 41[11-59]  backup: 739  depth: 19  max depth: 49 in 1561.49 sec
+ 20200118_200815 hard_1.supz move: 8135 empty: 22[11-59]  backup: 742  depth: 38  max depth: 49 in 1571.64 sec
+ 20200118_200825 hard_1.supz move: 8178 empty: 38[11-59]  backup: 745  depth: 22  max depth: 49 in 1581.68 sec
+ 20200118_200836 hard_1.supz move: 8231 empty: 45[11-59]  backup: 752  depth: 15  max depth: 49 in 1591.87 sec
+ 20200118_200846 hard_1.supz move: 8277 empty: 30[11-59]  backup: 756  depth: 30  max depth: 49 in 1602.03 sec
+ 20200118_200856 hard_1.supz move: 8324 empty: 26[11-59]  backup: 760  depth: 34  max depth: 49 in 1612.06 sec
+ 20200118_200906 hard_1.supz move: 8372 empty: 16[11-59]  backup: 763  depth: 44  max depth: 49 in 1622.19 sec
+ 20200118_200916 hard_1.supz move: 8416 empty: 28[11-59]  backup: 768  depth: 32  max depth: 49 in 1632.30 sec
+ 20200118_200926 hard_1.supz move: 8462 empty: 27[11-59]  backup: 771  depth: 33  max depth: 49 in 1642.35 sec
+ 20200118_200936 hard_1.supz move: 8517 empty: 43[11-59]  backup: 776  depth: 17  max depth: 49 in 1652.49 sec
+ 20200118_200947 hard_1.supz move: 8564 empty: 38[11-59]  backup: 781  depth: 22  max depth: 49 in 1662.89 sec
+ 20200118_200957 hard_1.supz move: 8614 empty: 18[11-59]  backup: 786  depth: 42  max depth: 49 in 1672.97 sec
+ 20200118_201007 hard_1.supz move: 8664 empty: 40[11-59]  backup: 792  depth: 20  max depth: 49 in 1683.09 sec
+ 20200118_201017 hard_1.supz move: 8710 empty: 33[11-59]  backup: 795  depth: 27  max depth: 49 in 1693.22 sec
+ 20200118_201027 hard_1.supz move: 8760 empty: 30[11-59]  backup: 799  depth: 30  max depth: 49 in 1703.32 sec
+ 20200118_201037 hard_1.supz move: 8803 empty: 41[11-59]  backup: 803  depth: 19  max depth: 49 in 1713.46 sec
+ 20200118_201047 hard_1.supz move: 8856 empty: 35[11-59]  backup: 807  depth: 25  max depth: 49 in 1723.60 sec
+ 20200118_201057 hard_1.supz move: 8907 empty: 26[11-59]  backup: 811  depth: 34  max depth: 49 in 1733.74 sec
+ 20200118_201108 hard_1.supz move: 8955 empty: 28[11-59]  backup: 814  depth: 32  max depth: 49 in 1743.78 sec
+ 20200118_201118 hard_1.supz move: 9002 empty: 39[11-59]  backup: 818  depth: 21  max depth: 49 in 1754.14 sec
+ 20200118_201128 hard_1.supz move: 9045 empty: 41[11-59]  backup: 823  depth: 19  max depth: 49 in 1764.17 sec
+ 20200118_201138 hard_1.supz move: 9096 empty: 33[11-59]  backup: 826  depth: 27  max depth: 49 in 1774.22 sec
+ 20200118_201148 hard_1.supz move: 9139 empty: 49[11-59]  backup: 829  depth: 11  max depth: 49 in 1784.33 sec
+ 20200118_201158 hard_1.supz move: 9181 empty: 23[11-59]  backup: 833  depth: 37  max depth: 49 in 1794.52 sec
+ 20200118_201208 hard_1.supz move: 9226 empty: 25[11-59]  backup: 839  depth: 35  max depth: 49 in 1804.68 sec
+ 20200118_201219 hard_1.supz move: 9266 empty: 30[11-59]  backup: 843  depth: 30  max depth: 49 in 1814.81 sec
+ 20200118_201229 hard_1.supz move: 9310 empty: 34[11-59]  backup: 846  depth: 26  max depth: 49 in 1825.11 sec
+ 20200118_201239 hard_1.supz move: 9354 empty: 26[11-59]  backup: 851  depth: 34  max depth: 49 in 1835.12 sec
+ 20200118_201249 hard_1.supz move: 9402 empty: 34[11-59]  backup: 854  depth: 26  max depth: 49 in 1845.62 sec
+ 20200118_201300 hard_1.supz move: 9445 empty: 28[11-59]  backup: 858  depth: 32  max depth: 49 in 1856.09 sec
+ 20200118_201310 hard_1.supz move: 9490 empty: 22[11-59]  backup: 861  depth: 38  max depth: 49 in 1866.09 sec
+ 20200118_201320 hard_1.supz move: 9533 empty: 40[11-59]  backup: 868  depth: 20  max depth: 49 in 1876.22 sec
+ 20200118_201330 hard_1.supz move: 9576 empty: 45[11-59]  backup: 877  depth: 15  max depth: 49 in 1886.37 sec
+ 20200118_201340 hard_1.supz move: 9623 empty: 48[11-59]  backup: 882  depth: 12  max depth: 49 in 1896.49 sec
+ 20200118_201350 hard_1.supz move: 9670 empty: 39[11-59]  backup: 885  depth: 21  max depth: 49 in 1906.52 sec
+ 20200118_201401 hard_1.supz move: 9710 empty: 45[11-59]  backup: 888  depth: 15  max depth: 49 in 1917.00 sec
+ 20200118_201411 hard_1.supz move: 9752 empty: 38[11-59]  backup: 891  depth: 22  max depth: 49 in 1927.08 sec
+ 20200118_201421 hard_1.supz move: 9795 empty: 33[11-59]  backup: 897  depth: 27  max depth: 49 in 1937.14 sec
+ 20200118_201431 hard_1.supz move: 9844 empty: 28[11-59]  backup: 902  depth: 32  max depth: 49 in 1947.48 sec
+ 20200118_201441 hard_1.supz move: 9890 empty: 44[11-59]  backup: 907  depth: 16  max depth: 49 in 1957.51 sec
+ 20200118_201451 hard_1.supz move: 9939 empty: 30[11-59]  backup: 910  depth: 30  max depth: 49 in 1967.68 sec
+ 20200118_201501 hard_1.supz move: 9985 empty: 44[11-59]  backup: 915  depth: 16  max depth: 49 in 1977.71 sec
+ 20200118_201511 hard_1.supz move: 10029 empty: 21[11-59]  backup: 918  depth: 39  max depth: 49 in 1987.72 sec
+ 20200118_201522 hard_1.supz move: 10071 empty: 30[10-59]  backup: 922  depth: 30  max depth: 50 in 1997.82 sec
+ 20200118_201528 EndPuzzle hard_1.supz solved - 1 solution 10101 moves in 2004.57 sec
+ 20200118_201528  move: 10101 empty: 0[0-59]  backup: 922  depth: 60  max depth: 60 in 2003.72 sec
+ 20200118_201528 Solution 1 of 1 C:/Users/raysm/workspace/python/sudoku/puzzle\hard_1.supz
+ --------------------
+|8 1 2 |7 5 3 |6 4 9 |
+|9 4 3 |6 8 2 |1 7 5 |
+|6 7 5 |4 9 1 |2 8 3 |
+ --------------------
+|1 5 4 |2 3 7 |8 9 6 |
+|3 6 9 |8 4 5 |7 2 1 |
+|2 8 7 |1 6 9 |5 3 4 |
+ --------------------
+|5 2 1 |9 7 4 |3 6 8 |
+|4 3 8 |5 2 6 |9 1 7 |
+|7 9 6 |3 1 8 |4 5 2 |
+ --------------------
+
+ 20200118_201528 Puzzle file name:C:/Users/raysm/workspace/python/sudoku/puzzle\hard_9x9_01.supz
+ 20200118_201528 puzzle(desc=hard, rows=9, grows=3 cols=9 gcols=3)
+ 20200118_201528 SelectControl.__init__ 1
+ 20200118_201528 SelectControl.__init__ 1
+ 20200118_201528 update_control_variables
+ 20200118_201528 Puzzle Start
+ --------------------
+|      |    7 |      |
+|    2 |4   6 |3     |
+|  1 7 |      |9 6   |
+ --------------------
+|5 8   |      |  3   |
+|      |  9   |      |
+|  7   |      |  4 2 |
+ --------------------
+|  9 4 |      |6 5   |
+|    5 |2   8 |1     |
+|      |5     |      |
+ --------------------
+
+ 20200118_201528 solve_main_puzzle before destroy_all: main_puzzle
+ --------------------
+|      |    7 |      |
+|    2 |4   6 |3     |
+|  1 7 |      |9 6   |
+ --------------------
+|5 8   |      |  3   |
+|      |  9   |      |
+|  7   |      |  4 2 |
+ --------------------
+|  9 4 |      |6 5   |
+|    5 |2   8 |1     |
+|      |5     |      |
+ --------------------
+
+ 20200118_201528 solve_main_puzzle: main_puzzle
+ --------------------
+|      |    7 |      |
+|    2 |4   6 |3     |
+|  1 7 |      |9 6   |
+ --------------------
+|5 8   |      |  3   |
+|      |  9   |      |
+|  7   |      |  4 2 |
+ --------------------
+|  9 4 |      |6 5   |
+|    5 |2   8 |1     |
+|      |5     |      |
+ --------------------
+
+ 20200118_201532 hard_9x9_01.supz move: 15 empty: 47[46-55]  backup: 2  depth: 9  max depth: 10 in 2.87 sec
+ 20200118_201542 hard_9x9_01.supz move: 65 empty: 44[26-55]  backup: 7  depth: 12  max depth: 30 in 13.03 sec
+ 20200118_201552 hard_9x9_01.supz move: 112 empty: 41[26-55]  backup: 13  depth: 15  max depth: 30 in 23.13 sec
+ 20200118_201602 hard_9x9_01.supz move: 156 empty: 34[26-55]  backup: 18  depth: 22  max depth: 30 in 33.22 sec
+ 20200118_201612 hard_9x9_01.supz move: 201 empty: 0[0-55]  backup: 20  depth: 56  max depth: 56 in 43.24 sec
+ 20200118_201612 EndPuzzle hard_9x9_01.supz solved - 1 solution 201 moves in 43.79 sec
+ 20200118_201612  move: 201 empty: 0[0-55]  backup: 20  depth: 56  max depth: 56 in 43.24 sec
+ 20200118_201612 Solution 1 of 1 C:/Users/raysm/workspace/python/sudoku/puzzle\hard_9x9_01.supz
+ --------------------
+|3 4 6 |9 1 7 |2 8 5 |
+|9 5 2 |4 8 6 |3 7 1 |
+|8 1 7 |3 5 2 |9 6 4 |
+ --------------------
+|5 8 1 |6 2 4 |7 3 9 |
+|4 2 3 |7 9 5 |8 1 6 |
+|6 7 9 |8 3 1 |5 4 2 |
+ --------------------
+|2 9 4 |1 7 3 |6 5 8 |
+|7 6 5 |2 4 8 |1 9 3 |
+|1 3 8 |5 6 9 |4 2 7 |
+ --------------------
+
+ 20200118_201612 open puzzle file C:/Users/raysm/workspace/python/sudoku/puzzle\wiki_01.supz failed [Errno 2] No such file or directory: 'C:/Users/raysm/workspace/python/sudoku/puzzle\\wiki_01.supz'
+ 20200118_201612 Puzzle file name:C:/Users/raysm/workspace/python/sudoku/puzzle\difficult_1.supz
+ 20200118_201612 puzzle(desc=hard, rows=9, grows=3 cols=9 gcols=3)
+ 20200118_201613 SelectControl.__init__ 1
+ 20200118_201613 SelectControl.__init__ 1
+ 20200118_201613 update_control_variables
+ 20200118_201613 Puzzle Start
+ --------------------
+|8     |      |      |
+|    3 |6     |      |
+|  7   |  9   |2     |
+ --------------------
+|  5   |    7 |      |
+|      |  4 5 |7     |
+|      |1     |  3   |
+ --------------------
+|    1 |      |  6 8 |
+|    8 |5     |  1   |
+|  9   |      |4     |
+ --------------------
+
+ 20200118_201613 solve_main_puzzle before destroy_all: main_puzzle
+ --------------------
+|8     |      |      |
+|    3 |6     |      |
+|  7   |  9   |2     |
+ --------------------
+|  5   |    7 |      |
+|      |  4 5 |7     |
+|      |1     |  3   |
+ --------------------
+|    1 |      |  6 8 |
+|    8 |5     |  1   |
+|  9   |      |4     |
+ --------------------
+
+ 20200118_201613 solve_main_puzzle: main_puzzle
+ --------------------
+|8     |      |      |
+|    3 |6     |      |
+|  7   |  9   |2     |
+ --------------------
+|  5   |    7 |      |
+|      |  4 5 |7     |
+|      |1     |  3   |
+ --------------------
+|    1 |      |  6 8 |
+|    8 |5     |  1   |
+|  9   |      |4     |
+ --------------------
+
+ 20200118_201622 difficult_1.supz move: 36 empty: 39[27-59]  backup: 1  depth: 21  max depth: 33 in 9.18 sec
+ 20200118_201632 difficult_1.supz move: 77 empty: 26[24-59]  backup: 3  depth: 34  max depth: 36 in 19.34 sec
+ 20200118_201642 difficult_1.supz move: 118 empty: 39[24-59]  backup: 6  depth: 21  max depth: 36 in 29.35 sec
+ 20200118_201653 difficult_1.supz move: 162 empty: 42[24-59]  backup: 11  depth: 18  max depth: 36 in 39.62 sec
+ 20200118_201703 difficult_1.supz move: 204 empty: 45[20-59]  backup: 14  depth: 15  max depth: 40 in 49.63 sec
+ 20200118_201713 difficult_1.supz move: 246 empty: 38[20-59]  backup: 17  depth: 22  max depth: 40 in 60.04 sec
+ 20200118_201723 difficult_1.supz move: 294 empty: 38[20-59]  backup: 21  depth: 22  max depth: 40 in 70.19 sec
+ 20200118_201733 difficult_1.supz move: 343 empty: 29[20-59]  backup: 26  depth: 31  max depth: 40 in 80.37 sec
+ 20200118_201744 difficult_1.supz move: 384 empty: 38[20-59]  backup: 30  depth: 22  max depth: 40 in 90.53 sec
+ 20200118_201754 difficult_1.supz move: 429 empty: 43[20-59]  backup: 34  depth: 17  max depth: 40 in 100.65 sec
+ 20200118_201804 difficult_1.supz move: 473 empty: 24[20-59]  backup: 36  depth: 36  max depth: 40 in 110.95 sec
+ 20200118_201814 difficult_1.supz move: 522 empty: 38[20-59]  backup: 41  depth: 22  max depth: 40 in 121.09 sec
+ 20200118_201824 difficult_1.supz move: 576 empty: 53[20-59]  backup: 47  depth: 7  max depth: 40 in 131.34 sec
+ 20200118_201834 difficult_1.supz move: 628 empty: 26[20-59]  backup: 50  depth: 34  max depth: 40 in 141.38 sec
+ 20200118_201845 difficult_1.supz move: 681 empty: 37[19-59]  backup: 53  depth: 23  max depth: 41 in 151.53 sec
+ 20200118_201855 difficult_1.supz move: 735 empty: 46[19-59]  backup: 57  depth: 14  max depth: 41 in 161.76 sec
+ 20200118_201905 difficult_1.supz move: 788 empty: 30[19-59]  backup: 63  depth: 30  max depth: 41 in 171.92 sec
+ 20200118_201915 difficult_1.supz move: 838 empty: 31[19-59]  backup: 67  depth: 29  max depth: 41 in 181.94 sec
+ 20200118_201925 difficult_1.supz move: 892 empty: 38[19-59]  backup: 74  depth: 22  max depth: 41 in 192.15 sec
+ 20200118_201935 difficult_1.supz move: 945 empty: 34[19-59]  backup: 82  depth: 26  max depth: 41 in 202.28 sec
+ 20200118_201945 difficult_1.supz move: 996 empty: 32[19-59]  backup: 90  depth: 28  max depth: 41 in 212.38 sec
+ 20200118_201955 difficult_1.supz move: 1047 empty: 35[19-59]  backup: 98  depth: 25  max depth: 41 in 222.46 sec
+ 20200118_202006 difficult_1.supz move: 1097 empty: 35[19-59]  backup: 102  depth: 25  max depth: 41 in 232.50 sec
+ 20200118_202016 difficult_1.supz move: 1151 empty: 33[19-59]  backup: 107  depth: 27  max depth: 41 in 242.63 sec
+ 20200118_202026 difficult_1.supz move: 1204 empty: 33[19-59]  backup: 111  depth: 27  max depth: 41 in 252.67 sec
+ 20200118_202036 difficult_1.supz move: 1256 empty: 32[19-59]  backup: 116  depth: 28  max depth: 41 in 262.75 sec
+ 20200118_202046 difficult_1.supz move: 1305 empty: 49[19-59]  backup: 124  depth: 11  max depth: 41 in 272.89 sec
+ 20200118_202056 difficult_1.supz move: 1355 empty: 42[19-59]  backup: 128  depth: 18  max depth: 41 in 282.96 sec
+ 20200118_202106 difficult_1.supz move: 1406 empty: 37[19-59]  backup: 132  depth: 23  max depth: 41 in 293.05 sec
+ 20200118_202116 difficult_1.supz move: 1457 empty: 33[19-59]  backup: 137  depth: 27  max depth: 41 in 303.05 sec
+ 20200118_202126 difficult_1.supz move: 1507 empty: 44[19-59]  backup: 143  depth: 16  max depth: 41 in 313.20 sec
+ 20200118_202136 difficult_1.supz move: 1559 empty: 38[19-59]  backup: 149  depth: 22  max depth: 41 in 323.21 sec
+ 20200118_202146 difficult_1.supz move: 1609 empty: 43[19-59]  backup: 155  depth: 17  max depth: 41 in 333.30 sec
+ 20200118_202156 difficult_1.supz move: 1658 empty: 30[19-59]  backup: 160  depth: 30  max depth: 41 in 343.35 sec
+ 20200118_202207 difficult_1.supz move: 1713 empty: 34[19-59]  backup: 166  depth: 26  max depth: 41 in 353.53 sec
+ 20200118_202217 difficult_1.supz move: 1766 empty: 40[19-59]  backup: 171  depth: 20  max depth: 41 in 363.69 sec
+ 20200118_202227 difficult_1.supz move: 1820 empty: 33[19-59]  backup: 176  depth: 27  max depth: 41 in 373.75 sec
+ 20200118_202237 difficult_1.supz move: 1871 empty: 44[19-59]  backup: 183  depth: 16  max depth: 41 in 383.79 sec
+ 20200118_202247 difficult_1.supz move: 1920 empty: 33[19-59]  backup: 187  depth: 27  max depth: 41 in 393.89 sec
+ 20200118_202257 difficult_1.supz move: 1975 empty: 30[19-59]  backup: 193  depth: 30  max depth: 41 in 404.05 sec
+ 20200118_202307 difficult_1.supz move: 2029 empty: 28[19-59]  backup: 198  depth: 32  max depth: 41 in 414.21 sec
+ 20200118_202317 difficult_1.supz move: 2084 empty: 39[19-59]  backup: 204  depth: 21  max depth: 41 in 424.37 sec
+ 20200118_202327 difficult_1.supz move: 2137 empty: 31[19-59]  backup: 210  depth: 29  max depth: 41 in 434.43 sec
+ 20200118_202338 difficult_1.supz move: 2188 empty: 42[19-59]  backup: 218  depth: 18  max depth: 41 in 444.52 sec
+ 20200118_202348 difficult_1.supz move: 2239 empty: 31[19-59]  backup: 224  depth: 29  max depth: 41 in 454.58 sec
+ 20200118_202358 difficult_1.supz move: 2289 empty: 45[19-59]  backup: 230  depth: 15  max depth: 41 in 464.71 sec
+ 20200118_202408 difficult_1.supz move: 2342 empty: 35[19-59]  backup: 235  depth: 25  max depth: 41 in 474.71 sec
+ 20200118_202418 difficult_1.supz move: 2393 empty: 36[12-59]  backup: 239  depth: 24  max depth: 48 in 484.86 sec
+ 20200118_202428 difficult_1.supz move: 2443 empty: 26[12-59]  backup: 244  depth: 34  max depth: 48 in 494.99 sec
+ 20200118_202438 difficult_1.supz move: 2497 empty: 26[12-59]  backup: 251  depth: 34  max depth: 48 in 505.17 sec
+ 20200118_202448 difficult_1.supz move: 2551 empty: 20[12-59]  backup: 257  depth: 40  max depth: 48 in 515.25 sec
+ 20200118_202458 difficult_1.supz move: 2600 empty: 51[12-59]  backup: 266  depth: 9  max depth: 48 in 525.32 sec
+ 20200118_202508 difficult_1.supz move: 2653 empty: 47[12-59]  backup: 273  depth: 13  max depth: 48 in 535.48 sec
+ 20200118_202519 difficult_1.supz move: 2701 empty: 40[12-59]  backup: 279  depth: 20  max depth: 48 in 545.57 sec
+ 20200118_202529 difficult_1.supz move: 2751 empty: 35[12-59]  backup: 288  depth: 25  max depth: 48 in 555.68 sec
+ 20200118_202539 difficult_1.supz move: 2801 empty: 39[12-59]  backup: 294  depth: 21  max depth: 48 in 565.69 sec
+ 20200118_202549 difficult_1.supz move: 2853 empty: 21[12-59]  backup: 297  depth: 39  max depth: 48 in 575.75 sec
+ 20200118_202559 difficult_1.supz move: 2909 empty: 42[12-59]  backup: 303  depth: 18  max depth: 48 in 585.89 sec
+ 20200118_202609 difficult_1.supz move: 2959 empty: 28[12-59]  backup: 306  depth: 32  max depth: 48 in 596.05 sec
+ 20200118_202619 difficult_1.supz move: 3011 empty: 27[12-59]  backup: 309  depth: 33  max depth: 48 in 606.15 sec
+ 20200118_202629 difficult_1.supz move: 3065 empty: 28[12-59]  backup: 313  depth: 32  max depth: 48 in 616.43 sec
+ 20200118_202640 difficult_1.supz move: 3115 empty: 42[12-59]  backup: 316  depth: 18  max depth: 48 in 626.52 sec
+ 20200118_202650 difficult_1.supz move: 3165 empty: 32[12-59]  backup: 322  depth: 28  max depth: 48 in 636.55 sec
+ 20200118_202700 difficult_1.supz move: 3217 empty: 26[12-59]  backup: 325  depth: 34  max depth: 48 in 646.57 sec
+ 20200118_202710 difficult_1.supz move: 3268 empty: 28[12-59]  backup: 331  depth: 32  max depth: 48 in 656.57 sec
+ 20200118_202720 difficult_1.supz move: 3321 empty: 33[12-59]  backup: 335  depth: 27  max depth: 48 in 666.69 sec
+ 20200118_202730 difficult_1.supz move: 3378 empty: 44[12-59]  backup: 341  depth: 16  max depth: 48 in 676.87 sec
+ 20200118_202740 difficult_1.supz move: 3432 empty: 31[12-59]  backup: 343  depth: 29  max depth: 48 in 686.93 sec
+ 20200118_202750 difficult_1.supz move: 3482 empty: 39[12-59]  backup: 349  depth: 21  max depth: 48 in 697.02 sec
+ 20200118_202800 difficult_1.supz move: 3536 empty: 27[12-59]  backup: 354  depth: 33  max depth: 48 in 707.25 sec
+ 20200118_202810 difficult_1.supz move: 3591 empty: 38[12-59]  backup: 360  depth: 22  max depth: 48 in 717.32 sec
+ 20200118_202820 difficult_1.supz move: 3646 empty: 32[12-59]  backup: 365  depth: 28  max depth: 48 in 727.34 sec
+ 20200118_202830 difficult_1.supz move: 3706 empty: 26[12-59]  backup: 369  depth: 34  max depth: 48 in 737.47 sec
+ 20200118_202841 difficult_1.supz move: 3757 empty: 29[12-59]  backup: 372  depth: 31  max depth: 48 in 747.51 sec
+ 20200118_202851 difficult_1.supz move: 3805 empty: 41[12-59]  backup: 377  depth: 19  max depth: 48 in 757.55 sec
+ 20200118_202901 difficult_1.supz move: 3863 empty: 36[12-59]  backup: 380  depth: 24  max depth: 48 in 767.67 sec
+ 20200118_202911 difficult_1.supz move: 3915 empty: 36[12-59]  backup: 390  depth: 24  max depth: 48 in 777.82 sec
+ 20200118_202921 difficult_1.supz move: 3965 empty: 23[12-59]  backup: 395  depth: 37  max depth: 48 in 787.95 sec
+ 20200118_202931 difficult_1.supz move: 4022 empty: 27[12-59]  backup: 398  depth: 33  max depth: 48 in 798.08 sec
+ 20200118_202941 difficult_1.supz move: 4079 empty: 39[12-59]  backup: 401  depth: 21  max depth: 48 in 808.25 sec
+ 20200118_202951 difficult_1.supz move: 4130 empty: 44[12-59]  backup: 406  depth: 16  max depth: 48 in 818.42 sec
+ 20200118_203002 difficult_1.supz move: 4180 empty: 39[12-59]  backup: 410  depth: 21  max depth: 48 in 828.70 sec
+ 20200118_203012 difficult_1.supz move: 4239 empty: 33[12-59]  backup: 414  depth: 27  max depth: 48 in 838.86 sec
+ 20200118_203022 difficult_1.supz move: 4290 empty: 33[12-59]  backup: 417  depth: 27  max depth: 48 in 848.87 sec
+ 20200118_203032 difficult_1.supz move: 4343 empty: 35[12-59]  backup: 421  depth: 25  max depth: 48 in 858.92 sec
+ 20200118_203042 difficult_1.supz move: 4397 empty: 40[12-59]  backup: 428  depth: 20  max depth: 48 in 868.91 sec
+ 20200118_203052 difficult_1.supz move: 4451 empty: 40[12-59]  backup: 433  depth: 20  max depth: 48 in 878.96 sec
+ 20200118_203102 difficult_1.supz move: 4507 empty: 30[12-59]  backup: 436  depth: 30  max depth: 48 in 889.02 sec
+ 20200118_203112 difficult_1.supz move: 4561 empty: 23[12-59]  backup: 439  depth: 37  max depth: 48 in 899.16 sec
+ 20200118_203122 difficult_1.supz move: 4618 empty: 36[12-59]  backup: 443  depth: 24  max depth: 48 in 909.19 sec
+ 20200118_203132 difficult_1.supz move: 4669 empty: 41[12-59]  backup: 448  depth: 19  max depth: 48 in 919.26 sec
+ 20200118_203142 difficult_1.supz move: 4726 empty: 40[12-59]  backup: 453  depth: 20  max depth: 48 in 929.44 sec
+ 20200118_203153 difficult_1.supz move: 4784 empty: 27[12-59]  backup: 457  depth: 33  max depth: 48 in 939.55 sec
+ 20200118_203203 difficult_1.supz move: 4836 empty: 46[12-59]  backup: 461  depth: 14  max depth: 48 in 949.64 sec
+ 20200118_203213 difficult_1.supz move: 4886 empty: 18[12-59]  backup: 463  depth: 42  max depth: 48 in 959.76 sec
+ 20200118_203223 difficult_1.supz move: 4942 empty: 37[12-59]  backup: 467  depth: 23  max depth: 48 in 969.92 sec
+ 20200118_203233 difficult_1.supz move: 4996 empty: 43[12-59]  backup: 470  depth: 17  max depth: 48 in 980.02 sec
+ 20200118_203243 difficult_1.supz move: 5048 empty: 24[12-59]  backup: 473  depth: 36  max depth: 48 in 990.05 sec
+ 20200118_203253 difficult_1.supz move: 5104 empty: 37[12-59]  backup: 476  depth: 23  max depth: 48 in 1000.22 sec
+ 20200118_203303 difficult_1.supz move: 5161 empty: 29[12-59]  backup: 479  depth: 31  max depth: 48 in 1010.36 sec
+ 20200118_203313 difficult_1.supz move: 5212 empty: 44[12-59]  backup: 486  depth: 16  max depth: 48 in 1020.38 sec
+ 20200118_203324 difficult_1.supz move: 5264 empty: 35[12-59]  backup: 491  depth: 25  max depth: 48 in 1030.55 sec
+ 20200118_203334 difficult_1.supz move: 5317 empty: 24[12-59]  backup: 493  depth: 36  max depth: 48 in 1040.65 sec
+ 20200118_203344 difficult_1.supz move: 5373 empty: 46[12-59]  backup: 500  depth: 14  max depth: 48 in 1050.82 sec
+ 20200118_203354 difficult_1.supz move: 5431 empty: 48[12-59]  backup: 506  depth: 12  max depth: 48 in 1060.93 sec
+ 20200118_203404 difficult_1.supz move: 5487 empty: 30[12-59]  backup: 512  depth: 30  max depth: 48 in 1070.92 sec
+ 20200118_203414 difficult_1.supz move: 5543 empty: 32[12-59]  backup: 517  depth: 28  max depth: 48 in 1081.02 sec
+ 20200118_203424 difficult_1.supz move: 5598 empty: 42[12-59]  backup: 521  depth: 18  max depth: 48 in 1091.12 sec
+ 20200118_203434 difficult_1.supz move: 5652 empty: 46[12-59]  backup: 527  depth: 14  max depth: 48 in 1101.22 sec
+ 20200118_203444 difficult_1.supz move: 5709 empty: 40[12-59]  backup: 532  depth: 20  max depth: 48 in 1111.30 sec
+ 20200118_203454 difficult_1.supz move: 5763 empty: 36[12-59]  backup: 537  depth: 24  max depth: 48 in 1121.45 sec
+ 20200118_203505 difficult_1.supz move: 5820 empty: 27[12-59]  backup: 541  depth: 33  max depth: 48 in 1131.58 sec
+ 20200118_203515 difficult_1.supz move: 5876 empty: 30[12-59]  backup: 546  depth: 30  max depth: 48 in 1141.66 sec
+ 20200118_203525 difficult_1.supz move: 5931 empty: 34[12-59]  backup: 552  depth: 26  max depth: 48 in 1151.73 sec
+ 20200118_203535 difficult_1.supz move: 5985 empty: 42[12-59]  backup: 555  depth: 18  max depth: 48 in 1161.77 sec
+ 20200118_203545 difficult_1.supz move: 6042 empty: 26[12-59]  backup: 559  depth: 34  max depth: 48 in 1171.92 sec
+ 20200118_203555 difficult_1.supz move: 6093 empty: 38[12-59]  backup: 564  depth: 22  max depth: 48 in 1182.00 sec
+ 20200118_203605 difficult_1.supz move: 6146 empty: 46[12-59]  backup: 571  depth: 14  max depth: 48 in 1192.08 sec
+ 20200118_203615 difficult_1.supz move: 6199 empty: 49[12-59]  backup: 578  depth: 11  max depth: 48 in 1202.10 sec
+ 20200118_203625 difficult_1.supz move: 6253 empty: 34[12-59]  backup: 584  depth: 26  max depth: 48 in 1212.27 sec
+ 20200118_203635 difficult_1.supz move: 6301 empty: 40[12-59]  backup: 589  depth: 20  max depth: 48 in 1222.32 sec
+ 20200118_203645 difficult_1.supz move: 6356 empty: 34[12-59]  backup: 596  depth: 26  max depth: 48 in 1232.45 sec
+ 20200118_203656 difficult_1.supz move: 6412 empty: 29[12-59]  backup: 601  depth: 31  max depth: 48 in 1242.57 sec
+ 20200118_203706 difficult_1.supz move: 6468 empty: 44[12-59]  backup: 608  depth: 16  max depth: 48 in 1252.61 sec
+ 20200118_203716 difficult_1.supz move: 6523 empty: 38[12-59]  backup: 613  depth: 22  max depth: 48 in 1262.75 sec
+ 20200118_203726 difficult_1.supz move: 6578 empty: 51[12-59]  backup: 622  depth: 9  max depth: 48 in 1272.81 sec
+ 20200118_203736 difficult_1.supz move: 6634 empty: 36[12-59]  backup: 627  depth: 24  max depth: 48 in 1282.83 sec
+ 20200118_203746 difficult_1.supz move: 6693 empty: 40[12-59]  backup: 634  depth: 20  max depth: 48 in 1292.97 sec
+ 20200118_203756 difficult_1.supz move: 6747 empty: 30[12-59]  backup: 636  depth: 30  max depth: 48 in 1303.16 sec
+ 20200118_203806 difficult_1.supz move: 6804 empty: 24[12-59]  backup: 640  depth: 36  max depth: 48 in 1313.23 sec
+ 20200118_203816 difficult_1.supz move: 6859 empty: 20[12-59]  backup: 643  depth: 40  max depth: 48 in 1323.42 sec
+ 20200118_203827 difficult_1.supz move: 6916 empty: 11[11-59]  backup: 646  depth: 49  max depth: 49 in 1333.54 sec
+ 20200118_203837 difficult_1.supz move: 6973 empty: 27[11-59]  backup: 651  depth: 33  max depth: 49 in 1343.56 sec
+ 20200118_203847 difficult_1.supz move: 7028 empty: 30[11-59]  backup: 654  depth: 30  max depth: 49 in 1353.58 sec
+ 20200118_203857 difficult_1.supz move: 7085 empty: 41[11-59]  backup: 658  depth: 19  max depth: 49 in 1363.74 sec
+ 20200118_203907 difficult_1.supz move: 7136 empty: 53[11-59]  backup: 664  depth: 7  max depth: 49 in 1373.89 sec
+ 20200118_203917 difficult_1.supz move: 7191 empty: 44[11-59]  backup: 668  depth: 16  max depth: 49 in 1384.06 sec
+ 20200118_203927 difficult_1.supz move: 7242 empty: 30[11-59]  backup: 671  depth: 30  max depth: 49 in 1394.10 sec
+ 20200118_203937 difficult_1.supz move: 7296 empty: 42[11-59]  backup: 675  depth: 18  max depth: 49 in 1404.21 sec
+ 20200118_203947 difficult_1.supz move: 7355 empty: 39[11-59]  backup: 679  depth: 21  max depth: 49 in 1414.41 sec
+ 20200118_203957 difficult_1.supz move: 7407 empty: 36[11-59]  backup: 684  depth: 24  max depth: 49 in 1424.41 sec
+ 20200118_204008 difficult_1.supz move: 7460 empty: 42[11-59]  backup: 688  depth: 18  max depth: 49 in 1434.51 sec
+ 20200118_204018 difficult_1.supz move: 7515 empty: 33[11-59]  backup: 690  depth: 27  max depth: 49 in 1444.52 sec
+ 20200118_204028 difficult_1.supz move: 7572 empty: 47[11-59]  backup: 694  depth: 13  max depth: 49 in 1454.64 sec
+ 20200118_204038 difficult_1.supz move: 7630 empty: 39[11-59]  backup: 699  depth: 21  max depth: 49 in 1464.73 sec
+ 20200118_204048 difficult_1.supz move: 7682 empty: 43[11-59]  backup: 703  depth: 17  max depth: 49 in 1474.80 sec
+ 20200118_204058 difficult_1.supz move: 7740 empty: 49[11-59]  backup: 707  depth: 11  max depth: 49 in 1484.95 sec
+ 20200118_204108 difficult_1.supz move: 7797 empty: 33[11-59]  backup: 711  depth: 27  max depth: 49 in 1494.97 sec
+ 20200118_204118 difficult_1.supz move: 7850 empty: 37[11-59]  backup: 716  depth: 23  max depth: 49 in 1505.04 sec
+ 20200118_204128 difficult_1.supz move: 7902 empty: 36[11-59]  backup: 721  depth: 24  max depth: 49 in 1515.13 sec
+ 20200118_204138 difficult_1.supz move: 7951 empty: 48[11-59]  backup: 726  depth: 12  max depth: 49 in 1525.29 sec
+ 20200118_204149 difficult_1.supz move: 8005 empty: 32[11-59]  backup: 731  depth: 28  max depth: 49 in 1535.65 sec
+ 20200118_204159 difficult_1.supz move: 8058 empty: 34[11-59]  backup: 736  depth: 26  max depth: 49 in 1545.72 sec
+ 20200118_204209 difficult_1.supz move: 8111 empty: 37[11-59]  backup: 740  depth: 23  max depth: 49 in 1555.80 sec
+ 20200118_204219 difficult_1.supz move: 8166 empty: 43[11-59]  backup: 744  depth: 17  max depth: 49 in 1565.88 sec
+ 20200118_204229 difficult_1.supz move: 8217 empty: 41[11-59]  backup: 750  depth: 19  max depth: 49 in 1575.95 sec
+ 20200118_204239 difficult_1.supz move: 8268 empty: 24[11-59]  backup: 755  depth: 36  max depth: 49 in 1585.98 sec
+ 20200118_204250 difficult_1.supz move: 8322 empty: 28[11-59]  backup: 760  depth: 32  max depth: 49 in 1596.47 sec
+ 20200118_204300 difficult_1.supz move: 8375 empty: 25[11-59]  backup: 764  depth: 35  max depth: 49 in 1606.59 sec
+ 20200118_204310 difficult_1.supz move: 8429 empty: 41[11-59]  backup: 769  depth: 19  max depth: 49 in 1616.91 sec
+ 20200118_204320 difficult_1.supz move: 8481 empty: 38[11-59]  backup: 773  depth: 22  max depth: 49 in 1626.95 sec
+ 20200118_204330 difficult_1.supz move: 8533 empty: 36[11-59]  backup: 778  depth: 24  max depth: 49 in 1636.97 sec
+ 20200118_204340 difficult_1.supz move: 8583 empty: 25[11-59]  backup: 782  depth: 35  max depth: 49 in 1647.03 sec
+ 20200118_204350 difficult_1.supz move: 8633 empty: 29[11-59]  backup: 788  depth: 31  max depth: 49 in 1657.04 sec
+ 20200118_204400 difficult_1.supz move: 8687 empty: 30[11-59]  backup: 794  depth: 30  max depth: 49 in 1667.07 sec
+ 20200118_204410 difficult_1.supz move: 8741 empty: 46[11-59]  backup: 798  depth: 14  max depth: 49 in 1677.10 sec
+ 20200118_204420 difficult_1.supz move: 8790 empty: 32[11-59]  backup: 801  depth: 28  max depth: 49 in 1687.26 sec
+ 20200118_204430 difficult_1.supz move: 8840 empty: 21[11-59]  backup: 805  depth: 39  max depth: 49 in 1697.31 sec
+ 20200118_204441 difficult_1.supz move: 8894 empty: 32[11-59]  backup: 810  depth: 28  max depth: 49 in 1707.62 sec
+ 20200118_204451 difficult_1.supz move: 8946 empty: 37[11-59]  backup: 814  depth: 23  max depth: 49 in 1717.66 sec
+ 20200118_204501 difficult_1.supz move: 8999 empty: 42[11-59]  backup: 818  depth: 18  max depth: 49 in 1727.84 sec
+ 20200118_204511 difficult_1.supz move: 9053 empty: 41[11-59]  backup: 824  depth: 19  max depth: 49 in 1738.04 sec
+ 20200118_204521 difficult_1.supz move: 9105 empty: 24[11-59]  backup: 826  depth: 36  max depth: 49 in 1748.05 sec
+ 20200118_204531 difficult_1.supz move: 9155 empty: 40[11-59]  backup: 831  depth: 20  max depth: 49 in 1758.14 sec
+ 20200118_204541 difficult_1.supz move: 9209 empty: 28[11-59]  backup: 837  depth: 32  max depth: 49 in 1768.32 sec
+ 20200118_204551 difficult_1.supz move: 9257 empty: 34[11-59]  backup: 842  depth: 26  max depth: 49 in 1778.33 sec
+ 20200118_204602 difficult_1.supz move: 9312 empty: 32[11-59]  backup: 846  depth: 28  max depth: 49 in 1788.51 sec
+ 20200118_204612 difficult_1.supz move: 9364 empty: 50[11-59]  backup: 852  depth: 10  max depth: 49 in 1798.69 sec
+ 20200118_204622 difficult_1.supz move: 9416 empty: 27[11-59]  backup: 855  depth: 33  max depth: 49 in 1808.85 sec
+ 20200118_204632 difficult_1.supz move: 9466 empty: 20[11-59]  backup: 859  depth: 40  max depth: 49 in 1818.98 sec
+ 20200118_204642 difficult_1.supz move: 9519 empty: 44[11-59]  backup: 866  depth: 16  max depth: 49 in 1829.03 sec
+ 20200118_204652 difficult_1.supz move: 9569 empty: 50[11-59]  backup: 876  depth: 10  max depth: 49 in 1839.14 sec
+ 20200118_204702 difficult_1.supz move: 9618 empty: 51[11-59]  backup: 881  depth: 9  max depth: 49 in 1849.14 sec
+ 20200118_204712 difficult_1.supz move: 9671 empty: 38[11-59]  backup: 885  depth: 22  max depth: 49 in 1859.17 sec
+ 20200118_204722 difficult_1.supz move: 9724 empty: 45[11-59]  backup: 889  depth: 15  max depth: 49 in 1869.24 sec
+ 20200118_204732 difficult_1.supz move: 9775 empty: 45[11-59]  backup: 895  depth: 15  max depth: 49 in 1879.39 sec
+ 20200118_204742 difficult_1.supz move: 9824 empty: 39[11-59]  backup: 901  depth: 21  max depth: 49 in 1889.42 sec
+ 20200118_204752 difficult_1.supz move: 9878 empty: 52[11-59]  backup: 906  depth: 8  max depth: 49 in 1899.46 sec
+ 20200118_204803 difficult_1.supz move: 9930 empty: 34[11-59]  backup: 909  depth: 26  max depth: 49 in 1909.58 sec
+ 20200118_204813 difficult_1.supz move: 9981 empty: 48[11-59]  backup: 915  depth: 12  max depth: 49 in 1919.65 sec
+ 20200118_204823 difficult_1.supz move: 10030 empty: 20[11-59]  backup: 918  depth: 40  max depth: 49 in 1929.75 sec
+ 20200118_204833 difficult_1.supz move: 10082 empty: 19[10-59]  backup: 922  depth: 41  max depth: 50 in 1939.77 sec
+ 20200118_204836 EndPuzzle difficult_1.supz solved - 1 solution 10101 moves in 1943.72 sec
+ 20200118_204836  move: 10101 empty: 0[0-59]  backup: 922  depth: 60  max depth: 60 in 1943.16 sec
+ 20200118_204836 Solution 1 of 1 C:/Users/raysm/workspace/python/sudoku/puzzle\difficult_1.supz
+ --------------------
+|8 1 2 |7 5 3 |6 4 9 |
+|9 4 3 |6 8 2 |1 7 5 |
+|6 7 5 |4 9 1 |2 8 3 |
+ --------------------
+|1 5 4 |2 3 7 |8 9 6 |
+|3 6 9 |8 4 5 |7 2 1 |
+|2 8 7 |1 6 9 |5 3 4 |
+ --------------------
+|5 2 1 |9 7 4 |3 6 8 |
+|4 3 8 |5 2 6 |9 1 7 |
+|7 9 6 |3 1 8 |4 5 2 |
+ --------------------
+
+ 20200118_214101 Log file  C:\Users\raysm\workspace\python\sudoku\log\sudoku_20200118_194010.sllog
