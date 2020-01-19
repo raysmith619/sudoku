@@ -5,9 +5,8 @@ One play possibilities
 from select_trace import SlTrace
 from select_error import SelectError
 from sudoku_search_stop import SudokuSearchStop
-import sudoku_globals as g
 
-from SudokuData import SudokuData, CellDesc
+from SudokuData import SudokuData
 from docutils.nodes import row
     
 class SudokuPly(SudokuData):

@@ -14,7 +14,7 @@ from resource_group import ResourceEntry
 from select_control import SelectControl
 from variable_control import VariableControl
 
-import sudoku_globals as g
+import sudoku_globals as gb
 from SudokuData import SudokuData, CellDesc
 from sudoku_vals import SudokuVals
 from SudokuPuzzle import SudokuPuzzle
@@ -27,18 +27,18 @@ from sudoku_search_stop import SudokuSearchStop
 
 def helpstr():
   retstr = f"""
-    --cols number_of_cols Default: {g.nCol}
-    --bSize bd size in inches Default: {g.bSize}
+    --cols number_of_cols Default: {gb.nCol}
+    --bSize bd size in inches Default: {gb.bSize}
     --dispalyTime sec between display, 0 - wait till user ACK
-    --first number_of_solutions, stop when we have this many Default: {g.nFirst}
+    --first number_of_solutions, stop when we have this many Default: {gb.nFirst}
     --makePuzzle starting_cells, make puzzle with this many filled cells
-    --gcols number_of_cells_in_group Default: {g.nSubCol}
-    --grows number_of_cells_in_group Default: {g.nrowGroup}
-    --rows number_of_rows Default: {g.nRow}
-    --sSize solution bd size inches Default: {g.sSize}
-    --traceList comma_separated_trace_options Default: {g.traceList}
+    --gcols number_of_cells_in_group Default: {gb.nSubCol}
+    --grows number_of_cells_in_group Default: {gb.nrowGroup}
+    --rows number_of_rows Default: {gb.nRow}
+    --sSize solution bd size inches Default: {gb.sSize}
+    --traceList comma_separated_trace_options Default: {gb.traceList}
     --uPuzzle - use preformed puzzle
-    --xperimental experimental version Default: {g.xPer}
+    --xperimental experimental version Default: {gb.xPer}
     """
 
 def str2bool(v):
@@ -52,33 +52,33 @@ def str2bool(v):
 def update():
     """ do any window updating required
     """
-    if not g.running:
+    if not gb.running:
         return
     
     if not SlTrace.runningJob:
         return
     
-    if g.Display_mw is not None:
-        g.Display_mw.update()                                                                                                                                                                
+    if gb.Display_mw is not None:
+        gb.Display_mw.update()                                                                                                                                                                
 
 def pgm_exit():
     SlTrace.lg("Quitting Sudoku Playing")
     # Trace and Log files save by SlTrace onexit
     ###SlTrace.lg("Properties File: %s"% SlTrace.getPropPath())
     ###SlTrace.lg("Log File: %s"% SlTrace.getLogPath())
-    g.res_group.destroy_all()
-    g.Display_mw.destroy()
-    g.Display_mw = None
-    g.running = False
+    gb.res_group.destroy_all()
+    gb.Display_mw.destroy()
+    gb.Display_mw = None
+    gb.running = False
     SlTrace.onexit()        # Force saving
     sys.exit(0)
 
 def set_controls():
     cF = SelectControl()        # Ref to singleton
-    if g.vC is not None:
-        g.vC.destroy()
-        g.vC = None
-    g.vC = VariableControl(var_ctl=cF)
+    if gb.vC is not None:
+        gb.vC.destroy()
+        gb.vC = None
+    gb.vC = VariableControl(var_ctl=cF)
 
 
 def set_puzzle(puzzle, file_name=None):
@@ -87,26 +87,26 @@ def set_puzzle(puzzle, file_name=None):
     """
     if file_name is not None:
         puzzle.file_name = file_name    # override if desired
-    if g.main_puzzle is not None:
-        g.main_puzzle.destroy()
-        g.main_puzzle = None
-    if g.o_board is not None:
-        g.o_board.destroy()
-    g.main_puzzle = puzzle.copy()       # Insulate from changes
-    g.puzzle = puzzle
-    g.o_board = SudokuBoard(mw=g.Display_mw,
+    if gb.main_puzzle is not None:
+        gb.main_puzzle.destroy()
+        gb.main_puzzle = None
+    if gb.o_board is not None:
+        gb.o_board.destroy()
+    gb.main_puzzle = puzzle.copy()       # Insulate from changes
+    gb.puzzle = puzzle
+    gb.o_board = SudokuBoard(mw=gb.Display_mw,
         frame=new_main_bd_frame(),
         data=puzzle,
-        bdWidth=g.bSize,
-        bdHeight=g.bSize,
+        bdWidth=gb.bSize,
+        bdHeight=gb.bSize,
         puzzle = puzzle)
  
-    g.o_board.showData(force=True)
+    gb.o_board.showData(force=True)
     cF = SelectControl()
-    cF.set_val("nRow", g.main_puzzle.nRow)
-    cF.set_val("nSubRow", g.main_puzzle.nSubRow)
-    cF.set_val("nCol", g.main_puzzle.nCol)
-    cF.set_val("nSubCol", g.main_puzzle.nSubCol)
+    cF.set_val("nRow", gb.main_puzzle.nRow)
+    cF.set_val("nSubRow", gb.main_puzzle.nSubRow)
+    cF.set_val("nCol", gb.main_puzzle.nCol)
+    cF.set_val("nSubCol", gb.main_puzzle.nSubCol)
     cF.update_settings()#
     
 def use_puzzle(puzzle=None):
@@ -117,7 +117,7 @@ def use_puzzle(puzzle=None):
                     n x n lines
                      - or numeric contents
     """
-    ###global g.o_data, g.nCol, g.nSubCol, g.nRow, g.nrowGroup, g.o_board, g.Initial_data, g.nRow, g.nCol
+    ###global gb.o_data, gb.nCol, gb.nSubCol, gb.nRow, gb.nrowGroup, gb.o_board, gb.Initial_data, gb.nRow, gb.nCol
     
 # Test puzzles 
     PZ1 = """
@@ -185,12 +185,12 @@ def use_puzzle(puzzle=None):
 
     if ncol != nrow:
         raise SelectError(f"number of cols{ncol} != number of rows{nrow}")
-    g.nRow = nrow
-    g.nCol = ncol
-    g.nSubCol = int(sqrt(g.nCol))
-    g.nSubRow = int(sqrt(g.nRow))
+    gb.nRow = nrow
+    gb.nCol = ncol
+    gb.nSubCol = int(sqrt(gb.nCol))
+    gb.nSubRow = int(sqrt(gb.nRow))
     
-    puzzle = SudokuPuzzle(rows=nrow, cols=ncol, grows=g.nSubRow, gcols=g.nSubCol,
+    puzzle = SudokuPuzzle(rows=nrow, cols=ncol, grows=gb.nSubRow, gcols=gb.nSubCol,
                           desc="Internal Puzzle")
     for ri in range(nrow):
         row = ri+1
@@ -207,7 +207,7 @@ def use_puzzle(puzzle=None):
 
 # Clear to an empty board
 def clear_board():
-    puzzle = SudokuPuzzle(rows=g.nRow, cols=g.nCol, grows=g.nSubRow, gcols=g.nSubCol,
+    puzzle = SudokuPuzzle(rows=gb.nRow, cols=gb.nCol, grows=gb.nSubRow, gcols=gb.nSubCol,
                           desc="Internal Puzzle")
     set_puzzle(puzzle)
     
@@ -222,7 +222,7 @@ def search_stop():
     '''
     SlTrace.lg("search_stop")
     SudokuPly.stop_search()
-    g.res_group.destroy_all()
+    gb.res_group.destroy_all()
 
 
 display_prev_time = None
@@ -233,31 +233,31 @@ def display_rtn(data):
     global display_prev_time
     global display_no
     
-    if not g.running:
+    if not gb.running:
         return
     
     display_no += 1
-    ###g.main_puzzle.display("display_rtn: main_puzzle")
-    display_time = g.Display_time
+    ###gb.main_puzzle.display("display_rtn: main_puzzle")
+    display_time = gb.Display_time
     if display_time is None:
         return
     
     now = time.time()
     new_board = False
-    searching_board = g.res_group.get_obj("searching_board")
+    searching_board = gb.res_group.get_obj("searching_board")
     if searching_board is None:
         solution_search_display_setup()
         new_board = True
-    searching_board = g.res_group.get_obj("searching_board")
+    searching_board = gb.res_group.get_obj("searching_board")
         
     if display_prev_time is None:
         display_prev_time = now
-    g.Display_mw.after(int(1000*display_time))
-    if now - display_prev_time > g.update_time:
+    gb.Display_mw.after(int(1000*display_time))
+    if now - display_prev_time > gb.update_time:
         puzzle_name = "INTERNAL"
-        if g.puzzle.file_name is not None:
-            puzzle_name = os.path.basename(g.puzzle.file_name)
-        g.main_puzzle.trace_check(prefix=puzzle_name)
+        if gb.puzzle.file_name is not None:
+            puzzle_name = os.path.basename(gb.puzzle.file_name)
+        gb.main_puzzle.trace_check(prefix=puzzle_name)
         ###SlTrace.lg(f"{puzzle_name} move:{nmove} empty: {nempty} backup: {nbackup} time:{dur:.3f}")
         display_prev_time = now
     if searching_board is not None:
@@ -270,7 +270,7 @@ def display_rtn(data):
 def solution_search_display_setup():
 
     title = "Solution Searching"
-    SudokuPly.setDisplay(display_rtn, g.Display_time)
+    SudokuPly.setDisplay(display_rtn, gb.Display_time)
 
     searching_mw = Toplevel()
     searching_mw.protocol("WM_DELETE_WINDOW", search_stop)
@@ -286,32 +286,35 @@ def solution_search_display_setup():
         command = search_stop,
             )
     c1.pack(side = 'left')
-    if g.res_group.get("searching_board") is not None:
-        g.res_group.destroy("searching_board")
-    data = SudokuData.vals2data(g.main_puzzle)  
+    if gb.res_group.get("searching_board") is not None:
+        gb.res_group.destroy("searching_board")
+    data = SudokuData.vals2data(gb.main_puzzle)  
     searching_board = SudokuBoard(mw=searching_mw,
                             data = data,
-                            bdWidth=g.sSize*.8,
-                            bdHeight=g.sSize*.8,
-                            initialData=g.Initial_data,
-                            puzzle=g.main_puzzle
+                            bdWidth=gb.sSize*.8,
+                            bdHeight=gb.sSize*.8,
+                            initialData=gb.Initial_data,
+                            puzzle=gb.main_puzzle
                             )
     searching_board.showData(force=True)
-    g.res_group.add(ResourceEntry(searching_board), name="searching_board")
-    g.main_puzzle.set_start_time()
+    gb.res_group.add(ResourceEntry(searching_board), name="searching_board")
+    gb.main_puzzle.set_start_time()
     
 def file_proc(filename, run_after_load=None):
     """ Process (solve) one puzzle file
     :filename: full file name may be a puzzle or list of puzzle files
     :run_after_load:    True -> solve after loading, False just display
-                        Default: g.run_after_load
+                        Default: gb.run_after_load
     """
+    if not gb.running:
+        return
+
     if filename.endswith(".supzl"):
         filelist_proc(filename)
         return
     
     if run_after_load is None:
-        run_after_load = g.run_after_load
+        run_after_load = gb.run_after_load
     spl = SudokuPuzzleLoad.set_input(pfile=filename)
     if spl is None:
         return
@@ -372,42 +375,42 @@ def make_puzzle(nfilled=None):
     ###global o_data, o_board
     
     display_close()
-    if (g.o_data is None):
-        g.o_data  = SudokuData(cols=g.nCol,
-            rows=g.nRow,
-            gcols=g.nSubCol,
-            grows=g.nSubRow,
+    if (gb.o_data is None):
+        gb.o_data  = SudokuData(cols=gb.nCol,
+            rows=gb.nRow,
+            gcols=gb.nSubCol,
+            grows=gb.nSubRow,
             )
 
-    g.o_data.clear()          # Clear data
+    gb.o_data.clear()          # Clear data
 
-    if g.o_board is None:
-        g.o_board = SudokuBoard(mw=g.mw,
+    if gb.o_board is None:
+        gb.o_board = SudokuBoard(mw=gb.mw,
             frame=new_main_bd_frame(),
-             data=g.o_data,
-             bdWidth=g.bSize,
-             bdHeight=g.bSize)
+             data=gb.o_data,
+             bdWidth=gb.bSize,
+             bdHeight=gb.bSize)
  
   
 
 
-    ncell = g.nRow*g.nCol
+    ncell = gb.nRow*gb.nCol
     if (nfilled is None):
         nfilled = int(ncell/3)
     if nfilled & 1 != 0 and ncell & 1 != 0:
         nfilled -= 1     # No possible symitry
                                                 # with odd # and even row/col
 
-    o_list = SudokuData(base=g.o_data)
+    o_list = SudokuData(base=gb.o_data)
     a_start_list = o_list.startCells(
             nFilled=nfilled,  
-            symRules=g.makePuzzleSym)
+            symRules=gb.makePuzzleSym)
     if (a_start_list is None):
-        SlTrace.lg(f"no such pattern for nRow=:{g.nRow}, nCol=:{g.nCol}"
-            + f" nFilled={nfilled} symRules={g.makePuzzleSym}")
+        SlTrace.lg(f"no such pattern for nRow=:{gb.nRow}, nCol=:{gb.nCol}"
+            + f" nFilled={nfilled} symRules={gb.makePuzzleSym}")
         sys.exit("quitting")
     # Display start list
-    sl = SudokuData(rows=g.nRow, grows=g.nSubRow, cols=g.nCol, gcols=g.nSubCol)        # for diagnostic display
+    sl = SudokuData(rows=gb.nRow, grows=gb.nSubRow, cols=gb.nCol, gcols=gb.nSubCol)        # for diagnostic display
     SlTrace.lg(f"start list: ")
     n = 0
     for sc in a_start_list:
@@ -430,14 +433,14 @@ def make_puzzle(nfilled=None):
             + f" Requested list = {nfilled}")
 
                             # Set starting arrangement
-    o_sol = SudokuPly(base=g.o_data)
+    o_sol = SudokuPly(base=gb.o_data)
     sols = o_sol.makePuzzle(
                     startList=a_start_list)
-    if sols is not None and len(sols) == 1 and defined(sols[0]):
+    if sols is not None and len(sols) == 1 and sols[0] is not None:
         sol = sols[0]
-        g.o_data = sol.getData(subset=a_start_list)
-        g.o_board.showData(g.o_data)
-        g.Initial_data = SudokuData(base=g.o_data)
+        gb.o_data = sol.getData(subset=a_start_list)
+        gb.o_board.showData(gb.o_data)
+        gb.Initial_data = SudokuData(base=gb.o_data)
 
     return sols
 
@@ -450,7 +453,7 @@ def new_main_bd_frame():
     
     if main_bd_fr is not None:
         main_bd_fr.destroy()
-    main_bd_fr = Frame(g.top_fr)
+    main_bd_fr = Frame(gb.top_fr)
     main_bd_fr.pack(side = 'bottom')
     return main_bd_fr
 
@@ -459,15 +462,15 @@ def new_main_bd_frame():
 # Generally by adding starting filled cells
 def adj_puzzle_uniq(sols, nfilled):   # Returns: puzzle solution Ply
     sol = sols[0]
-    val_max = g.nRow
-    if g.nCol > val_max:
+    val_max = gb.nRow
+    if gb.nCol > val_max:
         val_max = nCol 
     SlTrace.lg(f"adj_puzzle_uniq\n")
     sol_data = sol.getData()
     for i in range(nfilled):
         nr = int(rand(nRow)+1)
         nc = int(rand(nCol)+1)
-        g.o_data.curCell(row=nr, col=nc)
+        gb.o_data.curCell(row=nr, col=nc)
         r_c = None
         ntry = 0
                                 # Space values randomly
@@ -481,7 +484,7 @@ def adj_puzzle_uniq(sols, nfilled):   # Returns: puzzle solution Ply
             if r_c is not None:
                 break    # No more empty
       
-            legalvals = g.o_data.getLegalVals(r_c['row'],
+            legalvals = gb.o_data.getLegalVals(r_c['row'],
                         r_c['col'])
             tmc -= 1
             if tmc <= 0 or len(legalvals) >= min_choice:
@@ -493,18 +496,18 @@ def adj_puzzle_uniq(sols, nfilled):   # Returns: puzzle solution Ply
         
         nr = r_c['row']
         nc = r_c['col']
-        g.o_data.setCellVal(nr, nc, sol_data.getCellVal(nr, nc))
+        gb.o_data.setCellVal(nr, nc, sol_data.getCellVal(nr, nc))
     
     
-    sol = uniq_sol(g.o_data)     # Make unique
+    sol = uniq_sol(gb.o_data)     # Make unique
     return sol
 
 
 
 # Reset to initial board
 def reset_board():
-    g.o_data = SudokuData(base=g.Initial_data)
-    g.o_board.showData(g.o_data)
+    gb.o_data = SudokuData(base=gb.Initial_data)
+    gb.o_board.showData(gb.o_data)
 
 
 
@@ -512,23 +515,23 @@ def reset_board():
 def set_move_display(display_time):
     ###global Display_time
     
-    g.Display_time = display_time
+    gb.Display_time = display_time
 
 
 
 
 # OK to selection
 def set_selected_ok():
-    selecteds = g.sbox.curselection()
+    selecteds = gb.sbox.curselection()
     si = selecteds[0]
     if si is None:
         set_selected_delete()
         return
     
     
-    selected_val = g.sbox_legal_vals[si]
-    g.o_data.setCellVal(g.sbox_row, g.sbox_col, selected_val)
-    g.o_board.showData()
+    selected_val = gb.sbox_legal_vals[si]
+    gb.o_data.setCellVal(gb.sbox_row, gb.sbox_col, selected_val)
+    gb.o_board.showData()
     set_selected_delete()
 
 
@@ -546,34 +549,34 @@ def set_selected_delete():
         sbox = None
 
 def clear_solve_main_puzzle():
-    g.res_group.destroy_all()
+    gb.res_group.destroy_all()
     SudokuPly.setDisplay(None)
 
 def update_report(ctl=None):
     """ Report control variable (cF) update
     ctl: control reference for convenience
     """
-    g.update_control_variables()
+    gb.update_control_variables()
     
     
 
 # Solve Puzzle 
 def solve_main_puzzle():
-    g.solve_start = time.time()         # Puzzle start time
-    g.main_puzzle.display("solve_main_puzzle before destroy_all: main_puzzle")
-    g.res_group.destroy_all()           # Clearout result displays
+    gb.solve_start = time.time()         # Puzzle start time
+    gb.main_puzzle.display("solve_main_puzzle before destroy_all: main_puzzle")
+    gb.res_group.destroy_all()           # Clearout result displays
     solutions = []                       # Puzzle solution(s)
-    g.main_puzzle.display("solve_main_puzzle: main_puzzle")
+    gb.main_puzzle.display("solve_main_puzzle: main_puzzle")
     solution_search_display_setup()
-    Initial_data = g.main_puzzle              # Record initial data
+    Initial_data = gb.main_puzzle              # Record initial data
     
     SudokuPly.clear_search_stop()
     try:
-        data = SudokuData.vals2data(g.main_puzzle)
-        solutions = solve_puzzle(data=data, puzzle=g.main_puzzle)
-        puzzle_file_name = g.puzzle.file_name
-        dur = time.time() - g.solve_start
-        nmoves = g.main_puzzle.nmove
+        data = SudokuData.vals2data(gb.main_puzzle)
+        solutions = solve_puzzle(data=data, puzzle=gb.main_puzzle)
+        puzzle_file_name = gb.puzzle.file_name
+        dur = time.time() - gb.solve_start
+        nmoves = gb.main_puzzle.nmove
         sol_time = f"in {dur:.2f} sec"
         if puzzle_file_name is None:
             puzzle_name = ""
@@ -586,7 +589,7 @@ def solve_main_puzzle():
             SlTrace.lg(f"EndPuzzle {puzzle_name} solved - {nsol} solution{'' if nsol == 1 else 's'}"
                         + f" {nmoves} moves {sol_time}"
                         )
-            searching_board = g.res_group.get_obj("searching_board")
+            searching_board = gb.res_group.get_obj("searching_board")
             if searching_board is not None:
                 searching_board.trace_check(prefix=puzzle_name)
             nth = 0
@@ -600,7 +603,7 @@ def solve_main_puzzle():
     except SudokuSearchStop:
         SlTrace.lg("SudokuSearchStop")
         clear_solve_main_puzzle()
-        g.res_group.destroy_all()
+        gb.res_group.destroy_all()
         SudokuPly.setDisplay(None)
 
 #
@@ -642,27 +645,27 @@ def solve_main_puzzle_display(r_solution, title=None, nth=None, nsol=None):
         
     board = SudokuBoard(mw=mw,
                 data=r_solution,
-                bdWidth=g.sSize,
-                bdHeight=g.sSize,
-                initialData=g.Initial_data,
+                bdWidth=gb.sSize,
+                bdHeight=gb.sSize,
+                initialData=gb.Initial_data,
                )
-    g.res_group.add(ResourceEntry(mw), number=nth)
+    gb.res_group.add(ResourceEntry(mw), number=nth)
     board.showData(force=True)
 
 
 
 # Close solution window
 def solve_puzzle_close(si):
-    mw = g.mws[si]
+    mw = gb.mws[si]
     if mw is not None:
         if exists(mw):
             mw.destroy() 
-        g.mws[si] = None
+        gb.mws[si] = None
 
 
 # Close all solution windows
 def solve_puzzle_close_all():
-    g.res_group.destroy_all()
+    gb.res_group.destroy_all()
 
 
 def solve_puzzle(data=None, puzzle=None):      # Returns: ref to solution, else None
@@ -672,7 +675,7 @@ def solve_puzzle(data=None, puzzle=None):      # Returns: ref to solution, else 
     
     solve_puzzle_close_all()
     s_ply = SudokuPly(base=r_data, puzzle=puzzle)
-    return s_ply.solveChoice(first=g.nFirst)
+    return s_ply.solveChoice(first=gb.nFirst)
 
 
 
@@ -682,13 +685,13 @@ def uniq_sol(r_data):         #
     :returns: SudokuPly with one solution, else None
     """
     ###  return r_sols[0]    #### STUB
-    s_ply = SudokuPly(base=g.o_data)
-    sols = s_ply.solveChoice(first=g.nRow)
+    s_ply = SudokuPly(base=gb.o_data)
+    sols = s_ply.solveChoice(first=gb.nRow)
     while (len(sols) > 1):
         squares = []
-        for ri in range(g.nRow):
+        for ri in range(gb.nRow):
             row = ri + 1
-            for ci in range(g.nCol):
+            for ci in range(gb.nCol):
                 col = ci + 1
                 if not r_data.isEmptyCell(row, col):
                     continue 
@@ -708,7 +711,7 @@ def uniq_sol(r_data):         #
         squares.sort(key=lambda cell: cell.nval)
         r_nc = squares[0]          # With most values
         r_data.setCellVal(r_nc['row'], r_nc-['col'], r_nc['vals'][0])
-        s_ply = SudokuPly(base=g.o_data)
+        s_ply = SudokuPly(base=gb.o_data)
         sols = s_ply.solveChoice(first=nRow)
 
     return sols[0]   # stub - just return first if any
