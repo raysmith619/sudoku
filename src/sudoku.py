@@ -33,7 +33,7 @@ SlTrace.lg(f"{base_name} {' '.join(sys.argv[1:])}")
 
 from select_window import SelectWindow
 from select_control import SelectControl
-from variable_control import VariableControl
+from variable_control_window import VariableControlWindow
 from trace_control import TraceControl
 from tkMath import tkMath
 
