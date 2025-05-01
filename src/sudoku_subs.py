@@ -12,7 +12,7 @@ from select_trace import SlTrace
 from select_error import SelectError
 from resource_group import ResourceEntry
 from select_control import SelectControl
-from variable_control import VariableControl
+from variable_control_window import VariableControlWindow
 
 import sudoku_globals as gb
 from SudokuData import SudokuData, CellDesc
@@ -78,7 +78,7 @@ def set_controls():
     if gb.vC is not None:
         gb.vC.destroy()
         gb.vC = None
-    gb.vC = VariableControl(var_ctl=cF)
+    gb.vC = VariableControlWindow(var_ctl=cF)
 
 
 def set_puzzle(puzzle, file_name=None):
@@ -374,7 +374,7 @@ def make_puzzle(nfilled=None):
     """
     ###global o_data, o_board
     
-    display_close()
+    ###TFD display_close()
     if (gb.o_data is None):
         gb.o_data  = SudokuData(cols=gb.nCol,
             rows=gb.nRow,
@@ -385,7 +385,7 @@ def make_puzzle(nfilled=None):
     gb.o_data.clear()          # Clear data
 
     if gb.o_board is None:
-        gb.o_board = SudokuBoard(mw=gb.mw,
+        gb.o_board = SudokuBoard(mw=None,          # TFD remove mw=gb.mw
             frame=new_main_bd_frame(),
              data=gb.o_data,
              bdWidth=gb.bSize,
